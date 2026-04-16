@@ -1131,6 +1131,110 @@ p {
 }
 
 /* ============================================
+   CONVERSION PAGE (index.html)
+   ============================================ */
+.convert-hero {
+  background-color: var(--color-black);
+  min-height: calc(100vh - 64px - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 2rem;
+}
+
+.convert-hero__inner {
+  text-align: center;
+  max-width: 600px;
+}
+
+.convert-hero h1 {
+  color: var(--color-white);
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.convert-hero h1 span {
+  color: var(--color-orange);
+}
+
+.convert-hero__sub {
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: var(--color-cream);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.convert-hero__cta {
+  padding: 20px 64px;
+  font-size: 1.125rem;
+}
+
+.convert-guarantee {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border: 1px solid #2e2628;
+  text-align: left;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.convert-guarantee__icon {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.convert-guarantee__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.25rem;
+}
+
+.convert-guarantee__text {
+  font-size: 0.8125rem;
+  color: var(--color-cream);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.convert-footer {
+  background-color: var(--color-black);
+  border-top: 1px solid #2e2628;
+  padding: 2rem;
+}
+
+.convert-footer p {
+  font-size: 0.6875rem;
+  color: #6b6566;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .convert-hero h1 { font-size: 2.25rem; }
+  .convert-hero__cta { padding: 18px 48px; font-size: 1rem; }
+  .convert-guarantee { flex-direction: column; text-align: center; align-items: center; }
+}
+
+/* ============================================
    DASHBOARD — Sidebar + Main Layout
    ============================================ */
 .dash-layout {
