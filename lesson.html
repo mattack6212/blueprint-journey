@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson — The Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <!-- Lesson Layout -->
+  <div class="lesson-layout">
+
+    <!-- Left Sidebar — Full Course Outline -->
+    <aside class="lesson-sidebar">
+      <div class="lesson-sidebar__header">
+        <p class="lesson-sidebar__title">The Blueprint Journey</p>
+        <p class="lesson-sidebar__progress">59 Lessons &middot; 12 Quizzes</p>
+      </div>
+      <nav id="sidebar-nav">
+        <!-- Orientation -->
+        <div class="sidebar-nav__section">
+          <p class="sidebar-nav__section-title">Orientation</p>
+          <a href="/lesson.html?step=orientation&lesson=1" class="sidebar-nav__link" data-step="orientation" data-lesson="1">Welcome &amp; Getting Started</a>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="sidebar-nav__section">
+          <p class="sidebar-nav__section-title">Step 1 — Understanding the Problem</p>
+          <a href="/lesson.html?step=1&lesson=1" class="sidebar-nav__link" data-step="1" data-lesson="1">The Wealth Gap Reality</a>
+          <a href="/lesson.html?step=1&lesson=2" class="sidebar-nav__link" data-step="1" data-lesson="2">How the System Works Against You</a>
+          <a href="/lesson.html?step=1&lesson=3" class="sidebar-nav__link" data-step="1" data-lesson="3">Breaking the Cycle</a>
+          <a href="/lesson.html?step=1&lesson=quiz" class="sidebar-nav__link sidebar-nav__link--quiz" data-step="1" data-lesson="quiz">Quiz: Understanding the Problem</a>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="sidebar-nav__section">
+          <p class="sidebar-nav__section-title">Step 2 — Understanding the Solution</p>
+          <a href="/lesson.html?step=2&lesson=1" class="sidebar-nav__link" data-step="2" data-lesson="1">The Power of Compound Growth</a>
+          <a href="/lesson.html?step=2&lesson=2" class="sidebar-nav__link" data-step="2" data-lesson="2">Good Debt vs. Bad Debt</a>
+          <a href="/lesson.html?step=2&lesson=3" class="sidebar-nav__link" data-step="2" data-lesson="3">Tax-Advantaged Accounts</a>
+          <a href="/lesson.html?step=2&lesson=4" class="sidebar-nav__link" data-step="2" data-lesson="4">Insurance as a Wealth Tool</a>
+          <a href="/lesson.html?step=2&lesson=5" class="sidebar-nav__link" data-step="2" data-lesson="5">Understanding Risk &amp; Diversification</a>
+          <a href="/lesson.html?step=2&lesson=6" class="sidebar-nav__link" data-step="2" data-lesson="6">The Role of Real Estate</a>
+          <a href="/lesson.html?step=2&lesson=7" class="sidebar-nav__link" data-step="2" data-lesson="7">Business Ownership Basics</a>
+          <a href="/lesson.html?step=2&lesson=quiz" class="sidebar-nav__link sidebar-nav__link--quiz" data-step="2" data-lesson="quiz">Quiz: Understanding the Solution</a>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="sidebar-nav__section">
+          <p class="sidebar-nav__section-title">Step 3 — Implementation Prep</p>
+          <a href="/lesson.html?step=3&lesson=1" class="sidebar-nav__link" data-step="3" data-lesson="1">Auditing Your Finances</a>
+          <a href="/lesson.html?step=3&lesson=2" class="sidebar-nav__link" data-step="3" data-lesson="2">Building Your Financial Snapshot</a>
+          <a href="/lesson.html?step=3&lesson=3" class="sidebar-nav__link" data-step="3" data-lesson="3">Setting Clear Goals</a>
+          <a href="/lesson.html?step=3&lesson=4" class="sidebar-nav__link" data-step="3" data-lesson="4">Choosing Your Strategy</a>
+          <a href="/lesson.html?step=3&lesson=5" class="sidebar-nav__link" data-step="3" data-lesson="5">Building Your Team</a>
+          <a href="/lesson.html?step=3&lesson=6" class="sidebar-nav__link" data-step="3" data-lesson="6">Creating Your Timeline</a>
+          <a href="/lesson.html?step=3&lesson=quiz" class="sidebar-nav__link sidebar-nav__link--quiz" data-step="3" data-lesson="quiz">Quiz: Implementation Prep</a>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="sidebar-nav__section">
+          <p class="sidebar-nav__section-title">Step 4 — Building Your Launch Pad</p>
+          <a href="/lesson.html?step=4&lesson=1" class="sidebar-nav__link" data-step="4" data-lesson="1">Emergency Fund Essentials</a>
+          <a href="/lesson.html?step=4&lesson=2" class="sidebar-nav__link" data-step="4" data-lesson="2">Debt Elimination Strategy</a>
+          <a href="/lesson.html?step=4&lesson=3" class="sidebar-nav__link" data-step="4" data-lesson="3">Automating Your Finances</a>
+          <a href="/lesson.html?step=4&lesson=4" class="sidebar-nav__link" data-step="4" data-lesson="4">Opening Your Accounts</a>
+          <a href="/lesson.html?step=4&lesson=5" class="sidebar-nav__link" data-step="4" data-lesson="5">Your First Investments</a>
+          <a href="/lesson.html?step=4&lesson=6" class="sidebar-nav__link" data-step="4" data-lesson="6">Tracking &amp; Adjusting</a>
+          <a href="/lesson.html?step=4&lesson=quiz" class="sidebar-nav__link sidebar-nav__link--quiz" data-step="4" data-lesson="quiz">Quiz: Building Your Launch Pad</a>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="sidebar-nav__section">
+          <p class="sidebar-nav__section-title">Step 5 — The Faithful Steward</p>
+          <a href="/lesson.html?step=5&lesson=1" class="sidebar-nav__link" data-step="5" data-lesson="1">Wealth Mindset &amp; Stewardship</a>
+          <a href="/lesson.html?step=5&lesson=2" class="sidebar-nav__link" data-step="5" data-lesson="2">Generational Wealth Planning</a>
+          <a href="/lesson.html?step=5&lesson=3" class="sidebar-nav__link" data-step="5" data-lesson="3">Giving Back &amp; Community Impact</a>
+          <a href="/lesson.html?step=5&lesson=4" class="sidebar-nav__link" data-step="5" data-lesson="4">Your Ongoing Blueprint</a>
+          <a href="/lesson.html?step=5&lesson=quiz" class="sidebar-nav__link sidebar-nav__link--quiz" data-step="5" data-lesson="quiz">Quiz: The Faithful Steward</a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="lesson-main" id="lesson-content">
+      <!-- Breadcrumb -->
+      <nav class="lesson-breadcrumb">
+        <a href="/dashboard.html">Dashboard</a>
+        <span>/</span>
+        <span id="breadcrumb-step">Orientation</span>
+        <span>/</span>
+        <span id="breadcrumb-lesson">Lesson 1</span>
+      </nav>
+
+      <!-- Lesson Title -->
+      <h1 class="lesson-title" id="lesson-title">Welcome &amp; Getting Started</h1>
+
+      <!-- Audio Player -->
+      <div class="lesson-audio">
+        <div class="lesson-audio__icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        </div>
+        <audio controls>
+          <source src="#" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <!-- Video Embed -->
+      <div class="lesson-video">
+        <div class="lesson-video__placeholder">Video content will appear here</div>
+      </div>
+
+      <!-- Lesson Body -->
+      <div class="lesson-body" id="lesson-body">
+        <h2 id="section-welcome">Welcome to The Blueprint Journey</h2>
+        <p>Welcome to Foundation Financial's comprehensive wealth-building education program. This course was designed to give you everything you need to understand how money really works — and how to make it work for you.</p>
+        <p>Over the next 59 lessons, you'll learn practical strategies that are grounded in real financial principles, not get-rich-quick schemes or vague platitudes. Every lesson builds on the one before it, creating a clear path from where you are now to where you want to be.</p>
+
+        <h2 id="section-how-to-use">How to Use This Course</h2>
+        <p>Each lesson includes audio and video content along with written material. We recommend going through the lessons in order, as each section builds on the previous one.</p>
+        <p>At the end of each step, you'll find a quiz to reinforce what you've learned. Don't skip these — they're an important part of the process.</p>
+
+        <h3 id="section-your-pace">Go at Your Own Pace</h3>
+        <p>There's no rush. This is your journey. Some people complete the course in a few weeks, others take months. What matters is that you engage with the material and take action on what you learn.</p>
+
+        <blockquote>
+          "The best time to plant a tree was twenty years ago. The second best time is now."
+        </blockquote>
+
+        <h2 id="section-whats-ahead">What's Ahead</h2>
+        <p>In Step 1, you'll start by understanding the real problem — why most people struggle to build wealth, and what systemic factors are working against you. Understanding the problem is the first step to solving it.</p>
+        <p>Let's get started.</p>
+      </div>
+
+      <!-- Prev / Next -->
+      <div class="lesson-nav">
+        <div></div>
+        <a href="/lesson.html?step=1&lesson=1" class="lesson-nav__btn lesson-nav__btn--next">
+          <span class="lesson-nav__label">Next Lesson</span>
+          <span class="lesson-nav__title">The Wealth Gap Reality</span>
+        </a>
+      </div>
+    </main>
+
+    <!-- Right Sidebar — On This Page -->
+    <aside class="lesson-toc" id="lesson-toc">
+      <p class="lesson-toc__title">On This Page</p>
+      <a href="#section-welcome" class="lesson-toc__link">Welcome to The Blueprint Journey</a>
+      <a href="#section-how-to-use" class="lesson-toc__link">How to Use This Course</a>
+      <a href="#section-your-pace" class="lesson-toc__link">Go at Your Own Pace</a>
+      <a href="#section-whats-ahead" class="lesson-toc__link">What's Ahead</a>
+    </aside>
+
+    <!-- TOC Toggle (mobile) -->
+    <button class="lesson-toc__toggle" id="toc-toggle" aria-label="Toggle table of contents">&#9776;</button>
+
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    // Highlight active sidebar link based on URL params
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var step = params.get('step') || 'orientation';
+      var lesson = params.get('lesson') || '1';
+
+      var links = document.querySelectorAll('.sidebar-nav__link');
+      links.forEach(function (link) {
+        if (link.dataset.step === step && link.dataset.lesson === lesson) {
+          link.classList.add('sidebar-nav__link--active');
+        }
+      });
+
+      // TOC toggle for mobile
+      var tocToggle = document.getElementById('toc-toggle');
+      var toc = document.getElementById('lesson-toc');
+      if (tocToggle && toc) {
+        tocToggle.addEventListener('click', function () {
+          toc.classList.toggle('lesson-toc--open');
+        });
+      }
+
+      // Highlight TOC links on scroll
+      var tocLinks = document.querySelectorAll('.lesson-toc__link');
+      var headings = [];
+      tocLinks.forEach(function (link) {
+        var id = link.getAttribute('href').replace('#', '');
+        var el = document.getElementById(id);
+        if (el) headings.push({ el: el, link: link });
+      });
+
+      if (headings.length) {
+        window.addEventListener('scroll', function () {
+          var scrollPos = window.scrollY + 120;
+          var current = headings[0];
+          headings.forEach(function (h) {
+            if (h.el.offsetTop <= scrollPos) {
+              current = h;
+            }
+          });
+          tocLinks.forEach(function (l) { l.classList.remove('lesson-toc__link--active'); });
+          current.link.classList.add('lesson-toc__link--active');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

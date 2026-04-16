@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — The Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <!-- Dashboard -->
+  <main class="dashboard">
+    <div class="dashboard__welcome">
+      <h1>Welcome to <span>The Blueprint Journey</span></h1>
+    </div>
+
+    <div class="dashboard__stats">
+      <div class="dashboard__stat">
+        <span class="dashboard__stat-number">59</span>
+        <span class="dashboard__stat-label">Lessons</span>
+      </div>
+      <div class="dashboard__stat">
+        <span class="dashboard__stat-number">12</span>
+        <span class="dashboard__stat-label">Quizzes</span>
+      </div>
+    </div>
+
+    <p class="dashboard__section-label">Course Sections</p>
+
+    <div class="course-cards">
+
+      <!-- Orientation -->
+      <a href="/lesson.html?step=orientation&lesson=1" class="course-card">
+        <div class="course-card__accent"></div>
+        <div class="course-card__body">
+          <div>
+            <p class="course-card__step">Orientation</p>
+            <p class="course-card__title">Welcome &amp; Setup</p>
+            <p class="course-card__meta">1 Lesson</p>
+          </div>
+          <span class="course-card__arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- Step 1 -->
+      <a href="/lesson.html?step=1&lesson=1" class="course-card">
+        <div class="course-card__accent"></div>
+        <div class="course-card__body">
+          <div>
+            <p class="course-card__step">Step 1</p>
+            <p class="course-card__title">Understanding the Problem</p>
+            <p class="course-card__meta">3 Lessons + 1 Quiz</p>
+          </div>
+          <span class="course-card__arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- Step 2 -->
+      <a href="/lesson.html?step=2&lesson=1" class="course-card">
+        <div class="course-card__accent"></div>
+        <div class="course-card__body">
+          <div>
+            <p class="course-card__step">Step 2</p>
+            <p class="course-card__title">Understanding the Solution</p>
+            <p class="course-card__meta">7 Lessons + 1 Quiz</p>
+          </div>
+          <span class="course-card__arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- Step 3 -->
+      <a href="/lesson.html?step=3&lesson=1" class="course-card">
+        <div class="course-card__accent"></div>
+        <div class="course-card__body">
+          <div>
+            <p class="course-card__step">Step 3</p>
+            <p class="course-card__title">Implementation Prep</p>
+            <p class="course-card__meta">6 Lessons + 1 Quiz</p>
+          </div>
+          <span class="course-card__arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- Step 4 -->
+      <a href="/lesson.html?step=4&lesson=1" class="course-card">
+        <div class="course-card__accent"></div>
+        <div class="course-card__body">
+          <div>
+            <p class="course-card__step">Step 4</p>
+            <p class="course-card__title">Building Your Launch Pad</p>
+            <p class="course-card__meta">6 Lessons + 1 Quiz</p>
+          </div>
+          <span class="course-card__arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- Step 5 -->
+      <a href="/lesson.html?step=5&lesson=1" class="course-card">
+        <div class="course-card__accent"></div>
+        <div class="course-card__body">
+          <div>
+            <p class="course-card__step">Step 5</p>
+            <p class="course-card__title">The Faithful Steward</p>
+            <p class="course-card__meta">4 Lessons + 1 Quiz</p>
+          </div>
+          <span class="course-card__arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
