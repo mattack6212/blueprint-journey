@@ -19,108 +19,235 @@
     </div>
   </nav>
 
-  <!-- Dashboard -->
-  <main class="dashboard">
-    <div class="dashboard__welcome">
-      <h1>Welcome to <span>The Blueprint Journey</span></h1>
-    </div>
+  <!-- Dashboard Layout with Sidebar -->
+  <div class="dash-layout">
 
-    <div class="dashboard__stats">
-      <div class="dashboard__stat">
-        <span class="dashboard__stat-number">59</span>
-        <span class="dashboard__stat-label">Lessons</span>
+    <!-- Sidebar -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__header">
+        <p class="dash-sidebar__title">The Blueprint Journey</p>
       </div>
-      <div class="dashboard__stat">
-        <span class="dashboard__stat-number">12</span>
-        <span class="dashboard__stat-label">Quizzes</span>
+
+      <!-- Quick Start — expanded by default -->
+      <div class="sidebar-group sidebar-group--open" data-group="quickstart">
+        <button class="sidebar-group__toggle" aria-expanded="true">
+          <span class="sidebar-group__arrow">&#9662;</span>
+          <span class="sidebar-group__label">Quick Start</span>
+          <span class="sidebar-group__badge sidebar-group__badge--featured">Start Here</span>
+        </button>
+        <div class="sidebar-group__body">
+          <a href="/lesson.html?v=qs&lesson=welcome" class="sidebar-group__link">Welcome to the Blueprint</a>
+          <a href="/lesson.html?v=qs&lesson=how-it-works" class="sidebar-group__link">How This Program Works</a>
+          <a href="/lesson.html?v=qs&lesson=your-first-step" class="sidebar-group__link">Your First Step</a>
+        </div>
       </div>
-    </div>
 
-    <p class="dashboard__section-label">Course Sections</p>
-
-    <div class="course-cards">
-
-      <!-- Orientation -->
-      <a href="/lesson.html?step=orientation&lesson=1" class="course-card">
-        <div class="course-card__accent"></div>
-        <div class="course-card__body">
-          <div>
-            <p class="course-card__step">Orientation</p>
-            <p class="course-card__title">Welcome &amp; Setup</p>
-            <p class="course-card__meta">1 Lesson</p>
+      <!-- V2 — Blueprint Journey -->
+      <div class="sidebar-group" data-group="v2">
+        <button class="sidebar-group__toggle" aria-expanded="false">
+          <span class="sidebar-group__arrow">&#9656;</span>
+          <span class="sidebar-group__label">V2 — Blueprint Journey</span>
+        </button>
+        <div class="sidebar-group__body" hidden>
+          <!-- Step 1 -->
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 1: Understanding the Problem</p>
+            <a href="/lesson.html?v=2&step=1&lesson=1" class="sidebar-group__link">Your Dollar Buys Less Every Year</a>
+            <a href="/lesson.html?v=2&step=1&lesson=2" class="sidebar-group__link">Inflation: The Silent Pickpocket</a>
+            <a href="/lesson.html?v=2&step=1&lesson=3" class="sidebar-group__link">The Financial Race</a>
           </div>
-          <span class="course-card__arrow">&rarr;</span>
+          <!-- Step 2 -->
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 2: Understanding the Solution</p>
+            <a href="/lesson.html?v=2&step=2&lesson=1" class="sidebar-group__link">A Different Way to Think About Money</a>
+            <a href="/lesson.html?v=2&step=2&lesson=2" class="sidebar-group__link">How The Blueprint Works</a>
+            <a href="/lesson.html?v=2&step=2&lesson=3" class="sidebar-group__link">What Makes This Different</a>
+          </div>
+          <!-- Step 3 -->
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 3: What You're Building</p>
+            <a href="/lesson.html?v=2&step=3&lesson=1" class="sidebar-group__link">Meet Your Portfolio</a>
+            <a href="/lesson.html?v=2&step=3&lesson=2" class="sidebar-group__link">Foundation Holdings</a>
+            <a href="/lesson.html?v=2&step=3&lesson=3" class="sidebar-group__link">Accelerator Holdings</a>
+            <a href="/lesson.html?v=2&step=3&lesson=4" class="sidebar-group__link">Your Safety Buffer</a>
+            <a href="/lesson.html?v=2&step=3&lesson=5" class="sidebar-group__link">How to Evaluate an ETF</a>
+          </div>
+          <!-- Step 4 -->
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 4: Setting Up</p>
+            <a href="/lesson.html?v=2&step=4&lesson=1" class="sidebar-group__link">How Margin Works</a>
+            <a href="/lesson.html?v=2&step=4&lesson=2" class="sidebar-group__link">Opening Your M1 Account</a>
+            <a href="/lesson.html?v=2&step=4&lesson=3" class="sidebar-group__link">Setting Up Cash Accounts</a>
+            <a href="/lesson.html?v=2&step=4&lesson=4" class="sidebar-group__link">The Smart Transfer Rules</a>
+            <a href="/lesson.html?v=2&step=4&lesson=5" class="sidebar-group__link">Your Stage Schedule</a>
+          </div>
+          <!-- Step 5 -->
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 5: Flow in Action</p>
+            <a href="/lesson.html?v=2&step=5&lesson=1" class="sidebar-group__link">What Your Money Date Is</a>
+            <a href="/lesson.html?v=2&step=5&lesson=2" class="sidebar-group__link">Using the Margin Health Monitor</a>
+            <a href="/lesson.html?v=2&step=5&lesson=3" class="sidebar-group__link">Reading the Market Signals</a>
+            <a href="/lesson.html?v=2&step=5&lesson=4" class="sidebar-group__link">Your Money Date Step by Step</a>
+            <a href="/lesson.html?v=2&step=5&lesson=5" class="sidebar-group__link">When Things Get Rough</a>
+          </div>
+          <!-- Step 6 -->
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 6: The Faithful Steward</p>
+            <a href="/lesson.html?v=2&step=6&lesson=1" class="sidebar-group__link">You Are No Longer the Third Servant</a>
+            <a href="/lesson.html?v=2&step=6&lesson=2" class="sidebar-group__link">The Mature Steward</a>
+            <a href="/lesson.html?v=2&step=6&lesson=3" class="sidebar-group__link">Freely You Have Received, Freely Give</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- V1 — Original Blueprint -->
+      <div class="sidebar-group" data-group="v1">
+        <button class="sidebar-group__toggle" aria-expanded="false">
+          <span class="sidebar-group__arrow">&#9656;</span>
+          <span class="sidebar-group__label">V1 — The Original Blueprint</span>
+        </button>
+        <div class="sidebar-group__body" hidden>
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 1: Understanding the Problem</p>
+            <a href="/lesson.html?v=1&step=1&lesson=1" class="sidebar-group__link">Your Dollar Buys Less Every Year</a>
+            <a href="/lesson.html?v=1&step=1&lesson=2" class="sidebar-group__link">Inflation: The Silent Pickpocket</a>
+            <a href="/lesson.html?v=1&step=1&lesson=3" class="sidebar-group__link">The Financial Race</a>
+          </div>
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 2: Understanding the Solution</p>
+            <a href="/lesson.html?v=1&step=2&lesson=1" class="sidebar-group__link">Blueprint Overview</a>
+            <a href="/lesson.html?v=1&step=2&lesson=2" class="sidebar-group__link">The Apple Test</a>
+            <a href="/lesson.html?v=1&step=2&lesson=3" class="sidebar-group__link">Build Cornerstone</a>
+            <a href="/lesson.html?v=1&step=2&lesson=4" class="sidebar-group__link">How Stages Work</a>
+            <a href="/lesson.html?v=1&step=2&lesson=5" class="sidebar-group__link">The Reused Dollar</a>
+            <a href="/lesson.html?v=1&step=2&lesson=6" class="sidebar-group__link">Strategic Debt</a>
+            <a href="/lesson.html?v=1&step=2&lesson=7" class="sidebar-group__link">Build the Base</a>
+          </div>
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 3: Understanding the Solution</p>
+            <a href="/lesson.html?v=1&step=3&lesson=5" class="sidebar-group__link">The Reused Dollar</a>
+            <a href="/lesson.html?v=1&step=3&lesson=6" class="sidebar-group__link">Strategic Debt</a>
+            <a href="/lesson.html?v=1&step=3&lesson=7" class="sidebar-group__link">Build the Base</a>
+          </div>
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 4: Getting Started</p>
+            <a href="/lesson.html?v=1&step=4&lesson=1" class="sidebar-group__link">Setting Your Monthly Commitment</a>
+            <a href="/lesson.html?v=1&step=4&lesson=2" class="sidebar-group__link">Funding Sources</a>
+            <a href="/lesson.html?v=1&step=4&lesson=3" class="sidebar-group__link">Your Stage Schedule</a>
+            <a href="/lesson.html?v=1&step=4&lesson=4" class="sidebar-group__link">Your First Stage</a>
+            <a href="/lesson.html?v=1&step=4&lesson=5" class="sidebar-group__link">The Build Check-In</a>
+            <a href="/lesson.html?v=1&step=4&lesson=6" class="sidebar-group__link">The Long Game</a>
+          </div>
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 5: Building Your Launch Pad</p>
+            <a href="/lesson.html?v=1&step=5&lesson=1" class="sidebar-group__link">Addressing Your Concerns</a>
+            <a href="/lesson.html?v=1&step=5&lesson=2" class="sidebar-group__link">Getting Your Funding</a>
+            <a href="/lesson.html?v=1&step=5&lesson=3" class="sidebar-group__link">Understanding What You're Buying</a>
+            <a href="/lesson.html?v=1&step=5&lesson=4" class="sidebar-group__link">Setting Up Your Accounts</a>
+            <a href="/lesson.html?v=1&step=5&lesson=5" class="sidebar-group__link">Your Personal Plan</a>
+            <a href="/lesson.html?v=1&step=5&lesson=6" class="sidebar-group__link">Your Launch Checklist</a>
+          </div>
+          <div class="sidebar-step">
+            <p class="sidebar-step__title">Step 6: Stewardship &amp; Growth</p>
+            <a href="/lesson.html?v=1&step=6&lesson=1" class="sidebar-group__link">Running Your Blueprint</a>
+            <a href="/lesson.html?v=1&step=6&lesson=2" class="sidebar-group__link">Managing Your Portfolio</a>
+            <a href="/lesson.html?v=1&step=6&lesson=3" class="sidebar-group__link">What Comes Next</a>
+            <a href="/lesson.html?v=1&step=6&lesson=4" class="sidebar-group__link">Stewardship and Generosity</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main">
+      <div class="dashboard__welcome">
+        <h1>Welcome back<span id="dash-user-name"></span></h1>
+        <p style="color: var(--color-gray); margin-top: 0.25rem;">Pick up where you left off, or start something new.</p>
+      </div>
+
+      <!-- Quick Start Hero Card -->
+      <a href="/lesson.html?v=qs&lesson=welcome" class="dash-hero-card">
+        <div class="dash-hero-card__accent"></div>
+        <div class="dash-hero-card__body">
+          <span class="dash-hero-card__badge">Recommended</span>
+          <h2>Quick Start</h2>
+          <p>New here? Start with the essentials. Learn how the program works, what to expect, and take your very first step toward building wealth.</p>
+          <div class="dash-hero-card__meta">
+            <span>3 Lessons</span>
+            <span class="dash-hero-card__arrow">&rarr;</span>
+          </div>
         </div>
       </a>
 
-      <!-- Step 1 -->
-      <a href="/lesson.html?step=1&lesson=1" class="course-card">
-        <div class="course-card__accent"></div>
-        <div class="course-card__body">
-          <div>
-            <p class="course-card__step">Step 1</p>
-            <p class="course-card__title">Understanding the Problem</p>
-            <p class="course-card__meta">3 Lessons + 1 Quiz</p>
+      <!-- Version Cards -->
+      <div class="dash-grid">
+        <!-- V2 Card -->
+        <a href="/lesson.html?v=2&step=1&lesson=1" class="dash-version-card">
+          <div class="dash-version-card__accent"></div>
+          <div class="dash-version-card__body">
+            <span class="dash-version-card__tag">Current Version</span>
+            <h3>Version 2 — Blueprint Journey</h3>
+            <p>The latest curriculum with updated lessons, restructured steps, and streamlined content.</p>
+            <div class="dash-version-card__meta">
+              <span>6 Steps &middot; 24 Lessons</span>
+              <span class="dash-version-card__arrow">&rarr;</span>
+            </div>
           </div>
-          <span class="course-card__arrow">&rarr;</span>
-        </div>
-      </a>
+        </a>
 
-      <!-- Step 2 -->
-      <a href="/lesson.html?step=2&lesson=1" class="course-card">
-        <div class="course-card__accent"></div>
-        <div class="course-card__body">
-          <div>
-            <p class="course-card__step">Step 2</p>
-            <p class="course-card__title">Understanding the Solution</p>
-            <p class="course-card__meta">7 Lessons + 1 Quiz</p>
+        <!-- V1 Card -->
+        <a href="/lesson.html?v=1&step=1&lesson=1" class="dash-version-card dash-version-card--secondary">
+          <div class="dash-version-card__accent"></div>
+          <div class="dash-version-card__body">
+            <span class="dash-version-card__tag">Archive</span>
+            <h3>Version 1 — The Original Blueprint</h3>
+            <p>The original course content. Still available for reference and review.</p>
+            <div class="dash-version-card__meta">
+              <span>6 Steps &middot; 29 Lessons</span>
+              <span class="dash-version-card__arrow">&rarr;</span>
+            </div>
           </div>
-          <span class="course-card__arrow">&rarr;</span>
-        </div>
-      </a>
-
-      <!-- Step 3 -->
-      <a href="/lesson.html?step=3&lesson=1" class="course-card">
-        <div class="course-card__accent"></div>
-        <div class="course-card__body">
-          <div>
-            <p class="course-card__step">Step 3</p>
-            <p class="course-card__title">Implementation Prep</p>
-            <p class="course-card__meta">6 Lessons + 1 Quiz</p>
-          </div>
-          <span class="course-card__arrow">&rarr;</span>
-        </div>
-      </a>
-
-      <!-- Step 4 -->
-      <a href="/lesson.html?step=4&lesson=1" class="course-card">
-        <div class="course-card__accent"></div>
-        <div class="course-card__body">
-          <div>
-            <p class="course-card__step">Step 4</p>
-            <p class="course-card__title">Building Your Launch Pad</p>
-            <p class="course-card__meta">6 Lessons + 1 Quiz</p>
-          </div>
-          <span class="course-card__arrow">&rarr;</span>
-        </div>
-      </a>
-
-      <!-- Step 5 -->
-      <a href="/lesson.html?step=5&lesson=1" class="course-card">
-        <div class="course-card__accent"></div>
-        <div class="course-card__body">
-          <div>
-            <p class="course-card__step">Step 5</p>
-            <p class="course-card__title">The Faithful Steward</p>
-            <p class="course-card__meta">4 Lessons + 1 Quiz</p>
-          </div>
-          <span class="course-card__arrow">&rarr;</span>
-        </div>
-      </a>
-
-    </div>
-  </main>
+        </a>
+      </div>
+    </main>
+  </div>
 
   <script src="/js/auth.js"></script>
+  <script>
+    // Sidebar toggle logic
+    (function () {
+      var groups = document.querySelectorAll('.sidebar-group__toggle');
+      groups.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var group = btn.closest('.sidebar-group');
+          var body = group.querySelector('.sidebar-group__body');
+          var arrow = btn.querySelector('.sidebar-group__arrow');
+          var isOpen = group.classList.contains('sidebar-group--open');
+
+          if (isOpen) {
+            group.classList.remove('sidebar-group--open');
+            btn.setAttribute('aria-expanded', 'false');
+            body.hidden = true;
+            arrow.innerHTML = '&#9656;';
+          } else {
+            group.classList.add('sidebar-group--open');
+            btn.setAttribute('aria-expanded', 'true');
+            body.hidden = false;
+            arrow.innerHTML = '&#9662;';
+          }
+        });
+      });
+
+      // Show user name on dashboard
+      var nameEl = document.getElementById('dash-user-name');
+      var testData = localStorage.getItem('blueprint_member_access');
+      if (nameEl && testData) {
+        try {
+          var name = JSON.parse(testData).name;
+          if (name) nameEl.textContent = ', ' + name;
+        } catch (e) {}
+      }
+    })();
+  </script>
 </body>
 </html>
