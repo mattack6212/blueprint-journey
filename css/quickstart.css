@@ -366,6 +366,47 @@
 }
 
 /* ============================================
+   Alternative Path CTA
+   ============================================ */
+.qs-alt-path {
+  background-color: rgba(103, 127, 113, 0.08);
+  border-left: 4px solid var(--qs-evergreen);
+  padding: 1.5rem 1.75rem;
+  margin: 1.25rem 0;
+}
+
+.qs-alt-path h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--qs-evergreen);
+  margin-bottom: 0.5rem;
+}
+
+.qs-alt-path p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--qs-gray);
+  margin-bottom: 1rem;
+}
+
+.qs-alt-path__btn {
+  display: inline-block;
+  background-color: var(--qs-evergreen);
+  color: var(--qs-white);
+  padding: 12px 24px;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.qs-alt-path__btn:hover {
+  background-color: #576d63;
+  color: var(--qs-white);
+}
+
+/* ============================================
    What You Accomplished
    ============================================ */
 .qs-accomplished {

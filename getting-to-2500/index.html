@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Path to $2,500 — Foundation Financial</title>
+  <meta name="description" content="Most families get there in 3-6 months. Here's your roadmap to launching your Blueprint system.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section style="background-color: #1A1718; padding: 100px 2rem 80px; text-align: center;">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #677F71; margin-bottom: 1.5rem;">Foundation Financial</p>
+      <h1 style="color: #ffffff; font-size: 3rem; font-weight: 900; line-height: 1.15; margin-bottom: 1rem;">Your Path to <span style="color: #D85D23;">$2,500</span></h1>
+      <p style="font-size: 1.125rem; font-weight: 300; color: #E0D6C7; line-height: 1.7;">Most families get there in 3-6 months. Here's your roadmap.</p>
+    </div>
+  </section>
+
+  <!-- Coming Soon -->
+  <section style="padding: 80px 2rem; text-align: center; background-color: #F5F0E8;">
+    <div style="max-width: 520px; margin: 0 auto;">
+
+      <div style="display: inline-block; background-color: #677F71; color: #ffffff; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 6px 20px; margin-bottom: 2rem;">Coming Soon</div>
+
+      <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: #1A1718;">We're building your roadmap</h2>
+      <p style="font-size: 1rem; line-height: 1.8; color: #6b6566; margin-bottom: 2.5rem;">A step-by-step guide to saving your first $2,500 — with budgeting tools, savings strategies, and milestone tracking. You'll know exactly what to do each week.</p>
+
+      <!-- Email Signup -->
+      <form name="path-to-2500" method="POST" data-netlify="true" style="max-width: 400px; margin: 0 auto;">
+        <input type="hidden" name="form-name" value="path-to-2500">
+        <label style="display: block; font-size: 0.8125rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #6b6566; margin-bottom: 0.5rem; text-align: left;">Get notified when this launches</label>
+        <div style="display: flex; gap: 0;">
+          <input type="email" name="email" required placeholder="you@example.com" style="flex: 1; padding: 14px 16px; font-family: 'Roboto', sans-serif; font-size: 0.9375rem; border: 2px solid #d6cfc5; border-right: none; border-radius: 0; background: #ffffff; color: #1A1718; outline: none;">
+          <button type="submit" style="padding: 14px 24px; background-color: #D85D23; color: #ffffff; font-family: 'Roboto', sans-serif; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border: 2px solid #D85D23; border-radius: 0; cursor: pointer;">Notify Me</button>
+        </div>
+      </form>
+
+      <!-- Contact -->
+      <p style="margin-top: 3rem; font-size: 0.875rem; color: #6b6566;">Questions? Email <a href="mailto:support@foundationfinancial.community" style="color: #D85D23; font-weight: 500;">support@foundationfinancial.community</a></p>
+
+      <!-- Back link -->
+      <a href="/quickstart/" style="display: inline-block; margin-top: 2rem; font-size: 0.8125rem; font-weight: 500; color: #677F71; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;">&larr; Back to Quick Start</a>
+    </div>
+  </section>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
