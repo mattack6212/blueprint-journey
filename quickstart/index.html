@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Start — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/quickstart.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <!-- Quick Start Page -->
+  <div class="qs">
+
+    <!-- Hero -->
+    <header class="qs-hero">
+      <div class="qs-hero__inner">
+        <p class="qs-hero__badge">Quick Start Deployment Guide</p>
+        <h1>Go from zero to fully deployed<br>in <span>30-45 minutes</span></h1>
+        <p class="qs-hero__sub">Six lessons. Six videos. One fully operational Blueprint system by the time you're done. Follow each step in order — don't skip ahead.</p>
+        <div class="qs-hero__meta">
+          <div class="qs-hero__stat">
+            <span class="qs-hero__stat-num">6</span>
+            <span class="qs-hero__stat-label">Lessons</span>
+          </div>
+          <div class="qs-hero__stat">
+            <span class="qs-hero__stat-num">30-45</span>
+            <span class="qs-hero__stat-label">Minutes</span>
+          </div>
+          <div class="qs-hero__stat">
+            <span class="qs-hero__stat-num">1</span>
+            <span class="qs-hero__stat-label">Deployed System</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Lesson Navigation -->
+    <nav class="qs-nav" id="qs-nav">
+      <div class="qs-nav__inner">
+        <a href="#lesson-1" class="qs-nav__link qs-nav__link--active">1</a>
+        <a href="#lesson-2" class="qs-nav__link">2</a>
+        <a href="#lesson-3" class="qs-nav__link">3</a>
+        <a href="#lesson-4" class="qs-nav__link">4</a>
+        <a href="#lesson-5" class="qs-nav__link">5</a>
+        <a href="#lesson-6" class="qs-nav__link">6</a>
+      </div>
+    </nav>
+
+    <!-- Overview Video -->
+    <section class="qs-overview">
+      <div class="qs-container">
+        <p class="qs-label">Before You Begin</p>
+        <h2>Watch the Full Deployment Demo</h2>
+        <p class="qs-overview__desc">This 30-45 minute walkthrough covers the entire Quick Start process end-to-end. Watch it first for the big picture, then follow each lesson below step by step.</p>
+        <div class="qs-video">
+          <div class="qs-video__placeholder" data-video="30_to_45_Minute_Quick_Start_Demo">
+            <div class="qs-video__play">&#9654;</div>
+            <p>30-45 Minute Quick Start Demo</p>
+            <p class="qs-video__note">Loom embed — replace with actual embed code</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 1
+         ========================================== -->
+    <section class="qs-lesson" id="lesson-1">
+      <div class="qs-container">
+        <div class="qs-lesson__header">
+          <span class="qs-lesson__number">01</span>
+          <div>
+            <p class="qs-label">Lesson 1</p>
+            <h2>Welcome to Your Blueprint Deployment</h2>
+          </div>
+        </div>
+
+        <div class="qs-video">
+          <div class="qs-video__placeholder" data-video="Blueprint_Journey_Quick_Start">
+            <div class="qs-video__play">&#9654;</div>
+            <p>Blueprint Journey Quick Start</p>
+            <p class="qs-video__note">Loom embed — replace with actual embed code</p>
+          </div>
+        </div>
+
+        <div class="qs-checklist">
+          <h3>Action Steps</h3>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Confirm your starting capital.</strong> You need a minimum of <strong>$2,500</strong> to deploy the Blueprint system. This is the foundation that makes the EARN system work.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Create your M1 Finance account.</strong> Go to <strong>m1.com</strong> and sign up for an Individual Brokerage Account. This is where your Blueprint Portfolio will live.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Link your primary bank account.</strong> Connect the checking account you'll use to fund your Blueprint. This is where your initial $2,500+ deposit will come from.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Initiate your first deposit.</strong> Transfer your starting capital into M1. This may take 1-3 business days to settle, but you can continue setting up while it processes.</span>
+          </label>
+        </div>
+
+        <div class="qs-accomplished">
+          <h4>What You Accomplished</h4>
+          <p>You've opened your M1 brokerage account, linked your bank, and started your initial deposit. Your Blueprint foundation is being laid.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 2
+         ========================================== -->
+    <section class="qs-lesson" id="lesson-2">
+      <div class="qs-container">
+        <div class="qs-lesson__header">
+          <span class="qs-lesson__number">02</span>
+          <div>
+            <p class="qs-label">Lesson 2</p>
+            <h2>Setting Up Your M1 Earn Accounts</h2>
+          </div>
+        </div>
+
+        <div class="qs-video">
+          <div class="qs-video__placeholder" data-video="Setting_Up_Your_M1_Earn_Accounts__">
+            <div class="qs-video__play">&#9654;</div>
+            <p>Setting Up Your M1 Earn Accounts</p>
+            <p class="qs-video__note">Loom embed — replace with actual embed code</p>
+          </div>
+        </div>
+
+        <div class="qs-checklist">
+          <h3>Action Steps</h3>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Create your "Money In" account.</strong> This is your Income Hub — where paychecks and income land. Set it up as a checking or high-yield savings account inside M1.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Create your "Transfer" account.</strong> This is your Sweep account — the staging area where money gets routed between your EARN and ROUTE systems.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Create your "Money Out" account.</strong> This is your Expense account — money flows here to cover bills and spending. This is the end of your ROUTE system.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>E-sign all account agreements.</strong> Complete the electronic signature process for each account. This activates them for transfers.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Note your high-yield interest rates.</strong> Check the APY on each Earn account. These rates are part of what makes the EARN system generate passive income while your money is in motion.</span>
+          </label>
+        </div>
+
+        <div class="qs-accomplished">
+          <h4>What You Accomplished</h4>
+          <p>Your EARN and ROUTE infrastructure is built. You have three accounts — Money In, Transfer, and Money Out — creating the flow system that powers your Blueprint.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 3
+         ========================================== -->
+    <section class="qs-lesson" id="lesson-3">
+      <div class="qs-container">
+        <div class="qs-lesson__header">
+          <span class="qs-lesson__number">03</span>
+          <div>
+            <p class="qs-label">Lesson 3</p>
+            <h2>Building Your Blueprint Portfolio</h2>
+          </div>
+        </div>
+
+        <div class="qs-video">
+          <div class="qs-video__placeholder" data-video="Setting_Up_Investment_Brokerages_and_Pies__">
+            <div class="qs-video__play">&#9654;</div>
+            <p>Setting Up Investment Brokerages and Pies</p>
+            <p class="qs-video__note">Loom embed — replace with actual embed code</p>
+          </div>
+        </div>
+
+        <div class="qs-checklist">
+          <h3>Action Steps</h3>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Create your Blueprint Portfolio pie.</strong> In M1, create a new pie called "Blueprint Portfolio." This is the master container for all your holdings.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Build your Foundation Holdings slice (65%).</strong> This is your base — stable, income-producing ETFs that Build the Base. Set this slice to 65% of your portfolio.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Build your Accelerator Holdings slice (35%).</strong> This is your growth engine — ETFs positioned to Expand the Walls. Set this slice to 35% of your portfolio.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Add your sample ETFs.</strong> Follow the video to add the recommended starter ETFs to each slice. You can customize later — for now, mirror the walkthrough exactly.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Save your portfolio.</strong> Always save after making changes. Confirm your allocation shows 65/35 split between Foundation and Accelerator Holdings.</span>
+          </label>
+        </div>
+
+        <div class="qs-accomplished">
+          <h4>What You Accomplished</h4>
+          <p>Your Blueprint Portfolio is built with a 65/35 Foundation-to-Accelerator split. You've selected your ETFs and your investment engine is ready to receive capital.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 4
+         ========================================== -->
+    <section class="qs-lesson" id="lesson-4">
+      <div class="qs-container">
+        <div class="qs-lesson__header">
+          <span class="qs-lesson__number">04</span>
+          <div>
+            <p class="qs-label">Lesson 4</p>
+            <h2>Activating Your Borrow Dashboard</h2>
+          </div>
+        </div>
+
+        <div class="qs-video">
+          <div class="qs-video__placeholder" data-video="Setting_Up_Your_Blueprint_Borrow_Dashboard__">
+            <div class="qs-video__play">&#9654;</div>
+            <p>Setting Up Your Blueprint Borrow Dashboard</p>
+            <p class="qs-video__note">Loom embed — replace with actual embed code</p>
+          </div>
+        </div>
+
+        <div class="qs-checklist">
+          <h3>Action Steps</h3>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Borrow $100 from your portfolio.</strong> Use M1 Borrow to take a $100 margin loan against your holdings. This activates your Borrow dashboard and gives you real numbers to work with.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Reinvest the $100 back into your portfolio.</strong> Don't spend it — put it right back in. This completes the capital recycling loop that powers your EARN system.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Record your Required Equity number.</strong> Find this on your Borrow dashboard. Write it down — you'll need it for the Margin Health Monitor in the next lesson.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Record your Interest Rate.</strong> Note the current margin interest rate. This factors into your EARN system calculations.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Record your Portfolio Value.</strong> Total portfolio value after reinvesting the $100. This is your baseline.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Record your Yield numbers.</strong> Note the dividend yield on your holdings. This is income your portfolio generates passively.</span>
+          </label>
+        </div>
+
+        <div class="qs-accomplished">
+          <h4>What You Accomplished</h4>
+          <p>Your Borrow dashboard is live. You've completed your first capital recycling loop and captured the four key numbers — Required Equity, Interest Rate, Portfolio Value, and Yield — that drive your EARN system.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 5
+         ========================================== -->
+    <section class="qs-lesson" id="lesson-5">
+      <div class="qs-container">
+        <div class="qs-lesson__header">
+          <span class="qs-lesson__number">05</span>
+          <div>
+            <p class="qs-label">Lesson 5</p>
+            <h2>Your First EARN Cycle</h2>
+          </div>
+        </div>
+
+        <div class="qs-video">
+          <div class="qs-video__placeholder" data-video="Margin_Health_Monitor_Quick_Start_Walkthrough">
+            <div class="qs-video__play">&#9654;</div>
+            <p>Margin Health Monitor Quick Start Walkthrough</p>
+            <p class="qs-video__note">Loom embed — replace with actual embed code</p>
+          </div>
+        </div>
+
+        <div class="qs-checklist">
+          <h3>Action Steps</h3>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Open the Margin Health Monitor.</strong> Go to <strong>tools.foundationfinancial.community</strong> and open the calculator. This is your Money Date command center.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Enter your numbers from Lesson 4.</strong> Input your Portfolio Value, Required Equity, Interest Rate, and Yield. These populate your margin health analysis.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Set your utilization target to 40%.</strong> This is the recommended starting utilization rate. It keeps you in the safe zone while maximizing the EARN system's potential.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Read the recommendation.</strong> The calculator will tell you exactly what action to take — borrow more, pay down, or hold steady. Follow the recommendation.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Execute the recommendation.</strong> Go back to M1 and take the action the calculator recommended. This is your first real Money Date — the routine you'll repeat weekly or biweekly.</span>
+          </label>
+        </div>
+
+        <div class="qs-accomplished">
+          <h4>What You Accomplished</h4>
+          <p>You've completed your first EARN cycle. You used the Margin Health Monitor to analyze your position, got a clear recommendation, and executed it. This is the same process you'll follow on every Money Date.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 6
+         ========================================== -->
+    <section class="qs-lesson" id="lesson-6">
+      <div class="qs-container">
+        <div class="qs-lesson__header">
+          <span class="qs-lesson__number">06</span>
+          <div>
+            <p class="qs-label">Lesson 6</p>
+            <h2>Automating Your System</h2>
+          </div>
+        </div>
+
+        <div class="qs-video">
+          <div class="qs-video__placeholder" data-video="Automating_Smart_Transfers_and_Margin_Payments">
+            <div class="qs-video__play">&#9654;</div>
+            <p>Automating Smart Transfers and Margin Payments</p>
+            <p class="qs-video__note">Loom embed — replace with actual embed code</p>
+          </div>
+        </div>
+
+        <div class="qs-checklist">
+          <h3>Action Steps</h3>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Set up Smart Transfer: Income Hub to Sweep.</strong> Create an automatic transfer from your Money In (Income Hub) account to your Transfer (Sweep) account. This is the first link in your ROUTE chain.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Set up Smart Transfer: Sweep to Margin Paydown.</strong> Automate a portion of your Sweep balance to pay down margin interest. This keeps your EARN system healthy without manual effort.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Set up Smart Transfer: Sweep to Investment.</strong> Automate regular investment contributions from your Sweep account into your Blueprint Portfolio. This is how you Build the Base on autopilot.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Configure dividend routing.</strong> Set your dividends to automatically reinvest into your Blueprint Portfolio. Every dividend compounds your position without you lifting a finger.</span>
+          </label>
+
+          <label class="qs-check">
+            <input type="checkbox">
+            <span class="qs-check__box"></span>
+            <span class="qs-check__text"><strong>Verify all automations are active.</strong> Check each Smart Transfer rule is showing as active. Review the flow: Income Hub &rarr; Sweep &rarr; Margin Paydown + Investment. Your system is now running.</span>
+          </label>
+        </div>
+
+        <div class="qs-accomplished">
+          <h4>What You Accomplished</h4>
+          <p>Your entire Blueprint system is automated. Money flows from income to sweep to investment and margin paydown — all on autopilot. Dividends reinvest automatically. Your system is deployed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Completion -->
+    <section class="qs-complete">
+      <div class="qs-container">
+        <div class="qs-complete__inner">
+          <span class="qs-complete__icon">&#10003;</span>
+          <h2>Your Blueprint Is Deployed</h2>
+          <p>You've built the system. Accounts are open. Portfolio is structured. Margin is active. Automation is running. Now the only thing left is your Money Date — a weekly or biweekly check-in where you run the Margin Health Monitor and follow its recommendation.</p>
+          <p style="margin-top:1rem;"><strong>Next step:</strong> Dive deeper into the full Blueprint Journey course to understand the strategy behind every move you just made.</p>
+          <a href="/dashboard.html" class="btn btn-primary btn-large">Back to Dashboard</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    // Sticky nav highlighting on scroll
+    (function () {
+      var lessons = document.querySelectorAll('.qs-lesson');
+      var navLinks = document.querySelectorAll('.qs-nav__link');
+      var nav = document.getElementById('qs-nav');
+
+      window.addEventListener('scroll', function () {
+        var scrollPos = window.scrollY + 140;
+        var current = 0;
+        lessons.forEach(function (lesson, i) {
+          if (lesson.offsetTop <= scrollPos) { current = i; }
+        });
+        navLinks.forEach(function (link, i) {
+          link.classList.toggle('qs-nav__link--active', i === current);
+        });
+      });
+
+      // Save checkbox state to localStorage
+      var checks = document.querySelectorAll('.qs-check input[type="checkbox"]');
+      var storageKey = 'qs_checklist';
+      var saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+
+      checks.forEach(function (cb, i) {
+        if (saved[i]) { cb.checked = true; }
+        cb.addEventListener('change', function () {
+          saved[i] = cb.checked;
+          localStorage.setItem(storageKey, JSON.stringify(saved));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

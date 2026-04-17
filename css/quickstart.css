@@ -1,0 +1,471 @@
+/* ============================================
+   QUICK START — Blueprint Journey
+   Brand: Inkwell #1A1718, Copper #D85D23,
+          Evergreen #677F71, Ivory #E0D6C7
+   ============================================ */
+
+:root {
+  --qs-inkwell: #1A1718;
+  --qs-copper: #D85D23;
+  --qs-copper-dark: #b94d1d;
+  --qs-evergreen: #677F71;
+  --qs-ivory: #E0D6C7;
+  --qs-ivory-light: #F5F0E8;
+  --qs-white: #ffffff;
+  --qs-gray: #6b6566;
+  --qs-border: #d6cfc5;
+}
+
+/* Layout */
+.qs {
+  background-color: var(--qs-white);
+}
+
+.qs-container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.qs-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--qs-copper);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.qs-hero {
+  background-color: var(--qs-inkwell);
+  padding: 80px 2rem 60px;
+  text-align: center;
+}
+
+.qs-hero__inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.qs-hero__badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--qs-copper);
+  border: 1px solid var(--qs-copper);
+  padding: 5px 14px;
+  margin-bottom: 1.5rem;
+}
+
+.qs-hero h1 {
+  color: var(--qs-white);
+  font-size: 2.75rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.qs-hero h1 span {
+  color: var(--qs-copper);
+}
+
+.qs-hero__sub {
+  font-size: 1.0625rem;
+  font-weight: 300;
+  color: var(--qs-ivory);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.qs-hero__meta {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #2e2628;
+}
+
+.qs-hero__stat {
+  text-align: center;
+}
+
+.qs-hero__stat-num {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--qs-copper);
+}
+
+.qs-hero__stat-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--qs-ivory);
+  opacity: 0.7;
+}
+
+/* ============================================
+   Sticky Lesson Nav
+   ============================================ */
+.qs-nav {
+  background-color: var(--qs-white);
+  border-bottom: 1px solid var(--qs-border);
+  position: sticky;
+  top: 64px;
+  z-index: 50;
+  padding: 0.75rem 2rem;
+}
+
+.qs-nav__inner {
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.qs-nav__link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--qs-gray);
+  border: 2px solid var(--qs-border);
+  transition: all 0.2s ease;
+}
+
+.qs-nav__link:hover {
+  border-color: var(--qs-copper);
+  color: var(--qs-copper);
+}
+
+.qs-nav__link--active {
+  background-color: var(--qs-copper);
+  border-color: var(--qs-copper);
+  color: var(--qs-white);
+}
+
+/* ============================================
+   Overview Video
+   ============================================ */
+.qs-overview {
+  padding: 4rem 2rem 3rem;
+  border-bottom: 1px solid var(--qs-border);
+}
+
+.qs-overview h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.qs-overview__desc {
+  font-size: 0.9375rem;
+  color: var(--qs-gray);
+  margin-bottom: 2rem;
+  max-width: 560px;
+}
+
+/* ============================================
+   Video Placeholder / Embed
+   ============================================ */
+.qs-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  background-color: var(--qs-inkwell);
+  margin-bottom: 2rem;
+}
+
+.qs-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.qs-video__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--qs-ivory);
+  gap: 0.5rem;
+}
+
+.qs-video__play {
+  width: 64px;
+  height: 64px;
+  background-color: var(--qs-copper);
+  color: var(--qs-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.qs-video__placeholder:hover .qs-video__play {
+  background-color: var(--qs-copper-dark);
+}
+
+.qs-video__placeholder p {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--qs-ivory);
+  margin: 0;
+}
+
+.qs-video__note {
+  font-size: 0.75rem !important;
+  color: var(--qs-gray) !important;
+  font-weight: 400 !important;
+}
+
+/* ============================================
+   Lesson Sections
+   ============================================ */
+.qs-lesson {
+  padding: 4rem 2rem;
+  border-bottom: 1px solid var(--qs-border);
+}
+
+.qs-lesson:nth-child(even) {
+  background-color: var(--qs-ivory-light);
+}
+
+.qs-lesson__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.qs-lesson__number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--qs-copper);
+  opacity: 0.25;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 56px;
+}
+
+.qs-lesson__header h2 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* ============================================
+   Checklists
+   ============================================ */
+.qs-checklist {
+  margin-bottom: 2rem;
+}
+
+.qs-checklist h3 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--qs-evergreen);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--qs-evergreen);
+  display: inline-block;
+}
+
+.qs-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--qs-border);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.qs-check:last-child {
+  border-bottom: none;
+}
+
+.qs-check:hover {
+  background-color: rgba(103, 127, 113, 0.04);
+}
+
+.qs-check input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.qs-check__box {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border: 2px solid var(--qs-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.qs-check__box::after {
+  content: '';
+  display: none;
+  width: 6px;
+  height: 12px;
+  border: solid var(--qs-white);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+.qs-check input:checked ~ .qs-check__box {
+  background-color: var(--qs-evergreen);
+  border-color: var(--qs-evergreen);
+}
+
+.qs-check input:checked ~ .qs-check__box::after {
+  display: block;
+}
+
+.qs-check input:checked ~ .qs-check__text {
+  color: var(--qs-gray);
+}
+
+.qs-check__text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--qs-inkwell);
+}
+
+.qs-check__text strong {
+  font-weight: 600;
+  color: var(--qs-inkwell);
+}
+
+/* ============================================
+   What You Accomplished
+   ============================================ */
+.qs-accomplished {
+  background-color: var(--qs-evergreen);
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+}
+
+.qs-accomplished h4 {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.qs-accomplished p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--qs-white);
+  margin: 0;
+}
+
+/* ============================================
+   Completion Section
+   ============================================ */
+.qs-complete {
+  padding: 5rem 2rem;
+  background-color: var(--qs-inkwell);
+}
+
+.qs-complete__inner {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.qs-complete__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background-color: var(--qs-evergreen);
+  color: var(--qs-white);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.qs-complete h2 {
+  color: var(--qs-white);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.qs-complete p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--qs-ivory);
+}
+
+.qs-complete .btn {
+  margin-top: 2rem;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .qs-hero h1 {
+    font-size: 2rem;
+  }
+
+  .qs-hero__meta {
+    gap: 1.5rem;
+  }
+
+  .qs-lesson__header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .qs-lesson__number {
+    font-size: 1.75rem;
+    min-width: auto;
+  }
+
+  .qs-lesson__header h2 {
+    font-size: 1.375rem;
+  }
+
+  .qs-container {
+    padding: 0 1.25rem;
+  }
+
+  .qs-nav__link {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8125rem;
+  }
+}
