@@ -266,6 +266,95 @@
   margin: 0;
 }
 
+/* Margin Health Monitor — visual meters */
+.mhm-meter {
+  margin: 1.25rem 0;
+  border: 1px solid var(--edu-border);
+  overflow: hidden;
+}
+
+.mhm-meter__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--edu-gray);
+  border-bottom: 1px solid var(--edu-border);
+}
+
+.mhm-meter__row:last-child {
+  border-bottom: none;
+}
+
+.mhm-meter__dot {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.mhm-meter__row strong {
+  color: var(--edu-inkwell);
+}
+
+/* Signal lights */
+.mhm-signal {
+  margin: 1.5rem 0;
+}
+
+.mhm-signal__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem;
+  border-left: 4px solid transparent;
+  margin-bottom: 0.75rem;
+}
+
+.mhm-signal__row--green {
+  background-color: rgba(34, 197, 94, 0.06);
+  border-left-color: #22c55e;
+}
+
+.mhm-signal__row--yellow {
+  background-color: rgba(234, 179, 8, 0.06);
+  border-left-color: #eab308;
+}
+
+.mhm-signal__row--red {
+  background-color: rgba(239, 68, 68, 0.06);
+  border-left-color: #ef4444;
+}
+
+.mhm-signal__light {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+.mhm-signal__row--green .mhm-signal__light { background-color: #22c55e; }
+.mhm-signal__row--yellow .mhm-signal__light { background-color: #eab308; }
+.mhm-signal__row--red .mhm-signal__light { background-color: #ef4444; }
+
+.mhm-signal__row strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--edu-inkwell);
+  margin-bottom: 0.25rem;
+}
+
+.mhm-signal__row p {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--edu-gray);
+  margin: 0;
+}
+
 /* Script toggle */
 .edu-script-toggle {
   margin-bottom: 2rem;

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Margin Health Monitor Deep Dive — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div class="edu">
+
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge">Deep Dive Series</p>
+        <h1>Margin Health Monitor <span>Explained</span></h1>
+        <p class="edu-hero__sub">Every input. Every output. What the numbers mean and why they matter. Six short lessons that make your Money Date second nature.</p>
+        <p style="margin-top: 1.25rem;"><a href="https://tools.foundationfinancial.community" target="_blank" rel="noopener" style="color: var(--edu-copper); font-size: 0.875rem; font-weight: 500;">Open the tool: tools.foundationfinancial.community &rarr;</a></p>
+      </div>
+    </header>
+
+    <nav class="edu-nav" id="edu-nav">
+      <div class="edu-nav__inner">
+        <a href="#lesson-1" class="edu-nav__link edu-nav__link--active">DSCR</a>
+        <a href="#lesson-2" class="edu-nav__link">Max Utilization</a>
+        <a href="#lesson-3" class="edu-nav__link">Portfolio Value</a>
+        <a href="#lesson-4" class="edu-nav__link">Yield</a>
+        <a href="#lesson-5" class="edu-nav__link">Equity &amp; Rate</a>
+        <a href="#lesson-6" class="edu-nav__link">Your Results</a>
+      </div>
+    </nav>
+
+    <!-- ==========================================
+         LESSON 1 — Understanding DSCR
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-1">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">01</span>
+          <div>
+            <p class="edu-label">Lesson 1</p>
+            <h2>Understanding DSCR</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <div class="edu-text">
+            <p><strong>Debt Service Coverage Ratio — your income-to-cost guardrail.</strong></p>
+
+            <h3>What DSCR Measures</h3>
+            <p>DSCR tells you one thing: how many times over your portfolio's annual income covers your annual margin interest cost. It is the single clearest indicator of whether your EARN system is producing more than it costs to run.</p>
+            <p>The formula is simple:</p>
+            <blockquote>DSCR = Annual Portfolio Income &divide; Annual Margin Interest Cost</blockquote>
+            <p>If your portfolio generates $7,000 per year in dividends and your margin costs $2,800 per year in interest, your DSCR is 2.5. That means your income covers your cost two and a half times over. The system is healthy.</p>
+
+            <h3>Why 1.25x Is the Default Minimum</h3>
+            <p>The Margin Health Monitor defaults to a minimum DSCR of 1.25. This means you want your portfolio income to be at least 25% higher than your margin cost at all times.</p>
+            <p>Why 1.25 and not 1.0? Because 1.0 means you are breaking exactly even — income equals cost, no margin of safety. Markets move. Yields fluctuate. Interest rates shift. At 1.0 any small change could push you negative. The 1.25 buffer ensures you have room to absorb those changes without your EARN system costing more than it produces.</p>
+
+            <h3>When to Adjust the Default</h3>
+            <p>Most students should keep the minimum DSCR at 1.25 and not touch it. However:</p>
+            <ul>
+              <li><strong>Conservative approach (2.0):</strong> If you want extra cushion or are new to the system, set it to 2.0. This means income must be double your cost before the tool considers you healthy. This is what we recommend during your first few Money Dates.</li>
+              <li><strong>Experienced approach (1.25):</strong> Once you understand your portfolio's income patterns and feel confident in your yield stability, the 1.25 default gives you more deployment capacity while maintaining a safety buffer.</li>
+            </ul>
+            <p>Never set it below 1.0. A DSCR below 1.0 means your margin is costing more than your portfolio earns — your EARN system is running at a loss.</p>
+
+            <h3>How to Read DSCR on Your Money Date</h3>
+            <div class="mhm-meter">
+              <div class="mhm-meter__row">
+                <span class="mhm-meter__dot" style="background:#22c55e;"></span>
+                <strong>2.0 and above</strong> — Healthy. Income comfortably exceeds cost. Deploy with confidence.
+              </div>
+              <div class="mhm-meter__row">
+                <span class="mhm-meter__dot" style="background:#eab308;"></span>
+                <strong>1.25 to 2.0</strong> — Adequate. System is covering costs but cushion is moderate. Monitor closely.
+              </div>
+              <div class="mhm-meter__row">
+                <span class="mhm-meter__dot" style="background:#f97316;"></span>
+                <strong>1.0 to 1.25</strong> — Warning. Income barely covering cost. Consider reducing margin or reviewing holdings.
+              </div>
+              <div class="mhm-meter__row">
+                <span class="mhm-meter__dot" style="background:#ef4444;"></span>
+                <strong>Below 1.0</strong> — Critical. Margin costs exceed income. Reduce margin immediately.
+              </div>
+            </div>
+
+            <h3>What Moves DSCR</h3>
+            <p>Two things drive DSCR: your portfolio income (yield &times; portfolio value) and your margin cost (interest rate &times; margin balance). DSCR improves when income goes up or cost goes down. It deteriorates when yields drop, rates rise, or you borrow more without a proportional income increase.</p>
+            <p>On your Money Date, if DSCR has dropped since last month, ask why. Did yields change? Did you borrow more? Did rates move? Understanding the driver tells you what to do about it.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>DSCR = income &divide; cost. Default minimum is 1.25x. Start at 2.0 while learning. Green means your EARN system is producing well above its cost. Red means take action immediately. This is the first metric that tells you if the machine is profitable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 2 — Max Margin Utilization
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-2">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">02</span>
+          <div>
+            <p class="edu-label">Lesson 2</p>
+            <h2>Max Margin Utilization</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <div class="edu-text">
+            <p><strong>The dial you adjust every Money Date based on market conditions.</strong></p>
+
+            <h3>What Max Margin Utilization Means</h3>
+            <p>Max Margin Utilization is the ceiling you set for how much of your available margin you are willing to deploy. If you have $10,000 in available margin and set your max utilization to 60%, you will deploy up to $6,000. The remaining $4,000 stays as a safety buffer between you and a margin call.</p>
+            <p>This is the one input in the Margin Health Monitor that changes every month. Everything else — portfolio value, yield, interest rate — you observe and report. Max Utilization is the one you actively decide.</p>
+
+            <h3>The Red Light / Green Light System</h3>
+            <p>Think of market conditions like a traffic signal. The Blueprint market signal on X (<strong>@marketsign39815</strong>) posts one of three conditions before each Money Date:</p>
+
+            <div class="mhm-signal">
+              <div class="mhm-signal__row mhm-signal__row--green">
+                <span class="mhm-signal__light"></span>
+                <div>
+                  <strong>Normal Conditions &rarr; 60% utilization</strong>
+                  <p>Green light. Markets are running well, volatility is manageable. Deploy your EARN system at full capacity. This is where the most compounding happens.</p>
+                </div>
+              </div>
+              <div class="mhm-signal__row mhm-signal__row--yellow">
+                <span class="mhm-signal__light"></span>
+                <div>
+                  <strong>Caution &rarr; 50% utilization</strong>
+                  <p>Yellow light. Elevated volatility, meaningful pullback. Pull back ten points. Widen your buffer. Protect the cushion while the EARN system still runs.</p>
+                </div>
+              </div>
+              <div class="mhm-signal__row mhm-signal__row--red">
+                <span class="mhm-signal__light"></span>
+                <div>
+                  <strong>Uncertain &rarr; 40% utilization</strong>
+                  <p>Red light. Sharp declines or systemic stress. Dial all the way back. Maximum buffer. The EARN system shifts to preservation mode — still active, but conservative.</p>
+                </div>
+              </div>
+            </div>
+
+            <h3>Why the Range Is 40-60%</h3>
+            <p>The range is intentionally narrow. You never go above 60% even in perfect conditions — that upper limit keeps you well below the danger zone. You never go below 40% even in severe stress — the system still needs enough margin deployed to generate income and keep the EARN cycle turning.</p>
+            <p>Ten percentage points per step. Simple. No guesswork. The signal tells you where to set the dial. You set it, run the calculator, and execute.</p>
+
+            <h3>Where to Enter It</h3>
+            <p>In the <a href="https://tools.foundationfinancial.community" target="_blank" rel="noopener">Margin Health Monitor</a>, Max Margin Utilization is in <strong>Step 1 — Set Your Boundaries</strong>. Enter 60, 50, or 40 based on the current signal. This number drives the Recommended Margin Adjustment output — the tool tells you exactly how many dollars to deploy or pull back to reach your target.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Check @marketsign39815 before every Money Date. Normal = 60%, Caution = 50%, Uncertain = 40%. This is the one input you actively decide each month. The 40-60% range keeps you deployed enough to grow and protected enough to hold through volatility.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 3 — Portfolio Value
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-3">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">03</span>
+          <div>
+            <p class="edu-label">Lesson 3</p>
+            <h2>Portfolio Value Deep Dive</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <div class="edu-text">
+            <p><strong>The total market value of your Blueprint Portfolio — and what drives it.</strong></p>
+
+            <h3>Where to Find It in M1</h3>
+            <p>Log into M1 Finance. Open your Blueprint Portfolio account. The number labeled <strong>"Value"</strong> at the top of the screen is your portfolio value. This is the number you enter in the Margin Health Monitor.</p>
+            <p>This is the value inside your Blueprint Portfolio pie — not your total M1 account balance across all accounts. Just the pie.</p>
+
+            <h3>What Portfolio Value Includes</h3>
+            <p>Your portfolio value includes everything inside your Blueprint pie:</p>
+            <ul>
+              <li><strong>Your contributed capital</strong> — every dollar you have deposited and invested through your Monthly Commitment</li>
+              <li><strong>Margin capital</strong> — borrowed funds that have been invested into the pie through Rule 2</li>
+              <li><strong>Reinvested dividends</strong> — every dividend that swept to Sweep and got invested back through Rule 2</li>
+              <li><strong>Market appreciation (or depreciation)</strong> — unrealized gains or losses on your holdings</li>
+            </ul>
+            <p>This is important: portfolio value reflects both your money and borrowed money working together. That is the EARN system — your capital and margin capital combined, generating income on the full balance.</p>
+
+            <h3>How Portfolio Value Grows Over Time</h3>
+            <p>Portfolio value grows through three engines:</p>
+            <ol>
+              <li><strong>Monthly Contributions</strong> — your recurring deposit through Income Hub &rarr; Sweep &rarr; Blueprint pie. Every contribution adds to the base.</li>
+              <li><strong>Dividend reinvestment</strong> — every dividend that sweeps back through Rule 2 and gets invested. This is compounding in action.</li>
+              <li><strong>Margin deployment</strong> — each time you redeploy margin on your Money Date, you are putting more capital to work in the pie. More capital deployed = more income generated = faster compounding.</li>
+            </ol>
+            <p>On rough months portfolio value may decline due to market prices dropping. This is normal. Your Foundation Holdings (65% of the pie) are designed for stability. The contributions and dividends flowing in during a dip buy more shares at lower prices — Building the Base when it costs less.</p>
+
+            <h3>Why Accuracy Matters</h3>
+            <p>Portfolio value is the foundation of almost every calculation in the Margin Health Monitor. DTA (Debt to Asset), margin utilization, recommended adjustment — they all depend on an accurate portfolio value. Always use the current number from M1, not last month's number or a rough estimate.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Portfolio Value = the "Value" number inside your Blueprint Portfolio pie in M1. It includes your money, margin money, reinvested dividends, and market movement. Always use the current live number on your Money Date — every other calculation depends on it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 4 — Yield Calculation
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-4">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">04</span>
+          <div>
+            <p class="edu-label">Lesson 4</p>
+            <h2>Yield Calculation</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <div class="edu-text">
+            <p><strong>Your portfolio's income engine — how much it pays and how to measure it.</strong></p>
+
+            <h3>What Yield Means in the Blueprint</h3>
+            <p>Yield is the annual percentage rate at which your Blueprint Portfolio generates income through dividends and distributions. A 12% yield on a $50,000 portfolio means the portfolio generates approximately $6,000 per year — or about $500 per month — in passive income.</p>
+            <p>This income is what powers your EARN system. It covers your margin cost (tracked by DSCR), it flows through Sweep via Rule 2 to pay down margin, and it compounds by reinvesting back into the pie. Yield is the heartbeat of the whole machine.</p>
+
+            <h3>How to Find Your Yield in M1</h3>
+            <p>In M1 Finance, navigate to your Blueprint Portfolio. Go to <strong>Performance &rarr; View Benchmarks</strong>. Your trailing dividend yield is displayed there.</p>
+            <p>If you cannot find it through benchmarks, you can calculate it manually:</p>
+            <blockquote>Yield = (Total Dividends Last 12 Months &divide; Current Portfolio Value) &times; 100</blockquote>
+            <p>Example: If your portfolio paid $7,000 in dividends over the past year and your current portfolio value is $50,000, your yield is 14%.</p>
+            <p>Enter this number as a whole number in the Margin Health Monitor (enter 14, not 0.14).</p>
+
+            <h3>Why Yield Changes</h3>
+            <p>Yield is not fixed. It moves for several reasons:</p>
+            <ul>
+              <li><strong>Portfolio value changes</strong> — if your portfolio value rises but dividends stay the same, yield goes down. If value drops, yield goes up. This is math, not a problem.</li>
+              <li><strong>Holdings change distributions</strong> — some ETFs adjust distributions based on market conditions. Covered call ETFs (Accelerator Holdings) may pay more during high volatility and less during calm periods.</li>
+              <li><strong>You change holdings</strong> — if you swap an ETF for one with a different distribution rate, your blended yield shifts.</li>
+            </ul>
+            <p>On your Money Date, if yield has changed meaningfully from last month, recalculate before entering it. The DSCR calculation depends on an accurate yield.</p>
+
+            <h3>Foundation vs. Accelerator Yield</h3>
+            <p>Your Foundation Holdings (65%) typically generate steady, credit-driven income — senior loans, CLOs. Their yield tends to be consistent month to month.</p>
+            <p>Your Accelerator Holdings (35%) often generate higher but more variable income — covered call strategies, equity-linked premiums. Their yield can fluctuate with market volatility.</p>
+            <p>The blended yield across both is what you enter in the tool. Over time, as Foundation Holdings compound, the overall yield stabilizes because the majority of your portfolio is in the steady bucket.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Yield = annual income &divide; portfolio value. Find it in M1 under Performance &rarr; View Benchmarks, or calculate manually. This is your EARN system's income rate — it drives DSCR, powers dividend reinvestment, and determines how fast the machine compounds. Recalculate on any Money Date where it has shifted.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 5 — Required Equity & Interest Rate
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-5">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">05</span>
+          <div>
+            <p class="edu-label">Lesson 5</p>
+            <h2>Required Equity &amp; Interest Rate</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <div class="edu-text">
+            <p><strong>The two brokerage inputs that define your margin boundaries.</strong></p>
+
+            <h3>What Required Equity Is</h3>
+            <p>Required Equity is the minimum dollar amount of equity M1 Finance requires you to maintain in your account to avoid a margin call. Think of it as the floor — if your equity drops below this number, M1 can force-sell your holdings to bring you back into compliance.</p>
+            <p>The Margin Health Monitor uses Required Equity to calculate your safety cushion — specifically the <strong>Market Drop Before Margin Call</strong> metric. This tells you how far your portfolio can fall before that floor gets hit.</p>
+
+            <h3>Where to Find Required Equity in M1</h3>
+            <p>This is a specific navigation path — follow it exactly:</p>
+            <ol>
+              <li>Log into M1 Finance</li>
+              <li>Go to the <strong>Borrow</strong> tab</li>
+              <li>You must have at least <strong>$100 borrowed</strong> for Required Equity to appear</li>
+              <li>Click <strong>"View Holdings"</strong></li>
+              <li>Look at the <strong>top right corner</strong> of that screen</li>
+              <li>The dollar amount shown is your Required Equity</li>
+            </ol>
+            <p>Enter this exact dollar amount in the Margin Health Monitor. In the tool, select the <strong>"Required Equity"</strong> radio button (not "Total Margin Available") before entering the number.</p>
+
+            <h3>Why Required Equity Varies</h3>
+            <p>Different ETFs carry different maintenance requirements. Some holdings require M1 to hold more equity against them than others. Your Required Equity is the aggregate of all your individual holding requirements.</p>
+            <p>If you change your holdings — swap one ETF for another — Required Equity will shift. This is why you check it fresh on each Money Date rather than using last month's number.</p>
+
+            <h3>What Margin Interest Rate Is</h3>
+            <p>The Margin Interest Rate is the annual percentage rate M1 charges you on your outstanding margin balance. This is the cost side of your DSCR equation — the number your portfolio income must exceed to run the EARN system profitably.</p>
+
+            <h3>Where to Find Interest Rate in M1</h3>
+            <ol>
+              <li>Go to the <strong>Borrow</strong> tab in M1 Finance</li>
+              <li>Your current margin rate is displayed on that screen</li>
+              <li>Enter it as a percentage in the Margin Health Monitor (e.g., enter 8.5 for 8.5%)</li>
+            </ol>
+
+            <h3>How Interest Rate Affects Your System</h3>
+            <p>Margin interest rate directly impacts two things:</p>
+            <ul>
+              <li><strong>DSCR</strong> — higher rate means higher annual cost, which pushes DSCR down. If rates rise, your portfolio income needs to cover a larger cost.</li>
+              <li><strong>EARN system efficiency</strong> — the gap between your portfolio yield and your margin rate is your spread. A 14% yield against an 8.5% rate gives you a 5.5% positive spread. That spread is what makes the EARN system work — you earn more on the borrowed capital than it costs to borrow.</li>
+            </ul>
+            <p>If rates rise to the point where your margin rate approaches or exceeds your yield, DSCR will drop toward or below 1.0. The Margin Health Monitor will flag this immediately. That is why you check DSCR on every Money Date.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Required Equity: Borrow tab &rarr; View Holdings &rarr; top right corner. Need $100+ borrowed to see it. Interest Rate: Borrow tab, displayed directly. These two numbers define your margin boundaries — Required Equity sets the safety floor, Interest Rate sets the cost of running the EARN system. Check both fresh on every Money Date.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 6 — Understanding Your Results
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-6">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">06</span>
+          <div>
+            <p class="edu-label">Lesson 6</p>
+            <h2>Understanding Your Results</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <div class="edu-text">
+            <p><strong>Six metrics. One priority order. Here is how to read your Money Date dashboard.</strong></p>
+
+            <p>After you enter all your inputs and hit <strong>Calculate Results</strong> in the <a href="https://tools.foundationfinancial.community" target="_blank" rel="noopener">Margin Health Monitor</a>, six health metrics appear. Each one tells you something different about your system. Here is what they mean and the order in which to check them.</p>
+
+            <h3>Priority 1 — Market Drop Before Margin Call</h3>
+            <p><strong>Check this first. Every time.</strong></p>
+            <p>This metric tells you how far your total portfolio value can decline — in percentage terms — before M1 would issue a margin call. It is your safety cushion.</p>
+            <div class="mhm-meter">
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#22c55e;"></span><strong>Above 40%</strong> — Strong cushion. Your portfolio can drop 40%+ before a margin call. Deploy with confidence.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#eab308;"></span><strong>20-40%</strong> — Moderate cushion. Healthy but keep an eye on it. Normal for higher utilization levels.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#ef4444;"></span><strong>Below 20%</strong> — Tight. Reduce margin immediately regardless of other metrics. This is the override rule.</div>
+            </div>
+            <p>If this metric is below 20%, nothing else matters. Reduce first. Then review the rest.</p>
+
+            <h3>Priority 2 — DSCR (Debt Service Coverage Ratio)</h3>
+            <p>Is your income covering your margin cost? You learned this in Lesson 1.</p>
+            <div class="mhm-meter">
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#22c55e;"></span><strong>2.0+</strong> — Healthy. Income more than doubles your cost.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#eab308;"></span><strong>1.25-2.0</strong> — Adequate. Covering costs with moderate buffer.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#f97316;"></span><strong>1.0-1.25</strong> — Warning. Barely covering. Review holdings or reduce margin.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#ef4444;"></span><strong>Below 1.0</strong> — Critical. EARN system running at a loss. Reduce immediately.</div>
+            </div>
+
+            <h3>Priority 3 — DTA (Debt to Asset Ratio)</h3>
+            <p>Your total margin balance as a percentage of your total portfolio value. This measures overall leverage.</p>
+            <div class="mhm-meter">
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#22c55e;"></span><strong>Below 50%</strong> — Conservative leverage. More equity than debt.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#eab308;"></span><strong>50-65%</strong> — Moderate. Typical for active EARN deployment at 60% utilization.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#f97316;"></span><strong>65-80%</strong> — Elevated. Getting stretched. Consider pulling back on next Money Date.</div>
+              <div class="mhm-meter__row"><span class="mhm-meter__dot" style="background:#ef4444;"></span><strong>Above 80%</strong> — High risk. Reduce immediately.</div>
+            </div>
+
+            <h3>Priority 4 — IMR (Implied Maintenance Ratio)</h3>
+            <p>How margin-efficient your portfolio structure is. This reflects the aggregate maintenance requirement of your holdings relative to portfolio value. Lower is better — it means your ETFs are capital-efficient.</p>
+            <p>Green below 35%. If orange or red, some of your holdings may carry unusually high maintenance requirements, which reduces your available margin and tightens your cushion. Worth reviewing your ETF selection if this stays elevated.</p>
+
+            <h3>Priority 5 — Margin Utilization</h3>
+            <p>Your current margin deployed as a percentage of your total available margin. This is the number you are actively managing to match your signal target.</p>
+            <p>If the signal says 60% and your utilization is at 45%, you have room to deploy. If it says 50% and you are at 58%, you need to pay down. The Recommended Margin Adjustment tells you the exact dollar amount.</p>
+
+            <h3>Priority 6 — Recommended Margin Adjustment</h3>
+            <p>This is your execution number. The tool calculates exactly how many dollars you can deploy (or need to pay back) to reach your target utilization.</p>
+            <ul>
+              <li><strong>Positive number</strong> — you can draw this amount from M1 Borrow. Rule 2 will automatically route it to margin paydown first, then invest the remainder.</li>
+              <li><strong>Zero</strong> — you are at your target. No action needed. Close the tool.</li>
+              <li><strong>Negative number</strong> — you are over-deployed. Pay down this amount through the Borrow tab in M1 to reach your target.</li>
+            </ul>
+
+            <h3>The Complete Check Sequence</h3>
+            <p>On every Money Date, read your results in this exact order:</p>
+            <ol>
+              <li><strong>Market Drop cushion</strong> — am I safe? (Below 20% = reduce now)</li>
+              <li><strong>DSCR</strong> — is income covering cost? (Below 1.0 = reduce now)</li>
+              <li><strong>DTA</strong> — how leveraged am I? (Sanity check)</li>
+              <li><strong>IMR</strong> — are my holdings efficient? (Background check)</li>
+              <li><strong>Margin Utilization</strong> — where am I vs. target?</li>
+              <li><strong>Recommended Adjustment</strong> — what do I execute?</li>
+            </ol>
+            <p>Steps 1-2 are safety checks. If either is red, you stop and reduce before anything else. Steps 3-4 are awareness checks. Steps 5-6 are your action. One decision. Execute. Done.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Six metrics, one priority order. Safety first (Market Drop cushion, DSCR), then awareness (DTA, IMR), then action (Utilization, Recommended Adjustment). If any safety metric is red, reduce immediately — that is the override rule. Everything else follows the signal and the recommendation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Completion -->
+    <section style="padding: 4rem 2rem; background-color: var(--edu-inkwell); text-align: center;">
+      <div style="max-width: 560px; margin: 0 auto;">
+        <h2 style="color: var(--edu-white); font-size: 1.75rem; margin-bottom: 1rem;">You Know the Tool</h2>
+        <p style="color: var(--edu-ivory); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem;">Every input. Every output. Every priority. You can now sit down for your Money Date, open the Margin Health Monitor, and read your system's health with confidence.</p>
+        <p style="color: var(--edu-ivory); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 2rem;"><strong style="color: var(--edu-copper);">Next step:</strong> Run a live Money Date using the <a href="https://tools.foundationfinancial.community" target="_blank" rel="noopener" style="color: var(--edu-copper);">Margin Health Monitor</a> with your actual numbers.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/education/earn-system/" class="btn btn-outline" style="border-color: var(--edu-ivory); color: var(--edu-ivory);">EARN System Lessons</a>
+          <a href="/dashboard.html" class="btn btn-primary">Back to Dashboard</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    (function () {
+      var lessons = document.querySelectorAll('.edu-lesson');
+      var navLinks = document.querySelectorAll('.edu-nav__link');
+      window.addEventListener('scroll', function () {
+        var scrollPos = window.scrollY + 140;
+        var current = 0;
+        lessons.forEach(function (lesson, i) {
+          if (lesson.offsetTop <= scrollPos) { current = i; }
+        });
+        navLinks.forEach(function (link, i) {
+          link.classList.toggle('edu-nav__link--active', i === current);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
