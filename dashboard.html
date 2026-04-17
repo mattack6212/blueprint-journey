@@ -165,10 +165,34 @@
     <main class="dash-main">
       <div class="dashboard__welcome">
         <h1>Welcome back<span id="dash-user-name"></span></h1>
-        <p style="color: var(--color-gray); margin-top: 0.25rem;">Pick up where you left off, or start something new.</p>
+        <p style="color: var(--color-gray); margin-top: 0.25rem;">Let's get you deployed.</p>
+      </div>
+
+      <!-- Decision Point -->
+      <div class="dash-decision">
+        <div class="dash-decision__header">
+          <p class="dash-decision__label">First Things First</p>
+          <h2>Where are you starting?</h2>
+        </div>
+        <div class="dash-decision__cards">
+          <a href="#quickstart-section" class="dash-decision__card dash-decision__card--primary">
+            <span class="dash-decision__icon">&#10004;</span>
+            <h3>I Have $2,500</h3>
+            <p>Ready to deploy. Let's build your Blueprint system in 30-45 minutes.</p>
+            <span class="dash-decision__cta">Let's Go &rarr;</span>
+          </a>
+          <a href="/getting-to-2500/" class="dash-decision__card dash-decision__card--secondary">
+            <span class="dash-decision__icon">&#10138;</span>
+            <h3>I Need Help Getting to $2,500</h3>
+            <p>Same system, different starting point. We'll show you how to get there in 3-6 months.</p>
+            <span class="dash-decision__cta">Show Me the Path &rarr;</span>
+          </a>
+        </div>
+        <p class="dash-decision__reassure">Both paths use the same system. Same tools. Same Blueprint. The only difference is your starting point.</p>
       </div>
 
       <!-- Quick Start Hero Card -->
+      <div id="quickstart-section"></div>
       <a href="/quickstart/" class="dash-hero-card">
         <div class="dash-hero-card__accent"></div>
         <div class="dash-hero-card__body">
