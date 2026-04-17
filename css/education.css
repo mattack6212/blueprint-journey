@@ -1,0 +1,289 @@
+/* ============================================
+   EDUCATION SERIES — Blueprint Journey
+   ============================================ */
+
+:root {
+  --edu-inkwell: #1A1718;
+  --edu-copper: #D85D23;
+  --edu-evergreen: #677F71;
+  --edu-ivory: #E0D6C7;
+  --edu-ivory-light: #F5F0E8;
+  --edu-white: #ffffff;
+  --edu-gray: #6b6566;
+  --edu-border: #d6cfc5;
+}
+
+/* Layout */
+.edu {
+  background-color: var(--edu-white);
+}
+
+.edu-container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero */
+.edu-hero {
+  background-color: var(--edu-inkwell);
+  padding: 60px 2rem 50px;
+  text-align: center;
+}
+
+.edu-hero__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.edu-hero__badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--edu-copper);
+  border: 1px solid var(--edu-copper);
+  padding: 4px 12px;
+  margin-bottom: 1.25rem;
+}
+
+.edu-hero h1 {
+  color: var(--edu-white);
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.edu-hero h1 span {
+  color: var(--edu-copper);
+}
+
+.edu-hero__sub {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--edu-ivory);
+  line-height: 1.7;
+}
+
+/* Lesson Nav */
+.edu-nav {
+  background-color: var(--edu-white);
+  border-bottom: 1px solid var(--edu-border);
+  position: sticky;
+  top: 64px;
+  z-index: 50;
+  padding: 0.75rem 2rem;
+}
+
+.edu-nav__inner {
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.edu-nav__link {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--edu-gray);
+  border: 2px solid var(--edu-border);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.edu-nav__link:hover {
+  border-color: var(--edu-copper);
+  color: var(--edu-copper);
+}
+
+.edu-nav__link--active {
+  background-color: var(--edu-copper);
+  border-color: var(--edu-copper);
+  color: var(--edu-white);
+}
+
+/* Lesson Sections */
+.edu-lesson {
+  padding: 4rem 2rem;
+  border-bottom: 1px solid var(--edu-border);
+}
+
+.edu-lesson:nth-child(even) {
+  background-color: var(--edu-ivory-light);
+}
+
+.edu-lesson__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.edu-lesson__number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--edu-copper);
+  opacity: 0.2;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 56px;
+}
+
+.edu-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--edu-copper);
+  margin-bottom: 0.25rem;
+}
+
+.edu-lesson__header h2 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* Content blocks */
+.edu-block {
+  margin-bottom: 2rem;
+}
+
+.edu-block__title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--edu-evergreen);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--edu-evergreen);
+  display: inline-block;
+}
+
+/* Lesson text */
+.edu-text {
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: var(--edu-gray);
+}
+
+.edu-text p {
+  margin-bottom: 1rem;
+}
+
+.edu-text h3 {
+  font-size: 1.125rem;
+  color: var(--edu-inkwell);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.edu-text strong {
+  color: var(--edu-inkwell);
+  font-weight: 600;
+}
+
+.edu-text ul, .edu-text ol {
+  margin: 0.75rem 0 1rem 1.5rem;
+}
+
+.edu-text li {
+  margin-bottom: 0.375rem;
+}
+
+.edu-text blockquote {
+  border-left: 4px solid var(--edu-copper);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background-color: var(--edu-ivory-light);
+  font-style: italic;
+  color: var(--edu-inkwell);
+}
+
+/* NotebookLM Script */
+.edu-script {
+  background-color: var(--edu-inkwell);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.edu-script__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--edu-copper);
+  margin-bottom: 1rem;
+}
+
+.edu-script pre {
+  font-family: var(--font-family);
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--edu-ivory);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Infographic grid */
+.edu-infographics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.edu-infographics img {
+  width: 100%;
+  border: 1px solid var(--edu-border);
+}
+
+/* Key Takeaway */
+.edu-takeaway {
+  background-color: var(--edu-evergreen);
+  padding: 1.5rem 2rem;
+}
+
+.edu-takeaway h4 {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.edu-takeaway p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--edu-white);
+  margin: 0;
+}
+
+/* Script toggle */
+.edu-script-toggle {
+  margin-bottom: 2rem;
+}
+
+.edu-script-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.edu-script-toggle[open] .edu-script {
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .edu-hero h1 { font-size: 1.75rem; }
+  .edu-lesson__header { flex-direction: column; gap: 0.5rem; }
+  .edu-lesson__number { font-size: 1.75rem; min-width: auto; }
+  .edu-infographics { grid-template-columns: 1fr; }
+  .edu-container { padding: 0 1.25rem; }
+}
