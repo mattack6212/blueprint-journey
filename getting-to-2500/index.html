@@ -3,14 +3,247 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Path to $2,500 — Foundation Financial</title>
-  <meta name="description" content="Most families get there in 3-6 months. Here's your roadmap to launching your Blueprint system.">
+  <title>Your Path to $2,500 — Blueprint Journey</title>
+  <meta name="description" content="Same system, different starting point. Most families get there in 3-6 months.">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    /* Page-specific styles */
+    .path-section {
+      padding: 4rem 2rem;
+      border-bottom: 1px solid var(--edu-border);
+    }
+    .path-section:nth-child(odd) {
+      background-color: var(--edu-ivory-light);
+    }
+    .path-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .path-section__number {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--edu-evergreen);
+      margin-bottom: 0.5rem;
+    }
+    .path-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .path-text {
+      font-size: 0.9375rem;
+      line-height: 1.85;
+      color: var(--edu-gray);
+    }
+    .path-text p { margin-bottom: 1rem; }
+    .path-text strong { color: var(--edu-inkwell); font-weight: 600; }
+    .path-text h3 {
+      font-size: 1.125rem;
+      color: var(--edu-inkwell);
+      margin: 2rem 0 0.75rem;
+    }
+    .path-text ul, .path-text ol {
+      margin: 0.75rem 0 1rem 1.5rem;
+    }
+    .path-text li { margin-bottom: 0.5rem; }
+    .path-text blockquote {
+      border-left: 4px solid var(--edu-copper);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: rgba(216, 93, 35, 0.04);
+      font-style: italic;
+      color: var(--edu-inkwell);
+    }
+
+    /* Option cards */
+    .path-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .path-option {
+      border: 2px solid var(--edu-border);
+      padding: 2rem;
+      position: relative;
+    }
+    .path-option:hover {
+      border-color: var(--edu-copper);
+    }
+    .path-option__tag {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--edu-copper);
+      margin-bottom: 0.75rem;
+    }
+    .path-option h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+      color: var(--edu-inkwell);
+    }
+    .path-option p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--edu-gray);
+      margin-bottom: 1rem;
+    }
+
+    /* Calculator */
+    .calc {
+      background: var(--edu-white);
+      border: 2px solid var(--edu-border);
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .calc__title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--edu-evergreen);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--edu-evergreen);
+    }
+    .calc__inputs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .calc__field label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--edu-gray);
+      margin-bottom: 0.375rem;
+    }
+    .calc__field input {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      border: 2px solid var(--edu-border);
+      border-radius: 0;
+      background: var(--edu-white);
+      color: var(--edu-inkwell);
+      outline: none;
+    }
+    .calc__field input:focus {
+      border-color: var(--edu-copper);
+    }
+    .calc__fixed {
+      font-size: 0.8125rem;
+      color: var(--edu-gray);
+      margin-bottom: 1.5rem;
+    }
+    .calc__fixed strong { color: var(--edu-inkwell); }
+    .calc__btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: var(--edu-copper);
+      color: var(--edu-white);
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+    }
+    .calc__btn:hover { background: #b94d1d; }
+
+    /* Amortization table */
+    .amort-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+    .amort-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: var(--edu-inkwell);
+      color: var(--edu-white);
+      font-weight: 600;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .amort-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--edu-border);
+      color: var(--edu-gray);
+    }
+    .amort-table tr:last-child td {
+      border-bottom: none;
+      font-weight: 700;
+      color: var(--edu-inkwell);
+    }
+    .amort-table .amt {
+      font-family: 'Roboto', sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+    #calc-output { display: none; }
+
+    /* Loan request form */
+    .loan-form {
+      margin-top: 1.5rem;
+    }
+    .loan-form .calc__field {
+      margin-bottom: 1rem;
+    }
+    .loan-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9375rem;
+      border: 2px solid var(--edu-border);
+      border-radius: 0;
+      background: var(--edu-white);
+      color: var(--edu-inkwell);
+      outline: none;
+      resize: vertical;
+      min-height: 80px;
+    }
+    .loan-form textarea:focus { border-color: var(--edu-copper); }
+
+    /* Celebration */
+    .path-celebrate {
+      text-align: center;
+      padding: 3rem;
+      background: var(--edu-evergreen);
+      margin: 2rem 0;
+    }
+    .path-celebrate h3 {
+      color: var(--edu-white);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .path-celebrate p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .path-options { grid-template-columns: 1fr; }
+      .calc__inputs { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Top Navigation -->
   <nav class="top-nav">
     <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
     <div class="top-nav__menu">
@@ -21,42 +254,321 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section style="background-color: #1A1718; padding: 100px 2rem 80px; text-align: center;">
-    <div style="max-width: 600px; margin: 0 auto;">
-      <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #677F71; margin-bottom: 1.5rem;">Foundation Financial</p>
-      <h1 style="color: #ffffff; font-size: 3rem; font-weight: 900; line-height: 1.15; margin-bottom: 1rem;">Your Path to <span style="color: #D85D23;">$2,500</span></h1>
-      <p style="font-size: 1.125rem; font-weight: 300; color: #E0D6C7; line-height: 1.7;">Most families get there in 3-6 months. Here's your roadmap.</p>
-    </div>
-  </section>
+  <div class="edu">
 
-  <!-- Coming Soon -->
-  <section style="padding: 80px 2rem; text-align: center; background-color: #F5F0E8;">
-    <div style="max-width: 520px; margin: 0 auto;">
+    <!-- Hero -->
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge">Your Path</p>
+        <h1>Getting to <span>$2,500</span></h1>
+        <p class="edu-hero__sub">Same system. Same tools. Same Blueprint.<br>You're just starting at a different point — and that's perfectly fine.</p>
+      </div>
+    </header>
 
-      <div style="display: inline-block; background-color: #677F71; color: #ffffff; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 6px 20px; margin-bottom: 2rem;">Coming Soon</div>
+    <!-- Nav -->
+    <nav class="edu-nav" id="edu-nav">
+      <div class="edu-nav__inner">
+        <a href="#not-behind" class="edu-nav__link edu-nav__link--active">You're Not Behind</a>
+        <a href="#commitment" class="edu-nav__link">Monthly Commitment</a>
+        <a href="#funding" class="edu-nav__link">Fund It</a>
+        <a href="#payback" class="edu-nav__link">Payback Schedule</a>
+        <a href="#repeat" class="edu-nav__link">Repeat &amp; Graduate</a>
+      </div>
+    </nav>
 
-      <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: #1A1718;">We're building your roadmap</h2>
-      <p style="font-size: 1rem; line-height: 1.8; color: #6b6566; margin-bottom: 2.5rem;">A step-by-step guide to saving your first $2,500 — with budgeting tools, savings strategies, and milestone tracking. You'll know exactly what to do each week.</p>
+    <!-- ==========================================
+         Section 1 — You're Not Behind
+         ========================================== -->
+    <section class="path-section" id="not-behind">
+      <div class="path-container">
+        <p class="path-section__number">Section 1</p>
+        <h2>You're Not Behind</h2>
+        <div class="path-text">
+          <p>Let's get something straight: you are not behind. You are not excluded. You are not on the "lesser" path. You are on <strong>the same path</strong> — you're just building your launch capital first.</p>
+          <p>Every person who has ever deployed the Blueprint started somewhere. Some started with $2,500 ready to go. Some started with $500 and built up over a few months. The system doesn't care how long it takes you to get to the starting line. It cares that you show up prepared.</p>
+          <p>Here's the truth most people won't tell you: <strong>the person who spends 3 months building to $2,500 with a plan often outperforms the person who had $2,500 on day one but never built the discipline.</strong> Because the discipline of consistent Monthly Commitments is the exact same discipline that makes the Blueprint work.</p>
 
-      <!-- Email Signup -->
-      <form name="path-to-2500" method="POST" data-netlify="true" style="max-width: 400px; margin: 0 auto;">
-        <input type="hidden" name="form-name" value="path-to-2500">
-        <label style="display: block; font-size: 0.8125rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #6b6566; margin-bottom: 0.5rem; text-align: left;">Get notified when this launches</label>
-        <div style="display: flex; gap: 0;">
-          <input type="email" name="email" required placeholder="you@example.com" style="flex: 1; padding: 14px 16px; font-family: 'Roboto', sans-serif; font-size: 0.9375rem; border: 2px solid #d6cfc5; border-right: none; border-radius: 0; background: #ffffff; color: #1A1718; outline: none;">
-          <button type="submit" style="padding: 14px 24px; background-color: #D85D23; color: #ffffff; font-family: 'Roboto', sans-serif; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border: 2px solid #D85D23; border-radius: 0; cursor: pointer;">Notify Me</button>
+          <blockquote>You're not asking "can I do this?" — you're asking "how fast can I get there?" That's a completely different question. And it has a very clear answer.</blockquote>
+
+          <h3>First Things First</h3>
+          <p>Before anything else on this page, go complete the <strong>Quick Start</strong>. You still need to:</p>
+          <ul>
+            <li>Set up your M1 Finance account</li>
+            <li>Build your Blueprint Portfolio pie (Foundation Holdings 65% / Accelerator Holdings 35%)</li>
+            <li>Set up your Earn accounts (Money In, Transfer, Money Out)</li>
+            <li>Configure your Smart Transfer Rules</li>
+          </ul>
+          <p>The only Quick Start step you'll skip for now is the initial $2,500 deposit. Everything else is the same.</p>
+
+          <a href="/quickstart/" class="btn btn-primary" style="margin-top: 1rem;">Complete the Quick Start First &rarr;</a>
+          <p style="font-size: 0.8125rem; color: var(--edu-gray); margin-top: 0.75rem;">Then come back here to fund your first deployment.</p>
         </div>
-      </form>
+      </div>
+    </section>
 
-      <!-- Contact -->
-      <p style="margin-top: 3rem; font-size: 0.875rem; color: #6b6566;">Questions? Email <a href="mailto:support@foundationfinancial.community" style="color: #D85D23; font-weight: 500;">support@foundationfinancial.community</a></p>
+    <!-- ==========================================
+         Section 2 — Choose Your Monthly Commitment
+         ========================================== -->
+    <section class="path-section" id="commitment">
+      <div class="path-container">
+        <p class="path-section__number">Section 2</p>
+        <h2>Choose Your Monthly Commitment</h2>
+        <div class="path-text">
+          <p>Your Monthly Commitment is the amount you contribute to your Blueprint every single month. It is the fuel that keeps the EARN system running. And it starts <strong>now</strong> — not when you hit $2,500.</p>
+          <p>Ask yourself one question: <strong>How much can I commit every month, consistently, without fail?</strong></p>
+          <p>The number matters less than the consistency. Here's why:</p>
+          <ul>
+            <li><strong>$200/month</strong> — builds to $2,500 in about 4 months with a funded loan, plus cashflow</li>
+            <li><strong>$500/month</strong> — gets there even faster, with more cashflow margin</li>
+            <li><strong>$1,000/month</strong> — aggressive timeline, strong payback capacity</li>
+          </ul>
+          <p>Pick a number you can hit every single month no matter what. If $200 is your honest number, that's your number. Don't stretch to $500 if it means missing a month. <strong>Consistency beats size.</strong></p>
 
-      <!-- Back link -->
-      <a href="/quickstart/" style="display: inline-block; margin-top: 2rem; font-size: 0.8125rem; font-weight: 500; color: #677F71; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;">&larr; Back to Quick Start</a>
-    </div>
-  </section>
+          <blockquote>Your Monthly Commitment isn't just paying back a loan. It's the same contribution that will power your Blueprint for years. You're building the habit now that makes the whole system work later.</blockquote>
+
+          <p>Once you've chosen your number, you'll use it in the payback calculator below to see exactly what your 3-month schedule looks like.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         Section 3 — Fund Your First Deployment
+         ========================================== -->
+    <section class="path-section" id="funding">
+      <div class="path-container">
+        <p class="path-section__number">Section 3</p>
+        <h2>Fund Your First Deployment</h2>
+        <div class="path-text">
+          <p>You need $2,500 to deploy the Blueprint. You don't have it yet. That's not a problem — it's a logistics question. Here are two structured ways to solve it.</p>
+        </div>
+
+        <div class="path-options">
+          <!-- Option A -->
+          <div class="path-option">
+            <p class="path-option__tag">Option A</p>
+            <h3>Borrow from a Loved One</h3>
+            <p>Same terms as Option B: 3-month payback at 9% annual interest. We provide a promissory note to protect the relationship.</p>
+            <p><strong>You're not asking for a gift.</strong> You're asking for a short-term loan that pays itself back in 90 days. The promissory note makes it professional. The 9% interest means they earn more than any savings account would pay them.</p>
+            <p style="font-size: 0.8125rem; color: var(--edu-evergreen);">Promissory note template available upon request.</p>
+          </div>
+
+          <!-- Option B -->
+          <div class="path-option">
+            <p class="path-option__tag">Option B</p>
+            <h3>Request a Loan from Foundation Financial</h3>
+            <p>Same terms: $2,500 at 9% annual interest, 3-month payback. Your Monthly Commitment plus portfolio cashflow covers the payments.</p>
+
+            <form class="loan-form" action="https://formsubmit.co/mattmcfarlane@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Loan Request - Getting to $2,500">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://mellow-sfogliatella-a18174.netlify.app/getting-to-2500/#funding">
+              <div class="calc__field">
+                <label for="loan-name">Your Name</label>
+                <input type="text" id="loan-name" name="name" required placeholder="Full name">
+              </div>
+              <div class="calc__field">
+                <label for="loan-email">Email</label>
+                <input type="email" id="loan-email" name="email" required placeholder="you@example.com">
+              </div>
+              <div class="calc__field">
+                <label for="loan-mc">Monthly Commitment ($)</label>
+                <input type="number" id="loan-mc" name="monthly_commitment" required placeholder="e.g. 500" min="100">
+              </div>
+              <div class="calc__field">
+                <label for="loan-msg">Brief Message (optional)</label>
+                <textarea id="loan-msg" name="message" placeholder="Anything you'd like us to know"></textarea>
+              </div>
+              <button type="submit" class="calc__btn">Submit Loan Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         Section 4 — Your 3-Month Payback Schedule
+         ========================================== -->
+    <section class="path-section" id="payback">
+      <div class="path-container">
+        <p class="path-section__number">Section 4</p>
+        <h2>Your 3-Month Payback Schedule</h2>
+        <div class="path-text">
+          <p>See exactly what your payback looks like. Enter your loan amount and Monthly Commitment — the calculator shows your 3-month amortization schedule at 9% annual interest.</p>
+        </div>
+
+        <div class="calc">
+          <p class="calc__title">Payback Calculator</p>
+          <div class="calc__inputs">
+            <div class="calc__field">
+              <label for="calc-loan">Loan Amount ($)</label>
+              <input type="number" id="calc-loan" placeholder="2500" min="500" step="100" value="2500">
+            </div>
+            <div class="calc__field">
+              <label for="calc-mc">Monthly Commitment ($)</label>
+              <input type="number" id="calc-mc" placeholder="500" min="50" step="50">
+            </div>
+          </div>
+          <p class="calc__fixed"><strong>Interest Rate:</strong> 9% annual &nbsp;|&nbsp; <strong>Term:</strong> 3 months</p>
+          <button class="calc__btn" onclick="calculatePayback()">Calculate Schedule</button>
+
+          <div id="calc-output">
+            <table class="amort-table">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Payment</th>
+                  <th>Interest</th>
+                  <th>Principal</th>
+                  <th>Remaining</th>
+                </tr>
+              </thead>
+              <tbody id="amort-body"></tbody>
+            </table>
+            <p id="calc-summary" style="margin-top: 1rem; font-size: 0.875rem; color: var(--edu-gray);"></p>
+          </div>
+        </div>
+
+        <div class="path-text">
+          <p>Your payment each month comes from two sources:</p>
+          <ul>
+            <li><strong>Your Monthly Commitment</strong> — the amount you chose in Section 2, deposited consistently</li>
+            <li><strong>Portfolio cashflow</strong> — dividends your Blueprint Portfolio generates from day one. This grows each month as the portfolio compounds.</li>
+          </ul>
+          <p>Together, these cover your loan payment and start Building the Base at the same time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         Section 5 — Repeat Until $2,500
+         ========================================== -->
+    <section class="path-section" id="repeat">
+      <div class="path-container">
+        <p class="path-section__number">Section 5</p>
+        <h2>Repeat Until $2,500</h2>
+        <div class="path-text">
+          <p>Here's where it gets exciting. Once you pay back the initial loan, you don't stop. You repeat.</p>
+
+          <h3>How Each Round Works</h3>
+          <ol>
+            <li><strong>Deploy capital</strong> — your loan funds go into the Blueprint Portfolio through the ROUTE system</li>
+            <li><strong>EARN system activates</strong> — Foundation Holdings and Accelerator Holdings start generating cashflow immediately</li>
+            <li><strong>Monthly Commitment + cashflow</strong> — together they pay down the loan over 3 months</li>
+            <li><strong>Loan paid off</strong> — your portfolio value has grown because contributions and dividends were reinvested the entire time</li>
+            <li><strong>Repeat</strong> — take another round if needed, or continue with Monthly Commitments alone</li>
+          </ol>
+
+          <h3>Each Round Gets Bigger</h3>
+          <p>This is the part most people don't see coming. Each round, your portfolio is larger than the last. That means:</p>
+          <ul>
+            <li><strong>More dividends</strong> — bigger portfolio = more cashflow each month</li>
+            <li><strong>Stacked cashflow</strong> — the dividends from round 1 are still paying while round 2 dividends start</li>
+            <li><strong>Faster payback</strong> — each subsequent round pays off faster because cashflow is higher</li>
+          </ul>
+
+          <h3>When You Graduate</h3>
+          <p>Your target: <strong>$2,500 in M1 portfolio value.</strong></p>
+          <p>Once your Blueprint Portfolio value hits $2,500, you have enough equity to activate the full EARN system. At that point:</p>
+          <ul>
+            <li>Open the <a href="https://tools.foundationfinancial.community" target="_blank" rel="noopener" style="color: var(--edu-copper);">Margin Health Monitor</a></li>
+            <li>Run your first real Money Date</li>
+            <li>Start managing margin utilization at 40-60% based on market signals</li>
+            <li>Your ROUTE system is already automated from the Quick Start</li>
+          </ul>
+        </div>
+
+        <div class="path-celebrate">
+          <h3>You did it.</h3>
+          <p>You built to $2,500. You deployed the Blueprint. You're running the same system as everyone else — because you always were. Now run the Margin Health Monitor and start your monthly Money Date.</p>
+        </div>
+
+        <div class="path-text" style="margin-top: 2rem; text-align: center;">
+          <a href="/quickstart/" class="btn btn-primary" style="margin-right: 1rem;">Start the Quick Start</a>
+          <a href="/education/margin-health-monitor/" class="btn btn-outline" style="border-color: var(--edu-copper); color: var(--edu-copper);">Learn the Monitor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section style="padding: 3rem 2rem; background: var(--edu-inkwell); text-align: center;">
+      <p style="font-size: 0.8125rem; color: #6b6566; max-width: 520px; margin: 0 auto;">Questions? Email <a href="mailto:support@foundationfinancial.community" style="color: var(--edu-copper);">support@foundationfinancial.community</a></p>
+      <p style="font-size: 0.6875rem; color: #4a4445; margin-top: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">Foundation Financial provides financial education and tools, not personalized investment advice. All investments involve risk. Content is for educational purposes only.</p>
+    </section>
+
+  </div>
 
   <script src="/js/auth.js"></script>
+  <script>
+    function calculatePayback() {
+      var loan = parseFloat(document.getElementById('calc-loan').value);
+      var mc = parseFloat(document.getElementById('calc-mc').value);
+      if (!loan || !mc || loan <= 0 || mc <= 0) return;
+
+      var annualRate = 0.09;
+      var monthlyRate = annualRate / 12;
+      var term = 3;
+      var balance = loan;
+      var totalInterest = 0;
+      var totalPaid = 0;
+      var tbody = document.getElementById('amort-body');
+      tbody.innerHTML = '';
+
+      for (var m = 1; m <= term; m++) {
+        var interest = balance * monthlyRate;
+        var payment = (m < term) ? mc : balance + interest;
+        var principal = payment - interest;
+
+        if (principal > balance) {
+          principal = balance;
+          payment = principal + interest;
+        }
+
+        balance = balance - principal;
+        if (balance < 0.01) balance = 0;
+        totalInterest += interest;
+        totalPaid += payment;
+
+        var row = '<tr>'
+          + '<td>Month ' + m + '</td>'
+          + '<td class="amt">$' + payment.toFixed(2) + '</td>'
+          + '<td class="amt">$' + interest.toFixed(2) + '</td>'
+          + '<td class="amt">$' + principal.toFixed(2) + '</td>'
+          + '<td class="amt">$' + balance.toFixed(2) + '</td>'
+          + '</tr>';
+        tbody.innerHTML += row;
+      }
+
+      // If balance remaining after 3 months
+      if (balance > 0) {
+        var extra = Math.ceil(balance / mc);
+        document.getElementById('calc-summary').innerHTML =
+          '<strong>Note:</strong> $' + balance.toFixed(2) + ' remaining after 3 months at $' + mc.toFixed(0)
+          + '/month. You may need ' + (term + extra) + ' months total, or increase your Monthly Commitment. '
+          + 'Total interest paid: <strong>$' + totalInterest.toFixed(2) + '</strong>';
+      } else {
+        document.getElementById('calc-summary').innerHTML =
+          'Loan paid in full in 3 months. Total interest: <strong>$' + totalInterest.toFixed(2)
+          + '</strong>. Total paid: <strong>$' + totalPaid.toFixed(2) + '</strong>';
+      }
+
+      document.getElementById('calc-output').style.display = 'block';
+    }
+
+    // Sticky nav
+    (function () {
+      var sections = document.querySelectorAll('.path-section');
+      var navLinks = document.querySelectorAll('.edu-nav__link');
+      window.addEventListener('scroll', function () {
+        var scrollPos = window.scrollY + 140;
+        var current = 0;
+        sections.forEach(function (s, i) {
+          if (s.offsetTop <= scrollPos) { current = i; }
+        });
+        navLinks.forEach(function (link, i) {
+          link.classList.toggle('edu-nav__link--active', i === current);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
