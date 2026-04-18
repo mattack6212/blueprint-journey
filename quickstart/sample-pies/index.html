@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blueprint Portfolio Sample Pies — Foundation Financial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Foundation Financial brand palette
+     Inkwell #1A1718 · Copper #D85D23 · Evergreen #677F71 · Ivory #E0D6C7 */
+  --bg: #1A1718;              /* Inkwell */
+  --card-bg: #25201F;         /* Inkwell, lifted */
+  --navy: #2A2322;            /* deeper Inkwell for headers */
+  --navy-light: #3A302E;
+  --teal: #677F71;            /* Evergreen — Foundation accent */
+  --teal-dim: rgba(103,127,113,0.18);
+  --teal-glow: rgba(103,127,113,0.35);
+  --text: #E0D6C7;            /* Ivory */
+  --text-dim: #9E978B;
+  --text-muted: #7A7268;
+  --border: #3A3230;
+  --red: #C94A2E;             /* earth-toned warning — close to Copper family */
+  --red-dim: rgba(201,74,46,0.15);
+  --orange: #D85D23;          /* Copper — Accelerator accent */
+  --orange-dim: rgba(216,93,35,0.18);
+  --green: #677F71;           /* Evergreen (used for pass states) */
+  --green-dim: rgba(103,127,113,0.18);
+  --blue: #8FA99C;            /* muted Evergreen tint */
+  --purple: #B08560;          /* warm bronze (Copper tint) */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.4;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--teal-dim);
+  color: var(--teal);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(103,127,113,0.3);
+  margin-bottom: 24px;
+  position: relative;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero h1 span { color: var(--teal); }
+.hero p {
+  font-size: 1.125rem;
+  color: var(--text-dim);
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ── FRAMEWORK ── */
+.framework {
+  padding: 60px 0;
+}
+.framework-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.framework-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.framework-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.framework-card.foundation::before { background: var(--teal); }
+.framework-card.accelerator::before { background: var(--orange); }
+.framework-card .card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.framework-card.foundation .card-icon {
+  background: var(--teal-dim);
+}
+.framework-card.accelerator .card-icon {
+  background: var(--orange-dim);
+}
+.framework-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.framework-card .subtitle {
+  font-size: 0.875rem;
+  color: var(--teal);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.framework-card.accelerator .subtitle { color: var(--orange); }
+.framework-card p {
+  color: var(--text-dim);
+  font-size: 0.9375rem;
+}
+.framework-card ul {
+  list-style: none;
+  margin-top: 12px;
+}
+.framework-card ul li {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.framework-card ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+}
+.framework-card.accelerator ul li::before { color: var(--orange); }
+
+.split-explanation {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 24px;
+  text-align: center;
+}
+.split-bar {
+  display: flex;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 500px;
+}
+.split-bar .foundation-bar {
+  width: 65%;
+  background: linear-gradient(135deg, var(--navy), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.split-bar .accelerator-bar {
+  width: 35%;
+  background: linear-gradient(135deg, var(--orange), #E88A4A);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #1A1718;
+}
+
+/* ── SECTION HEADINGS ── */
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.section-subtitle {
+  color: var(--text-dim);
+  font-size: 1rem;
+  margin-bottom: 32px;
+}
+
+/* ── PORTFOLIO CARDS ── */
+.portfolio-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+.portfolio-header {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.portfolio-header h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.portfolio-header .tier-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-left: 12px;
+}
+.tier-conservative .tier-badge { background: var(--green-dim); color: var(--green); }
+.tier-balanced .tier-badge { background: var(--orange-dim); color: var(--orange); }
+.tier-aggressive .tier-badge { background: var(--red-dim); color: var(--red); }
+
+.yield-display {
+  text-align: right;
+}
+.yield-display .yield-number {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1;
+}
+.yield-display .yield-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.portfolio-body {
+  padding: 36px;
+}
+
+/* ── PIE SECTIONS ── */
+.pie-section {
+  margin-bottom: 36px;
+}
+.pie-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.pie-section-header .dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.pie-section-header .dot.foundation-dot { background: var(--teal); }
+.pie-section-header .dot.accelerator-dot { background: var(--orange); }
+.pie-section-header h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.pie-section-header .pct {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  margin-left: auto;
+}
+.pie-section-header .weighted-yield {
+  font-size: 0.875rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.pie-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ── CSS PIE CHARTS ── */
+.pie-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.pie-chart {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+}
+.pie-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  justify-content: center;
+}
+.pie-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+.pie-legend-item .swatch {
+  width: 8px; height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── TABLES ── */
+.holdings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.holdings-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.holdings-table td {
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(58,50,48,0.5);
+}
+.holdings-table tr:last-child td { border-bottom: none; }
+.holdings-table .ticker {
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+.holdings-table .alloc {
+  font-weight: 600;
+  color: var(--teal);
+}
+.holdings-table .yield-cell {
+  font-weight: 600;
+}
+.holdings-table .desc {
+  color: var(--text-dim);
+  font-size: 0.8125rem;
+}
+
+/* ── BLENDED YIELD CALC ── */
+.blended-calc {
+  background: rgba(103,127,113,0.06);
+  border: 1px solid rgba(103,127,113,0.18);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.calc-part {
+  text-align: center;
+}
+.calc-part .label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.calc-part .value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.calc-operator {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+.calc-result .value {
+  color: var(--teal);
+  font-size: 1.5rem;
+}
+
+/* ── SCORECARD ── */
+.scorecard {
+  margin-top: 36px;
+}
+.scorecard h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.scorecard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.scorecard-item {
+  background: rgba(37,32,31,0.7);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.scorecard-item .check {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--green-dim);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.scorecard-item .sc-content { flex: 1; }
+.scorecard-item .sc-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.scorecard-item .sc-target {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+.scorecard-item .sc-fail {
+  font-size: 0.7rem;
+  color: var(--red);
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* ── RISK PROFILE ── */
+.risk-profile {
+  margin-top: 36px;
+  background: rgba(37,32,31,0.7);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+}
+.risk-profile h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.risk-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.risk-metric {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.risk-metric .metric-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.risk-metric .metric-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* ── MARKET REGIME BOX ── */
+.regime-box {
+  margin-top: 24px;
+  background: var(--red-dim);
+  border: 1px solid rgba(201,74,46,0.3);
+  border-radius: 10px;
+  padding: 24px;
+}
+.regime-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.regime-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.regime-item {
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 6px;
+}
+.regime-item .regime-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.regime-item .regime-desc {
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+}
+.regime-note {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid var(--red);
+}
+
+/* ── DO NOT BUY ── */
+.dnb-section {
+  padding: 60px 0;
+}
+.dnb-card {
+  background: var(--red-dim);
+  border: 1px solid rgba(201,74,46,0.3);
+  border-radius: 12px;
+  padding: 32px;
+}
+.dnb-card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+.dnb-card .dnb-subtitle {
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+.dnb-tickers {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.dnb-ticker {
+  background: rgba(201,74,46,0.15);
+  border: 1px solid rgba(201,74,46,0.3);
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--red);
+  position: relative;
+}
+.dnb-ticker::before {
+  content: '✕';
+  margin-right: 6px;
+  font-size: 0.75rem;
+}
+.dnb-reason {
+  color: var(--text-dim);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  text-align: center;
+  padding: 48px 24px 64px;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.disclaimer strong { color: var(--text-dim); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .framework-grid { grid-template-columns: 1fr; }
+  .pie-layout { grid-template-columns: 1fr; }
+  .pie-chart-container { margin: 0 auto 16px; }
+  .scorecard-grid { grid-template-columns: 1fr; }
+  .risk-metrics { grid-template-columns: 1fr; }
+  .regime-grid { grid-template-columns: 1fr; }
+  .portfolio-header { flex-direction: column; text-align: center; }
+  .yield-display { text-align: center; }
+  .blended-calc { flex-direction: column; gap: 12px; }
+}
+
+/* ── PRINT ── */
+@media print {
+  body { background: #fff; color: #111; font-size: 10pt; }
+  .hero { padding: 30px 0; }
+  .hero::before { display: none; }
+  .hero h1 { color: #111; font-size: 24pt; }
+  .hero h1 span { color: #2A2322; }
+  .hero p, .section-subtitle { color: #555; }
+  .hero-badge { background: #eee; color: #2A2322; border-color: #ccc; }
+  .container { max-width: 100%; }
+  .portfolio-card { break-inside: avoid; border: 1px solid #ddd; margin-bottom: 24px; }
+  .portfolio-header { background: #2A2322 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .portfolio-body { padding: 20px; }
+  .card-bg, .framework-card, .split-explanation, .dnb-card, .risk-profile, .scorecard-item {
+    background: #f8f9fa !important;
+    border-color: #ddd !important;
+  }
+  .holdings-table th { color: #666; }
+  .holdings-table td { color: #222; }
+  .holdings-table .desc { color: #666; }
+  .holdings-table .ticker { color: #111; }
+  .holdings-table .alloc { color: #2A2322; }
+  .pie-chart-container { page-break-inside: avoid; }
+  .scorecard-grid { grid-template-columns: 1fr 1fr; }
+  .dnb-card { background: #fff5f5 !important; }
+  .dnb-ticker { background: #fff5f5 !important; }
+  .blended-calc { background: #f0faf7 !important; border-color: #cde8e0 !important; }
+  .regime-box { background: #fff5f5 !important; }
+  a { color: #2A2322; }
+  .yield-display .yield-number { color: #2A2322; }
+  .framework-card.foundation::before, .framework-card.accelerator::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+
+/* ── PIE CHART COLORS ── */
+.pie-c1 { --clr: #677F71; }
+.pie-c2 { --clr: #8FA99C; }
+.pie-c3 { --clr: #B08560; }
+.pie-c4 { --clr: #D85D23; }
+.pie-c5 { --clr: #4E6358; }
+.pie-c6 { --clr: #C94A2E; }
+.pie-c7 { --clr: #C4955A; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-badge">Foundation Financial</div>
+  <h1>Blueprint Portfolio<br><span>Sample Pies</span></h1>
+  <p>Three income-focused model portfolios built on the Foundation + Accelerator framework. Designed for yield, diversified by strategy, and stress-tested against the PLEX Guardrail Scorecard.</p>
+</section>
+
+<!-- ═══════════════════ FRAMEWORK ═══════════════════ -->
+<section class="framework">
+  <div class="container">
+    <h2 class="section-title">The Two-Engine Framework</h2>
+    <p class="section-subtitle">Every Blueprint portfolio runs on two complementary engines working together.</p>
+
+    <div class="framework-grid">
+      <div class="framework-card foundation">
+        <div class="card-icon">🏗️</div>
+        <h3>Foundation Pie</h3>
+        <div class="subtitle">Patient Capital — Builds the House</div>
+        <p>Stable, compounding positions that form the bedrock of the portfolio. Distributions are DRIP-reinvested to grow the base over time.</p>
+        <ul>
+          <li>Bond CEFs, BDCs, MLPs, mortgage REITs</li>
+          <li>Lower volatility, proven multi-cycle track records</li>
+          <li>Compounds quietly — the wealth engine</li>
+          <li>Target: 65% of total portfolio</li>
+        </ul>
+      </div>
+      <div class="framework-card accelerator">
+        <div class="card-icon">⚡</div>
+        <h3>Accelerator Pie</h3>
+        <div class="subtitle">Active Capital — Pays the Bills</div>
+        <p>Higher-yield positions that generate monthly cash flow for income needs or reinvestment. These circulate cash — they don't compound it.</p>
+        <ul>
+          <li>Covered-call ETFs, 0DTE strategies, options-based income</li>
+          <li>Higher distributions, capped upside</li>
+          <li>Cash flow now — the income engine</li>
+          <li>Target: 35% of total portfolio</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-explanation">
+      <p style="font-weight:600; margin-bottom:8px;">Why 65/35?</p>
+      <div class="split-bar">
+        <div class="foundation-bar">65% Foundation</div>
+        <div class="accelerator-bar">35% Accelerator</div>
+      </div>
+      <p style="color:var(--text-dim); font-size:0.875rem; max-width:600px; margin:0 auto;">The majority sits in patient, compounding capital that builds long-term wealth. The smaller Accelerator slice generates enough cash to cover income needs without requiring you to sell positions. Together, they create a self-sustaining system.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PORTFOLIOS ═══════════════════ -->
+<section style="padding: 40px 0 60px;">
+  <div class="container">
+    <h2 class="section-title">Model Portfolios</h2>
+    <p class="section-subtitle">Choose your risk tier. Each portfolio maintains the 65/35 Foundation-Accelerator split.</p>
+
+    <!-- ────────── CONSERVATIVE ────────── -->
+    <div class="portfolio-card">
+      <div class="portfolio-header tier-conservative">
+        <div>
+          <h2>Conservative Blueprint <span class="tier-badge">Low Risk</span></h2>
+          <p style="color:var(--text-dim); font-size:0.875rem; margin-top:4px;">Stability-first income with proven, multi-cycle holdings</p>
+        </div>
+        <div class="yield-display">
+          <div class="yield-number">~13%</div>
+          <div class="yield-label">Target Blended Yield</div>
+        </div>
+      </div>
+      <div class="portfolio-body">
+
+        <!-- Foundation Pie -->
+        <div class="pie-section">
+          <div class="pie-section-header">
+            <div class="dot foundation-dot"></div>
+            <h3>Foundation Pie</h3>
+            <span class="pct">65% of portfolio</span>
+            <span class="weighted-yield">Weighted yield: ~13.2%</span>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-container">
+              <div class="pie-chart" style="background: conic-gradient(
+                #677F71 0deg 72deg,
+                #8FA99C 72deg 144deg,
+                #B08560 144deg 198deg,
+                #D85D23 198deg 252deg,
+                #4E6358 252deg 306deg,
+                #C4955A 306deg 360deg
+              );"></div>
+              <div class="pie-legend">
+                <div class="pie-legend-item"><span class="swatch" style="background:#677F71"></span>PDI 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#8FA99C"></span>TRIN 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#B08560"></span>DX 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#D85D23"></span>OXLC 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#4E6358"></span>MFIC 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#C4955A"></span>PFN 15%</div>
+              </div>
+            </div>
+            <table class="holdings-table">
+              <thead>
+                <tr><th>Ticker</th><th>Allocation</th><th>Yield</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="ticker">PDI</td><td class="alloc">20%</td><td class="yield-cell">~13%</td><td class="desc">PIMCO Dynamic Income Fund — bond CEF</td></tr>
+                <tr><td class="ticker">TRIN</td><td class="alloc">20%</td><td class="yield-cell">~14%</td><td class="desc">Trinity Capital — BDC</td></tr>
+                <tr><td class="ticker">DX</td><td class="alloc">15%</td><td class="yield-cell">~13%</td><td class="desc">Dynex Capital — mortgage REIT</td></tr>
+                <tr><td class="ticker">OXLC</td><td class="alloc">15%</td><td class="yield-cell">~18%</td><td class="desc">Oxford Lane Capital — CLO CEF</td></tr>
+                <tr><td class="ticker">MFIC</td><td class="alloc">15%</td><td class="yield-cell">~11%</td><td class="desc">MidCap Financial Investment Corp — BDC</td></tr>
+                <tr><td class="ticker">PFN</td><td class="alloc">15%</td><td class="yield-cell">~10%</td><td class="desc">PIMCO Income Strategy Fund II — bond CEF</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Accelerator Pie -->
+        <div class="pie-section">
+          <div class="pie-section-header">
+            <div class="dot accelerator-dot"></div>
+            <h3>Accelerator Pie</h3>
+            <span class="pct">35% of portfolio</span>
+            <span class="weighted-yield">Weighted yield: ~12.75%</span>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-container">
+              <div class="pie-chart" style="background: conic-gradient(
+                #D85D23 0deg 90deg,
+                #8FA99C 90deg 180deg,
+                #B08560 180deg 270deg,
+                #4E6358 270deg 360deg
+              );"></div>
+              <div class="pie-legend">
+                <div class="pie-legend-item"><span class="swatch" style="background:#D85D23"></span>QQQI 25%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#8FA99C"></span>SPYI 25%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#B08560"></span>JEPQ 25%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#4E6358"></span>IWMI 25%</div>
+              </div>
+            </div>
+            <table class="holdings-table">
+              <thead>
+                <tr><th>Ticker</th><th>Allocation</th><th>Yield</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="ticker">QQQI</td><td class="alloc">25%</td><td class="yield-cell">~15%</td><td class="desc">NEOS Nasdaq-100 High Income ETF — covered call</td></tr>
+                <tr><td class="ticker">SPYI</td><td class="alloc">25%</td><td class="yield-cell">~12%</td><td class="desc">NEOS S&P 500 High Income ETF — covered call</td></tr>
+                <tr><td class="ticker">JEPQ</td><td class="alloc">25%</td><td class="yield-cell">~10%</td><td class="desc">JPMorgan Nasdaq Equity Premium Income</td></tr>
+                <tr><td class="ticker">IWMI</td><td class="alloc">25%</td><td class="yield-cell">~14%</td><td class="desc">iShares Russell 2000 Covered Call ETF</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Blended Yield -->
+        <div class="blended-calc">
+          <div class="calc-part">
+            <div class="label">Foundation (65%)</div>
+            <div class="value">13.2%</div>
+          </div>
+          <div class="calc-operator">×</div>
+          <div class="calc-part">
+            <div class="label">Weight</div>
+            <div class="value">0.65</div>
+          </div>
+          <div class="calc-operator">+</div>
+          <div class="calc-part">
+            <div class="label">Accelerator (35%)</div>
+            <div class="value">12.75%</div>
+          </div>
+          <div class="calc-operator">×</div>
+          <div class="calc-part">
+            <div class="label">Weight</div>
+            <div class="value">0.35</div>
+          </div>
+          <div class="calc-operator">=</div>
+          <div class="calc-part calc-result">
+            <div class="label">Blended Yield</div>
+            <div class="value">≈ 13.0%</div>
+          </div>
+        </div>
+
+        <!-- PLEX Scorecard -->
+        <div class="scorecard">
+          <h3>🛡️ PLEX Guardrail Scorecard</h3>
+          <div class="scorecard-grid">
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Diversification</div>
+                <div class="sc-target">5+ distinct strategies: Bond CEF, BDC, mREIT, CLO, CC ETF</div>
+                <div class="sc-fail">Failure mode: concentration risk</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Correlation</div>
+                <div class="sc-target">Target: &lt;0.7 avg pair correlation</div>
+                <div class="sc-fail">Failure mode: correlated drawdowns</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Max Drawdown</div>
+                <div class="sc-target">Target: &lt;15% peak-to-trough</div>
+                <div class="sc-fail">Failure mode: yield-chasing blowup</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Yield Sustainability</div>
+                <div class="sc-target">Target: ~13% blended — no NAV-eroding ETFs</div>
+                <div class="sc-fail">Failure mode: distribution from return of capital</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Volatility</div>
+                <div class="sc-target">Target: &lt;12% annualized</div>
+                <div class="sc-fail">Failure mode: psychological holding difficulty</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Holdings Count</div>
+                <div class="sc-target">10 holdings (target: 20-35 at portfolio level)</div>
+                <div class="sc-fail">Failure mode: single-position risk or over-dilution</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Sector Count</div>
+                <div class="sc-target">5+ sectors: Fixed income, BDC, mREIT, CLO, Equity CC</div>
+                <div class="sc-fail">Failure mode: hidden concentration</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Category Allocation</div>
+                <div class="sc-target">65% Foundation / 35% Accelerator</div>
+                <div class="sc-fail">Failure mode: drift to Cashflow-heavy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Profile -->
+        <div class="risk-profile">
+          <h3>📊 Risk Profile</h3>
+          <div class="risk-metrics">
+            <div class="risk-metric">
+              <div class="metric-label">Expected Volatility</div>
+              <div class="metric-value" style="color:var(--green)">8–12%</div>
+            </div>
+            <div class="risk-metric">
+              <div class="metric-label">Max Drawdown Range</div>
+              <div class="metric-value" style="color:var(--green)">10–18%</div>
+            </div>
+            <div class="risk-metric">
+              <div class="metric-label">Recovery Profile</div>
+              <div class="metric-value" style="color:var(--green)">Moderate</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ────────── BALANCED ────────── -->
+    <div class="portfolio-card">
+      <div class="portfolio-header tier-balanced">
+        <div>
+          <h2>Balanced Blueprint <span class="tier-badge">Medium Risk</span></h2>
+          <p style="color:var(--text-dim); font-size:0.875rem; margin-top:4px;">Higher yield with a mix of leveraged CEFs and 0DTE strategies</p>
+        </div>
+        <div class="yield-display">
+          <div class="yield-number">~17%</div>
+          <div class="yield-label">Target Blended Yield</div>
+        </div>
+      </div>
+      <div class="portfolio-body">
+
+        <!-- Foundation Pie -->
+        <div class="pie-section">
+          <div class="pie-section-header">
+            <div class="dot foundation-dot"></div>
+            <h3>Foundation Pie</h3>
+            <span class="pct">65% of portfolio</span>
+            <span class="weighted-yield">Weighted yield: ~15.3%</span>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-container">
+              <div class="pie-chart" style="background: conic-gradient(
+                #677F71 0deg 54deg,
+                #8FA99C 54deg 108deg,
+                #B08560 108deg 162deg,
+                #D85D23 162deg 216deg,
+                #4E6358 216deg 270deg,
+                #C4955A 270deg 324deg,
+                #C94A2E 324deg 360deg
+              );"></div>
+              <div class="pie-legend">
+                <div class="pie-legend-item"><span class="swatch" style="background:#677F71"></span>CLM 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#8FA99C"></span>CRF 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#B08560"></span>TRIN 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#D85D23"></span>PDI 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#4E6358"></span>OXLC 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#C4955A"></span>DX 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#C94A2E"></span>STRC 10%</div>
+              </div>
+            </div>
+            <table class="holdings-table">
+              <thead>
+                <tr><th>Ticker</th><th>Allocation</th><th>Yield</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="ticker">CLM</td><td class="alloc">15%</td><td class="yield-cell">~19%</td><td class="desc">Cornerstone Strategic Value Fund — leveraged CEF</td></tr>
+                <tr><td class="ticker">CRF</td><td class="alloc">15%</td><td class="yield-cell">~19%</td><td class="desc">Cornerstone Total Return Fund — leveraged CEF</td></tr>
+                <tr><td class="ticker">TRIN</td><td class="alloc">15%</td><td class="yield-cell">~14%</td><td class="desc">Trinity Capital — BDC</td></tr>
+                <tr><td class="ticker">PDI</td><td class="alloc">15%</td><td class="yield-cell">~13%</td><td class="desc">PIMCO Dynamic Income Fund — bond CEF</td></tr>
+                <tr><td class="ticker">OXLC</td><td class="alloc">15%</td><td class="yield-cell">~18%</td><td class="desc">Oxford Lane Capital — CLO CEF</td></tr>
+                <tr><td class="ticker">DX</td><td class="alloc">15%</td><td class="yield-cell">~13%</td><td class="desc">Dynex Capital — mortgage REIT</td></tr>
+                <tr><td class="ticker">STRC</td><td class="alloc">10%</td><td class="yield-cell">~10%</td><td class="desc">Sarissa Capital Acquisition — CLO</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Accelerator Pie -->
+        <div class="pie-section">
+          <div class="pie-section-header">
+            <div class="dot accelerator-dot"></div>
+            <h3>Accelerator Pie</h3>
+            <span class="pct">35% of portfolio</span>
+            <span class="weighted-yield">Weighted yield: ~21.3%</span>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-container">
+              <div class="pie-chart" style="background: conic-gradient(
+                #D85D23 0deg 90deg,
+                #8FA99C 90deg 162deg,
+                #B08560 162deg 234deg,
+                #4E6358 234deg 306deg,
+                #C4955A 306deg 360deg
+              );"></div>
+              <div class="pie-legend">
+                <div class="pie-legend-item"><span class="swatch" style="background:#D85D23"></span>XDTE 25%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#8FA99C"></span>QDTE 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#B08560"></span>QQQI 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#4E6358"></span>FEPI 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#C4955A"></span>SPYI 15%</div>
+              </div>
+            </div>
+            <table class="holdings-table">
+              <thead>
+                <tr><th>Ticker</th><th>Allocation</th><th>Yield</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="ticker">XDTE</td><td class="alloc">25%</td><td class="yield-cell">~28%</td><td class="desc">Roundhill S&P 500 0DTE Covered Call ETF</td></tr>
+                <tr><td class="ticker">QDTE</td><td class="alloc">20%</td><td class="yield-cell">~30%</td><td class="desc">Roundhill Nasdaq 0DTE Covered Call ETF</td></tr>
+                <tr><td class="ticker">QQQI</td><td class="alloc">20%</td><td class="yield-cell">~15%</td><td class="desc">NEOS Nasdaq-100 High Income ETF — covered call</td></tr>
+                <tr><td class="ticker">FEPI</td><td class="alloc">20%</td><td class="yield-cell">~18%</td><td class="desc">REX FANG+ Equity Premium Income ETF</td></tr>
+                <tr><td class="ticker">SPYI</td><td class="alloc">15%</td><td class="yield-cell">~12%</td><td class="desc">NEOS S&P 500 High Income ETF — covered call</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Blended Yield -->
+        <div class="blended-calc">
+          <div class="calc-part">
+            <div class="label">Foundation (65%)</div>
+            <div class="value">15.3%</div>
+          </div>
+          <div class="calc-operator">×</div>
+          <div class="calc-part">
+            <div class="label">Weight</div>
+            <div class="value">0.65</div>
+          </div>
+          <div class="calc-operator">+</div>
+          <div class="calc-part">
+            <div class="label">Accelerator (35%)</div>
+            <div class="value">21.3%</div>
+          </div>
+          <div class="calc-operator">×</div>
+          <div class="calc-part">
+            <div class="label">Weight</div>
+            <div class="value">0.35</div>
+          </div>
+          <div class="calc-operator">=</div>
+          <div class="calc-part calc-result">
+            <div class="label">Blended Yield</div>
+            <div class="value">≈ 17.4%</div>
+          </div>
+        </div>
+
+        <!-- PLEX Scorecard -->
+        <div class="scorecard">
+          <h3>🛡️ PLEX Guardrail Scorecard</h3>
+          <div class="scorecard-grid">
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Diversification</div>
+                <div class="sc-target">6+ strategies: Leveraged CEF, BDC, Bond CEF, CLO, mREIT, CC ETF, 0DTE</div>
+                <div class="sc-fail">Failure mode: concentration risk</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Correlation</div>
+                <div class="sc-target">Target: &lt;0.7 avg pair correlation</div>
+                <div class="sc-fail">Failure mode: correlated drawdowns</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Max Drawdown</div>
+                <div class="sc-target">Target: &lt;20% peak-to-trough</div>
+                <div class="sc-fail">Failure mode: yield-chasing blowup</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Yield Sustainability</div>
+                <div class="sc-target">Target: ~17% blended — monitor CLM/CRF NAV trends</div>
+                <div class="sc-fail">Failure mode: distribution from return of capital</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Volatility</div>
+                <div class="sc-target">Target: &lt;15% annualized</div>
+                <div class="sc-fail">Failure mode: psychological holding difficulty</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Holdings Count</div>
+                <div class="sc-target">12 holdings (target: 20-35 at portfolio level)</div>
+                <div class="sc-fail">Failure mode: single-position risk or over-dilution</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Sector Count</div>
+                <div class="sc-target">6+ sectors: Lev. CEF, BDC, Bond CEF, CLO, mREIT, Equity CC, 0DTE</div>
+                <div class="sc-fail">Failure mode: hidden concentration</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Category Allocation</div>
+                <div class="sc-target">65% Foundation / 35% Accelerator</div>
+                <div class="sc-fail">Failure mode: drift to Cashflow-heavy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Profile -->
+        <div class="risk-profile">
+          <h3>📊 Risk Profile</h3>
+          <div class="risk-metrics">
+            <div class="risk-metric">
+              <div class="metric-label">Expected Volatility</div>
+              <div class="metric-value" style="color:var(--orange)">12–16%</div>
+            </div>
+            <div class="risk-metric">
+              <div class="metric-label">Max Drawdown Range</div>
+              <div class="metric-value" style="color:var(--orange)">15–25%</div>
+            </div>
+            <div class="risk-metric">
+              <div class="metric-label">Recovery Profile</div>
+              <div class="metric-value" style="color:var(--orange)">Moderate-Slow</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ────────── AGGRESSIVE ────────── -->
+    <div class="portfolio-card">
+      <div class="portfolio-header tier-aggressive">
+        <div>
+          <h2>Aggressive Blueprint <span class="tier-badge">High Risk</span></h2>
+          <p style="color:var(--text-dim); font-size:0.875rem; margin-top:4px;">Maximum yield — leveraged CEFs paired with 0DTE and AI-focused premium strategies</p>
+        </div>
+        <div class="yield-display">
+          <div class="yield-number">~21%</div>
+          <div class="yield-label">Target Blended Yield</div>
+        </div>
+      </div>
+      <div class="portfolio-body">
+
+        <!-- Foundation Pie -->
+        <div class="pie-section">
+          <div class="pie-section-header">
+            <div class="dot foundation-dot"></div>
+            <h3>Foundation Pie</h3>
+            <span class="pct">65% of portfolio</span>
+            <span class="weighted-yield">Weighted yield: ~16.5%</span>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-container">
+              <div class="pie-chart" style="background: conic-gradient(
+                #677F71 0deg 72deg,
+                #8FA99C 72deg 144deg,
+                #B08560 144deg 216deg,
+                #D85D23 216deg 270deg,
+                #4E6358 270deg 324deg,
+                #C4955A 324deg 360deg
+              );"></div>
+              <div class="pie-legend">
+                <div class="pie-legend-item"><span class="swatch" style="background:#677F71"></span>CLM 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#8FA99C"></span>CRF 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#B08560"></span>OXLC 20%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#D85D23"></span>TRIN 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#4E6358"></span>DX 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#C4955A"></span>STRC 10%</div>
+              </div>
+            </div>
+            <table class="holdings-table">
+              <thead>
+                <tr><th>Ticker</th><th>Allocation</th><th>Yield</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="ticker">CLM</td><td class="alloc">20%</td><td class="yield-cell">~19%</td><td class="desc">Cornerstone Strategic Value Fund — leveraged CEF</td></tr>
+                <tr><td class="ticker">CRF</td><td class="alloc">20%</td><td class="yield-cell">~19%</td><td class="desc">Cornerstone Total Return Fund — leveraged CEF</td></tr>
+                <tr><td class="ticker">OXLC</td><td class="alloc">20%</td><td class="yield-cell">~18%</td><td class="desc">Oxford Lane Capital — CLO CEF</td></tr>
+                <tr><td class="ticker">TRIN</td><td class="alloc">15%</td><td class="yield-cell">~14%</td><td class="desc">Trinity Capital — BDC</td></tr>
+                <tr><td class="ticker">DX</td><td class="alloc">15%</td><td class="yield-cell">~13%</td><td class="desc">Dynex Capital — mortgage REIT</td></tr>
+                <tr><td class="ticker">STRC</td><td class="alloc">10%</td><td class="yield-cell">~10%</td><td class="desc">Sarissa Capital Acquisition — CLO</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Accelerator Pie -->
+        <div class="pie-section">
+          <div class="pie-section-header">
+            <div class="dot accelerator-dot"></div>
+            <h3>Accelerator Pie</h3>
+            <span class="pct">35% of portfolio</span>
+            <span class="weighted-yield">Weighted yield: ~28.9%</span>
+          </div>
+          <div class="pie-layout">
+            <div class="pie-chart-container">
+              <div class="pie-chart" style="background: conic-gradient(
+                #D85D23 0deg 90deg,
+                #8FA99C 90deg 180deg,
+                #B08560 180deg 234deg,
+                #4E6358 234deg 288deg,
+                #C4955A 288deg 324deg,
+                #C94A2E 324deg 360deg
+              );"></div>
+              <div class="pie-legend">
+                <div class="pie-legend-item"><span class="swatch" style="background:#D85D23"></span>QDTE 25%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#8FA99C"></span>XDTE 25%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#B08560"></span>AIPI 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#4E6358"></span>YMAG 15%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#C4955A"></span>FEPI 10%</div>
+                <div class="pie-legend-item"><span class="swatch" style="background:#C94A2E"></span>RDTE 10%</div>
+              </div>
+            </div>
+            <table class="holdings-table">
+              <thead>
+                <tr><th>Ticker</th><th>Allocation</th><th>Yield</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="ticker">QDTE</td><td class="alloc">25%</td><td class="yield-cell">~30%</td><td class="desc">Roundhill Nasdaq 0DTE Covered Call ETF</td></tr>
+                <tr><td class="ticker">XDTE</td><td class="alloc">25%</td><td class="yield-cell">~28%</td><td class="desc">Roundhill S&P 500 0DTE Covered Call ETF</td></tr>
+                <tr><td class="ticker">AIPI</td><td class="alloc">15%</td><td class="yield-cell">~42%</td><td class="desc">REX AI Equity Premium Income ETF</td></tr>
+                <tr><td class="ticker">YMAG</td><td class="alloc">15%</td><td class="yield-cell">~25%</td><td class="desc">YieldMax Magnificent 7 Basket CC ETF</td></tr>
+                <tr><td class="ticker">FEPI</td><td class="alloc">10%</td><td class="yield-cell">~18%</td><td class="desc">REX FANG+ Equity Premium Income ETF</td></tr>
+                <tr><td class="ticker">RDTE</td><td class="alloc">10%</td><td class="yield-cell">~25%</td><td class="desc">Roundhill Russell 2000 0DTE Covered Call ETF</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Blended Yield -->
+        <div class="blended-calc">
+          <div class="calc-part">
+            <div class="label">Foundation (65%)</div>
+            <div class="value">16.5%</div>
+          </div>
+          <div class="calc-operator">×</div>
+          <div class="calc-part">
+            <div class="label">Weight</div>
+            <div class="value">0.65</div>
+          </div>
+          <div class="calc-operator">+</div>
+          <div class="calc-part">
+            <div class="label">Accelerator (35%)</div>
+            <div class="value">28.9%</div>
+          </div>
+          <div class="calc-operator">×</div>
+          <div class="calc-part">
+            <div class="label">Weight</div>
+            <div class="value">0.35</div>
+          </div>
+          <div class="calc-operator">=</div>
+          <div class="calc-part calc-result">
+            <div class="label">Blended Yield</div>
+            <div class="value">≈ 20.8%</div>
+          </div>
+        </div>
+
+        <!-- PLEX Scorecard -->
+        <div class="scorecard">
+          <h3>🛡️ PLEX Guardrail Scorecard</h3>
+          <div class="scorecard-grid">
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Diversification</div>
+                <div class="sc-target">6+ strategies: Lev. CEF, CLO, BDC, mREIT, 0DTE, AI CC, Mag7 CC</div>
+                <div class="sc-fail">Failure mode: concentration risk</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Correlation</div>
+                <div class="sc-target">Target: &lt;0.7 avg — 0DTE funds may cluster</div>
+                <div class="sc-fail">Failure mode: correlated drawdowns</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check" style="background:var(--orange-dim);color:var(--orange)">⚠</div>
+              <div class="sc-content">
+                <div class="sc-name">Max Drawdown</div>
+                <div class="sc-target">Elevated risk: 20-35% drawdowns possible</div>
+                <div class="sc-fail">Failure mode: yield-chasing blowup</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check" style="background:var(--orange-dim);color:var(--orange)">⚠</div>
+              <div class="sc-content">
+                <div class="sc-name">Yield Sustainability</div>
+                <div class="sc-target">~21% blended — AIPI/YMAG require monitoring for NAV erosion</div>
+                <div class="sc-fail">Failure mode: distribution from return of capital</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check" style="background:var(--orange-dim);color:var(--orange)">⚠</div>
+              <div class="sc-content">
+                <div class="sc-name">Volatility</div>
+                <div class="sc-target">Expected: 15-22% annualized — above comfort threshold</div>
+                <div class="sc-fail">Failure mode: psychological holding difficulty</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Holdings Count</div>
+                <div class="sc-target">12 holdings (target: 20-35 at portfolio level)</div>
+                <div class="sc-fail">Failure mode: single-position risk or over-dilution</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Sector Count</div>
+                <div class="sc-target">7+ sectors: Lev CEF, CLO, BDC, mREIT, 0DTE, AI, FANG+, R2K</div>
+                <div class="sc-fail">Failure mode: hidden concentration</div>
+              </div>
+            </div>
+            <div class="scorecard-item">
+              <div class="check">✓</div>
+              <div class="sc-content">
+                <div class="sc-name">Category Allocation</div>
+                <div class="sc-target">65% Foundation / 35% Accelerator</div>
+                <div class="sc-fail">Failure mode: drift to Cashflow-heavy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Profile -->
+        <div class="risk-profile">
+          <h3>📊 Risk Profile</h3>
+          <div class="risk-metrics">
+            <div class="risk-metric">
+              <div class="metric-label">Expected Volatility</div>
+              <div class="metric-value" style="color:var(--red)">15–22%</div>
+            </div>
+            <div class="risk-metric">
+              <div class="metric-label">Max Drawdown Range</div>
+              <div class="metric-value" style="color:var(--red)">20–35%</div>
+            </div>
+            <div class="risk-metric">
+              <div class="metric-label">Recovery Profile</div>
+              <div class="metric-value" style="color:var(--red)">Slow</div>
+            </div>
+          </div>
+
+          <!-- Market Regime Box -->
+          <div class="regime-box">
+            <h4>⚠️ Market Regime Behavior — Aggressive Portfolio</h4>
+            <div class="regime-grid">
+              <div class="regime-item">
+                <div class="regime-label" style="color:var(--green)">🟢 Bull Market</div>
+                <div class="regime-desc">Capped upside from options selling. You collect premium but miss large rallies. Distributions stay high.</div>
+              </div>
+              <div class="regime-item">
+                <div class="regime-label" style="color:var(--red)">🔴 Bear Market</div>
+                <div class="regime-desc">Full downside exposure. Leveraged CEFs and CLOs amplify losses. Premium collected partially offsets but doesn't protect.</div>
+              </div>
+              <div class="regime-item">
+                <div class="regime-label" style="color:var(--orange)">🟡 Choppy / Sideways</div>
+                <div class="regime-desc">Favorable for premium collection. This is where the strategy shines — high vol = fat premiums.</div>
+              </div>
+              <div class="regime-item">
+                <div class="regime-label" style="color:var(--red)">💥 Crash / Crisis</div>
+                <div class="regime-desc">Sharp drawdowns. Distribution cuts possible on leveraged CEFs. 0DTE positions may gap through strikes.</div>
+              </div>
+            </div>
+            <div class="regime-note">
+              <strong>Important:</strong> 0DTE covered-call ETFs (QDTE, XDTE, RDTE) launched in 2023-2024. They lack multi-cycle track records. Their behavior in a sustained bear market or liquidity crisis is untested. Size accordingly.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ DO NOT BUY ═══════════════════ -->
+<section class="dnb-section">
+  <div class="container">
+    <div class="dnb-card">
+      <h2>🚫 Do Not Buy List</h2>
+      <p class="dnb-subtitle">These single-stock YieldMax ETFs are excluded from all Blueprint portfolios.</p>
+      <div class="dnb-tickers">
+        <div class="dnb-ticker">TSLY</div>
+        <div class="dnb-ticker">NVDY</div>
+        <div class="dnb-ticker">MSTY</div>
+        <div class="dnb-ticker">CONY</div>
+        <div class="dnb-ticker">APLY</div>
+      </div>
+      <p class="dnb-reason">
+        <strong>Why?</strong> These single-stock covered-call ETFs advertise headline yields of 30-80%+, but the distribution primarily comes from <strong>return of capital (ROC)</strong> — meaning they're paying you back your own money. NAV decays over time, often dramatically. The "yield" is an illusion; total return is frequently negative. They concentrate risk in a single underlying stock with no diversification benefit. They are income traps, not income tools. If you see a yield that looks too good to be true on a single-name ETF, it almost certainly is.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DISCLAIMER ═══════════════════ -->
+<section class="disclaimer">
+  <p><strong>Disclaimer</strong></p>
+  <p>This document is not financial advice. It is an educational resource and community tool created for the Foundation Financial community. The model portfolios presented are sample allocations for discussion purposes only. All yields shown are approximate, based on trailing distributions, and subject to change. Past distributions do not guarantee future results. Investments in CEFs, BDCs, MLPs, REITs, and options-based ETFs carry significant risks including loss of principal, NAV erosion, leverage risk, interest rate risk, and liquidity risk. Always do your own research and consult a qualified financial advisor before making investment decisions.</p>
+  <p style="margin-top:16px; color:var(--text-muted);">Foundation Financial · Blueprint Portfolio Sample Pies · April 2026</p>
+</section>
+
+</body>
+</html>
