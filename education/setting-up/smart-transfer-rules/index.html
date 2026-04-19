@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Smart Transfer Rules — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
+  <link rel="stylesheet" href="/css/quickstart.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div class="edu">
+
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge">Education Series</p>
+        <h1>Setting <span>Up</span></h1>
+        <p class="edu-hero__sub">Lesson 4 of 5</p>
+      </div>
+    </header>
+
+    <nav class="edu-nav" id="edu-nav">
+      <div class="edu-nav__inner">
+        <a href="/education/setting-up/how-margin-works/" class="edu-nav__link">How Margin Works</a>
+        <a href="/education/setting-up/opening-your-m1-account/" class="edu-nav__link">Opening Your M1 Account</a>
+        <a href="/education/setting-up/setting-up-cash-accounts/" class="edu-nav__link">Cash Accounts</a>
+        <a href="/education/setting-up/smart-transfer-rules/" class="edu-nav__link edu-nav__link--active">Smart Transfer Rules</a>
+        <a href="/education/setting-up/your-stage-schedule/" class="edu-nav__link">Your Stage Schedule</a>
+      </div>
+    </nav>
+
+    <section class="edu-lesson" id="lesson-4">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">04</span>
+          <div>
+            <p class="edu-label">Lesson 4</p>
+            <h2>The Smart Transfer Rules</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Video</p>
+          <div class="qs-video">
+            <iframe src="https://www.youtube.com/embed/RSWbyeFfb0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Infographics</p>
+          <div class="edu-infographics">
+            <img src="/education/setting-up/images/S4L4_Infographic_Part1.png" alt="Smart Transfer Rules — Part 1">
+            <img src="/education/setting-up/images/S4L4_Infographic_Part2.png" alt="Smart Transfer Rules — Part 2">
+            <img src="/education/setting-up/images/S4L4_Infographic_Part3.png" alt="Smart Transfer Rules — Part 3">
+            <img src="/education/setting-up/images/S4L4_Infographic_Part4.png" alt="Smart Transfer Rules — Part 4">
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Lesson Text</p>
+          <div class="edu-text">
+            <h3>What This Lesson Covers</h3>
+            <p>Smart Transfer Rules are the automation backbone of The Blueprint. You set them once inside M1 Finance and they tell money where to go automatically. Between Money Dates the system runs without you touching it.</p>
+            <p>This lesson covers Rule 1, Rule 2, dividend routing, and linking your bank with a recurring transfer.</p>
+            <p>Do not start this lesson until all four accounts from Lessons 2 and 3 are open and confirmed.</p>
+
+            <h3>Rule 1 — The Pass-Through</h3>
+            <p>Rule 1 moves money from Income Hub to Sweep the moment it arrives.</p>
+            <blockquote>Source: Income Hub<br>Trigger: When balance is greater than $0<br>Transfer amount: Full balance<br>Destination: Sweep</blockquote>
+            <p>To set it up, navigate to Smart Transfers in M1 Finance and create a new rule with the settings above. The Income Hub is a pass-through — it never holds money. The moment your Monthly Contribution lands, it moves to Sweep automatically.</p>
+
+            <h3>Rule 2 — The Engine</h3>
+            <p>Rule 2 is where the system does its real work. When cash arrives in Sweep it fires two actions in sequence.</p>
+            <p>Action 1 — Pay down margin on the Blueprint Portfolio account to your target utilization percentage. Start with 60% as your target in normal market conditions.</p>
+            <p>Action 2 — Invest any remaining cash into the Blueprint Portfolio pie according to your 65/35 allocation. M1 buys your holdings proportionally.</p>
+            <blockquote>Source: Sweep<br>Trigger: When cash is received<br>Action 1: Pay down Blueprint Portfolio margin to 60% utilization<br>Action 2: Invest remainder into Blueprint Portfolio pie indefinitely</blockquote>
+            <p>To set it up, create a second Smart Transfer rule in M1. Add both actions in the order listed — paydown first, invest second.</p>
+            <p>This rule fires every time any cash arrives in Sweep — from your Monthly Contribution flowing through Rule 1, and from every dividend that sweeps in from your Blueprint Portfolio and Safety Buffer. Every dollar that touches Sweep gets put to work.</p>
+
+            <h3>Set Dividend Routing</h3>
+            <p>Now that both rules are in place, set your dividend handling for both investment accounts.</p>
+            <p>Go to your Blueprint Portfolio account settings and find Dividend Handling. Set it to sweep to a cash account and select Sweep as the destination.</p>
+            <p>Repeat for your Safety Buffer account — set its dividends to also route to Sweep.</p>
+            <p>Every dividend from both accounts now feeds Rule 2 automatically. Foundation and Accelerator Holdings pay, the cash hits Sweep, Rule 2 fires, margin gets paid down. This happens throughout the month without any action from you.</p>
+
+            <h3>Link Your Bank and Set a Recurring Transfer</h3>
+            <p>If you have not already linked your external bank account, go to Move Money &rarr; Add External Account. Connect your checking account via Plaid for instant verification, or enter your routing and account numbers for micro-deposit verification.</p>
+            <p>Once linked, set up a recurring monthly transfer from your bank to the Income Hub. Set the amount to your Monthly Commitment and pick a consistent date that aligns with your pay schedule.</p>
+            <p>The consistency matters more than the amount. Your Monthly Commitment flowing in on the same date every month is what keeps the base growing.</p>
+
+            <h3>Your Full System Checklist</h3>
+            <p>Before your first Money Date, confirm every item below:</p>
+            <ul>
+              <li>Rule 1 active — Income Hub &rarr; Sweep when balance > $0</li>
+              <li>Rule 2 active — Sweep &rarr; margin paydown &rarr; Blueprint pie</li>
+              <li>Blueprint Portfolio dividends routing to Sweep</li>
+              <li>Safety Buffer dividends routing to Sweep</li>
+              <li>External bank linked and verified</li>
+              <li>Recurring monthly transfer set — Monthly Commitment to Income Hub</li>
+            </ul>
+
+            <h3>The System Is Live</h3>
+            <p>Every dollar that enters knows where to go. Every dividend that pays reduces your margin cost automatically. Your Money Date is the one moment each month where you check in, review the Margin Health Monitor, and redeploy margin to target utilization. Everything else runs on its own.</p>
+            <p><strong>You built a system. Not a hope.</strong></p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Two Smart Transfer Rules automate your entire system. Rule 1 passes money from Income Hub to Sweep. Rule 2 uses Sweep cash to pay down margin and invest into your Blueprint pie. Set dividend routing from both investment accounts to Sweep and your recurring monthly transfer to Income Hub. The system runs itself between Money Dates.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prev / Next -->
+    <section style="padding: 3rem 2rem; background-color: var(--edu-inkwell); text-align: center;">
+      <div style="max-width: 560px; margin: 0 auto; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/education/setting-up/setting-up-cash-accounts/" class="btn btn-outline" style="border-color: #677F71; color: #677F71;">&larr; Cash Accounts</a>
+        <a href="/education/setting-up/your-stage-schedule/" class="btn btn-primary">Next: Your Stage Schedule &rarr;</a>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
