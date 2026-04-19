@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Do You Want to Start? — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #F5F0E8; padding: 2rem;">
+    <div style="max-width: 720px; width: 100%; text-align: center;">
+
+      <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #D85D23; margin-bottom: 1rem;">Your Blueprint Journey</p>
+      <h1 style="font-size: 2rem; color: #1A1718; margin-bottom: 1rem;">How Do You Want to Start?</h1>
+      <p style="font-size: 1rem; line-height: 1.8; color: #6b6566; max-width: 560px; margin: 0 auto 2.5rem;">Both paths lead to the same place — a fully deployed Blueprint. The faithful servant who acts first and the faithful servant who studies first both end up putting their talent to work.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; text-align: left;">
+
+        <!-- Deploy First -->
+        <a href="/quickstart/" style="display: block; padding: 2rem; background-color: #D85D23; border-radius: 4px; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+          <p style="font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); margin: 0 0 0.75rem;">Deploy First</p>
+          <h2 style="font-size: 1.25rem; color: #fff; margin: 0 0 0.75rem; line-height: 1.3;">Deploy First, Learn As You Go</h2>
+          <p style="font-size: 0.875rem; color: rgba(255,255,255,0.85); margin: 0 0 1.5rem; line-height: 1.7;">Follow the videos. Your system will be live in 30-45 minutes. Education comes after — and it'll make a lot more sense because you've already done it.</p>
+          <span style="font-size: 0.8125rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em;">Start Quick Start &rarr;</span>
+        </a>
+
+        <!-- Understand First -->
+        <a href="/education/knowing-the-problem/" style="display: block; padding: 2rem; background-color: #fff; border: 2px solid #677F71; border-radius: 4px; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+          <p style="font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #677F71; margin: 0 0 0.75rem;">Understand First</p>
+          <h2 style="font-size: 1.25rem; color: #1A1718; margin: 0 0 0.75rem; line-height: 1.3;">Understand First, Then Deploy</h2>
+          <p style="font-size: 0.875rem; color: #6b6566; margin: 0 0 1.5rem; line-height: 1.7;">Start with the why. See the problem. Understand the Blueprint. Then deploy with full confidence.</p>
+          <span style="font-size: 0.8125rem; font-weight: 700; color: #677F71; text-transform: uppercase; letter-spacing: 0.05em;">Begin the Journey &rarr;</span>
+        </a>
+
+      </div>
+
+      <p style="font-size: 0.8125rem; color: #6b6566; margin-top: 2rem; line-height: 1.7; font-style: italic;">"Well done, good and faithful servant." Both servants who acted were praised. Whether you deploy first or study first, what matters is that you don't bury the talent.</p>
+
+      <a href="/dashboard.html" style="display: inline-block; margin-top: 2rem; font-size: 0.8125rem; font-weight: 500; color: #677F71; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;">&larr; Back to Dashboard</a>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width: 640px) {
+      div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>

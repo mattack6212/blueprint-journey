@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What You're Building — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
+  <link rel="stylesheet" href="/css/quickstart.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div class="edu">
+
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge">Education Series</p>
+        <h1>What You're <span>Building</span></h1>
+        <p class="edu-hero__sub">Your portfolio has three parts — each doing a specific job. Understand what goes where, why it matters, and how to evaluate any ETF yourself.</p>
+      </div>
+    </header>
+
+    <nav class="edu-nav" id="edu-nav">
+      <div class="edu-nav__inner">
+        <a href="#lesson-1" class="edu-nav__link edu-nav__link--active">Meet Your Portfolio</a>
+        <a href="#lesson-2" class="edu-nav__link">Foundation Holdings</a>
+        <a href="#lesson-3" class="edu-nav__link">Accelerator Holdings</a>
+        <a href="#lesson-4" class="edu-nav__link">Your Safety Buffer</a>
+        <a href="#lesson-5" class="edu-nav__link">How to Evaluate an ETF</a>
+      </div>
+    </nav>
+
+    <!-- ==========================================
+         LESSON 1 — Meet Your Portfolio
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-1">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">01</span>
+          <div>
+            <p class="edu-label">Lesson 1</p>
+            <h2>Meet Your Portfolio</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Video</p>
+          <div class="qs-video">
+            <iframe src="https://www.youtube.com/embed/MzimLn98LV4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Infographics</p>
+          <div class="edu-infographics">
+            <img src="/education/what-youre-building/images/S3L1_Infographic_Part1.png" alt="Meet Your Portfolio — Part 1">
+            <img src="/education/what-youre-building/images/S3L1_Infographic_Part2.png" alt="Meet Your Portfolio — Part 2">
+            <img src="/education/what-youre-building/images/S3L1_Infographic_Part3.png" alt="Meet Your Portfolio — Part 3">
+            <img src="/education/what-youre-building/images/S3L1_Infographic_Part4.png" alt="Meet Your Portfolio — Part 4">
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Lesson Text</p>
+          <div class="edu-text">
+            <h3>What You'll Learn</h3>
+            <p>Before you buy a single ETF, you need to understand what you are building. The Blueprint portfolio is a structured system with three distinct parts — each doing a specific job. This lesson walks through all three so you have the full picture before we go deeper.</p>
+
+            <h3>The Three-Part Structure</h3>
+            <p>Your Blueprint portfolio is built across two separate M1 Finance accounts:</p>
+            <p>The first is your <strong>main Blueprint portfolio pie.</strong> This is where your capital and margin are deployed. It contains two types of holdings — Foundation and Accelerator — and every Money Date you are redeploying back into this pie.</p>
+            <p>The second is your <strong>Safety Buffer pie.</strong> This is a completely separate M1 account. It never uses margin. It is your stability layer and your emergency reserve.</p>
+            <p>Let's look at each one.</p>
+
+            <h3>Foundation Holdings — ~60% of the Main Pie</h3>
+            <p>Foundation Holdings are the load-bearing wall of your portfolio. These are stable, lower-volatility ETFs with low correlation to the S&P 500.</p>
+            <p>That last part matters. <strong>Low correlation means when the broader stock market drops, these holdings do not necessarily drop with it.</strong> They move independently. That stability protects the overall value of your portfolio — which protects your margin health — when markets get rough.</p>
+            <p>Foundation Holdings carry a lower yield than the rest of the portfolio. That is fine. Their job is not maximum income. Their job is stability. They keep the structure standing when conditions get difficult.</p>
+            <p>Foundation Holdings make up roughly 60% of your main portfolio pie. They anchor the whole system.</p>
+
+            <h3>Accelerator Holdings — ~40% of the Main Pie</h3>
+            <p>Accelerator Holdings are the income engine. These are higher-yield ETFs designed specifically to produce the monthly dividends that flow through the system.</p>
+            <p>They carry more volatility than Foundation Holdings — but that is acceptable because Foundation is there to balance it out. The two tiers work together. Foundation stabilizes. Accelerator produces.</p>
+            <p>When you check your Margin Health Monitor and your debt service coverage ratio looks healthy — that is largely because your Accelerator Holdings are doing their job. <strong>They are what powers the income side of the system.</strong></p>
+
+            <h3>Your Safety Buffer — Separate Pie, No Margin</h3>
+            <p>The Safety Buffer is different from the other two in one critical way: it lives in a completely separate M1 portfolio and it never uses margin. Not reduced margin — zero margin. Completely insulated.</p>
+            <p>The Safety Buffer holds ultra-stable ETFs. Not high yield. Stable yield. Value preservation is the priority.</p>
+            <p>It does two jobs:</p>
+            <ul>
+              <li><strong>Job 1 — Passive cost reduction:</strong> The yield the Safety Buffer generates flows toward your margin account every month. This is a background reduction of your margin interest cost that runs automatically — separate from your main portfolio dividends.</li>
+              <li><strong>Job 2 — Emergency reserve:</strong> If life happens — a medical expense, a job change, an unexpected bill — you pull from the Safety Buffer. You do not touch your main portfolio. You do not disrupt the margin position you have built. The reserve is there, it is liquid, and it has been working while it waited.</li>
+            </ul>
+            <blockquote>"The wise store up choice food and olive oil, but fools gulp theirs down." — Proverbs 21:20</blockquote>
+            <p>The Safety Buffer is your stored reserve. You do not touch it unless you have to. And because it is generating yield the whole time, it is never just sitting idle.</p>
+
+            <h3>How the Three Parts Protect Each Other</h3>
+            <p>Picture a rough market month. Your Accelerator Holdings drop 12%.</p>
+            <p>Because Foundation Holdings have low S&P correlation, they barely move. Your overall portfolio value holds reasonably steady. Your DTA stays in a healthy range. No margin call risk.</p>
+            <p>Your Safety Buffer is completely untouched — no margin means no exposure. Its yield is still flowing. Your emergency reserve is intact.</p>
+            <p>On your Money Date, you check the market signals, dial back to 50% utilization, and keep running.</p>
+            <p><strong>That is the system working exactly as designed.</strong> Foundation stabilizes Accelerator. Safety Buffer protects everything else. Each part covers the others.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Your Blueprint portfolio has three parts: Foundation Holdings (~60%) provide stability through low S&P correlation, Accelerator Holdings (~40%) power the income engine with high-yield monthly dividends, and the Safety Buffer lives in a separate account with zero margin as your emergency reserve that works while it waits.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 2 — Foundation Holdings
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-2">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">02</span>
+          <div>
+            <p class="edu-label">Lesson 2</p>
+            <h2>Foundation Holdings</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Video</p>
+          <div class="qs-video">
+            <iframe src="https://www.youtube.com/embed/da-5QEQAUis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Infographics</p>
+          <div class="edu-infographics">
+            <img src="/education/what-youre-building/images/S3L2_Infographic_Part1.png" alt="Foundation Holdings — Part 1">
+            <img src="/education/what-youre-building/images/S3L2_Infographic_Part2.png" alt="Foundation Holdings — Part 2">
+            <img src="/education/what-youre-building/images/S3L2_Infographic_Part3.png" alt="Foundation Holdings — Part 3">
+            <img src="/education/what-youre-building/images/S3L2_Infographic_Part4.png" alt="Foundation Holdings — Part 4">
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Lesson Text</p>
+          <div class="edu-text">
+            <h3>What You'll Learn</h3>
+            <p>Foundation Holdings make up 60% of your main Blueprint portfolio pie. This lesson explains why that slice exists, what criteria define a good Foundation holding, and what kinds of assets belong here.</p>
+
+            <h3>Why This Slice Exists</h3>
+            <p>If the goal of The Blueprint is to generate income, why put 60% of the portfolio into lower-yield assets? It is a fair question. The answer is margin health.</p>
+            <p>Your portfolio value is directly tied to how much margin you can safely deploy. If your portfolio drops significantly in value, your debt to asset ratio spikes, your margin utilization climbs, and the system gets into dangerous territory fast. A margin call — where the brokerage forces you to sell assets to cover the debt — is the worst thing that can happen to The Blueprint.</p>
+            <p><strong>Foundation Holdings exist specifically to prevent that.</strong></p>
+            <p>These are ETFs that move independently of the broader stock market. When the S&P 500 drops 15%, a well-chosen Foundation holding might barely move. Low correlation means your overall portfolio value holds reasonably steady even when the market is having a terrible month. And when your portfolio value holds steady, your DTA stays healthy, your utilization stays in range, and you keep running.</p>
+            <p>Foundation Holdings do not protect your yield. <strong>They protect the structure of the whole machine.</strong></p>
+
+            <h3>The Three Criteria</h3>
+
+            <p><strong>Criterion 1 — Low S&P 500 Correlation</strong></p>
+            <p>Correlation measures how closely an asset moves with the S&P 500, on a scale from -1 to +1. A correlation of 1 means it moves exactly with the market. A correlation of 0 means no relationship at all.</p>
+            <p>For Foundation Holdings, look for a correlation <strong>below 0.5.</strong> The lower the better. Assets driven by credit markets and interest rate dynamics — not stock prices — naturally sit in this range. Senior loan ETFs, CLO ETFs, covered call ETFs, and investment grade credit vehicles are examples of asset classes that tend to qualify.</p>
+
+            <p><strong>Criterion 2 — Low Standard Deviation</strong></p>
+            <p>Standard deviation measures how much an asset's price bounces around over time. High standard deviation means wild swings. Low standard deviation means stable, predictable price behavior.</p>
+            <p>For Foundation Holdings, target <strong>under 5% annualized standard deviation.</strong> You are not looking for an exciting asset. You are looking for a boring, steady one that shows up and does its job every month without drama. Drama in your Foundation slice costs you margin health.</p>
+
+            <p><strong>Criterion 3 — Monthly Dividends</strong></p>
+            <p>Even though yield is not the priority here, Foundation Holdings still need to be paying you every month. Not quarterly. Not annually. <strong>Monthly.</strong></p>
+            <p>Consistent monthly dividends keep the Sweep account flowing and reduce your margin cost on a regular schedule. Quarterly payers create gaps in your income rhythm that disrupt the system.</p>
+
+            <h3>The Math Behind the 60% Split</h3>
+            <p>The 60% Foundation allocation is not arbitrary. Here is the math that justifies it.</p>
+            <p>Say your portfolio is $50,000 and your Accelerator Holdings take a hard 20% hit in a rough month. Because they are 40% of your portfolio, that is an $8,000 drop on the Accelerator side. But your Foundation Holdings — 60% of the portfolio — barely move. Your overall portfolio might only drop 8-9%.</p>
+            <blockquote>With Foundation Holdings: S&P drops 20% &rarr; portfolio drops ~8-9% &rarr; DTA ticks up slightly &rarr; dial back utilization &rarr; system keeps running<br><br>Without Foundation Holdings: S&P drops 20% &rarr; portfolio drops 20% &rarr; DTA spikes &rarr; margin call risk &rarr; system in danger</blockquote>
+            <p><strong>Foundation is not the smaller slice because it matters less. It is the larger slice because it protects everything else.</strong></p>
+
+            <h3>What Belongs Here</h3>
+            <p>Good Foundation holding candidates tend to come from these asset classes:</p>
+            <ul>
+              <li><strong>Senior Loan ETFs</strong> — floating-rate loans driven by credit markets, not equity markets</li>
+              <li><strong>CLO ETFs</strong> — collateralized loan obligations, income from loan interest</li>
+              <li><strong>Covered Call ETFs</strong> — generate income from options, dampen volatility</li>
+              <li><strong>Investment Grade Credit</strong> — high-quality, stable value, consistent monthly income</li>
+            </ul>
+
+            <h3>What Does Not Belong Here</h3>
+            <ul>
+              <li>High-yield stock ETFs with high S&P correlation — defeats the purpose</li>
+              <li>Volatile sector ETFs (tech, biotech, energy) — price swings destroy Foundation's job</li>
+              <li>Quarterly or annual dividend payers — disrupts the Sweep system rhythm</li>
+            </ul>
+
+            <h3>Your Quick Checklist</h3>
+            <p>Before adding any ETF to your Foundation slice, run through these four checks:</p>
+            <ul>
+              <li>S&P correlation below 0.5?</li>
+              <li>Standard deviation under 5% annualized?</li>
+              <li>Monthly dividend payments?</li>
+              <li>Income driven by credit markets — not stock prices?</li>
+            </ul>
+            <p>If all four are yes, it belongs in Foundation. If any are no, it belongs somewhere else or not at all.</p>
+            <blockquote>"The wise man built his house on the rock." — Matthew 7:24</blockquote>
+            <p>Build the foundation right and everything else stands on it.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Foundation Holdings make up 60% of your portfolio not because they produce the most income, but because they protect the structure that makes everything else possible. Three criteria: S&P correlation below 0.5, standard deviation under 5%, and monthly dividends. Foundation enables Accelerator. Without it, the system is exposed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 3 — Accelerator Holdings
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-3">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">03</span>
+          <div>
+            <p class="edu-label">Lesson 3</p>
+            <h2>Accelerator Holdings</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Video</p>
+          <div class="qs-video">
+            <iframe src="https://www.youtube.com/embed/gi-BemsW0aU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Infographics</p>
+          <div class="edu-infographics">
+            <img src="/education/what-youre-building/images/S3L3_Infographic_Part1.png" alt="Accelerator Holdings — Part 1">
+            <img src="/education/what-youre-building/images/S3L3_Infographic_Part2.png" alt="Accelerator Holdings — Part 2">
+            <img src="/education/what-youre-building/images/S3L3_Infographic_Part3.png" alt="Accelerator Holdings — Part 3">
+            <img src="/education/what-youre-building/images/S3L3_Infographic_Part4.png" alt="Accelerator Holdings — Part 4">
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Lesson Text</p>
+          <div class="edu-text">
+            <h3>What You'll Learn</h3>
+            <p>Accelerator Holdings are the 40% of your main Blueprint portfolio pie that does most of the income production. This lesson covers what they are, what criteria define a good Accelerator holding, the asset types that fit, and when to make a change.</p>
+
+            <h3>The Partnership</h3>
+            <p>Foundation Holdings play defense. Accelerator Holdings play offense. Neither works as well without the other.</p>
+            <p>If you loaded the whole portfolio with Accelerator Holdings and the market had a rough quarter, your portfolio value would take a serious hit and your margin health would suffer. The Foundation slice is what makes it safe to run Accelerator in the first place. <strong>Foundation enables Accelerator. Accelerator justifies Foundation.</strong></p>
+            <p>Accelerator Holdings are higher-yield ETFs chosen specifically because they produce significant monthly income. That income is what flows through the Sweep account every month, reducing your margin balance and funding the next cycle.</p>
+
+            <h3>The Three Criteria</h3>
+
+            <p><strong>Criterion 1 — High Distribution Yield</strong></p>
+            <p>Accelerator Holdings need to produce meaningful income. You are looking for ETFs with an annual distribution yield in the range of <strong>10 to 20% or more.</strong> That sounds high compared to traditional investing — and it is. These are specialized income vehicles designed specifically to distribute large portions of their income to shareholders.</p>
+            <p>Without strong yield from your Accelerator slice, the income side of the system does not generate enough flow to make the loop work efficiently.</p>
+
+            <p><strong>Criterion 2 — Monthly Distribution Frequency</strong></p>
+            <p>Non-negotiable. The Blueprint runs on a monthly rhythm — your Money Date, your Sweep account, your margin paydown. <strong>Quarterly payers leave gaps in your income flow.</strong> Three months of every quarter the system runs without that income hitting the Sweep account.</p>
+            <p>Monthly payers keep the system running at full pace all twelve months of the year.</p>
+
+            <p><strong>Criterion 3 — Real Income — Not Return of Capital</strong></p>
+            <p>High yield is not automatically good yield. Some ETFs pay high distributions by returning your own capital back to you — paying you from the fund's principal rather than actual income. This slowly destroys the asset value over time.</p>
+            <p>You want ETFs whose distributions come from <strong>real income</strong> — loan interest, option premiums, dividends from underlying holdings. The yield should be high because the underlying strategy produces high income — not because the fund is slowly liquidating itself. We cover exactly how to check this in Lesson 5.</p>
+
+            <h3>Asset Types That Fit Accelerator</h3>
+            <ul>
+              <li><strong>Business Development Companies (BDCs)</strong> — Lend money to small and mid-sized businesses. Required by law to distribute 90%+ of taxable income to shareholders. The income is real: it comes from loan interest. Typical yields run 10-16%.</li>
+              <li><strong>Closed-End Funds (CEFs)</strong> — Fixed-pool investment funds trading on exchanges. Often hold bonds, loans, or income securities. Many use modest internal leverage to boost distributions. Can trade at a discount to underlying value — adding yield opportunity. Typical yields run 10-20%+.</li>
+              <li><strong>High-Yield Covered Call ETFs</strong> — Hold income-producing assets and sell call options on top. Option premiums add significant extra monthly income. Trade-off: capped upside in strong bull markets. Strong monthly income in flat or declining conditions. Typical yields run 12-20%+.</li>
+            </ul>
+
+            <h3>A Word About Volatility</h3>
+            <p>Accelerator Holdings will fluctuate more than Foundation Holdings. Some months up, some months down. Individual BDCs and closed-end funds can have significant price swings during market stress.</p>
+            <p>That is okay. <strong>You are not holding these assets because you think the price is going up.</strong> You are holding them because they pay you every month. As long as the distributions remain consistent and the underlying fundamentals are sound, short-term price fluctuations in the Accelerator slice are noise — not signal.</p>
+
+            <h3>When to Make a Change</h3>
+            <ul>
+              <li><strong>NOT</strong> because the price dropped — short-term price moves are normal and expected</li>
+              <li><strong>YES</strong> if the distribution is cut significantly — that directly affects system income</li>
+              <li><strong>YES</strong> if the fund's fundamentals have deteriorated — credit quality, income strategy, or distribution source</li>
+            </ul>
+            <p>Your monthly Build Check-In is where you spot these issues early. One of the things you are watching is whether your Accelerator Holdings are still paying consistently. If something changes, you evaluate and replace — not panic and sell.</p>
+
+            <h3>Your Quick Checklist</h3>
+            <p>Before adding any ETF to your Accelerator slice:</p>
+            <ul>
+              <li>Annual yield 10%+ from real income sources?</li>
+              <li>Monthly distribution frequency?</li>
+              <li>Distribution sourced from income — not return of capital?</li>
+              <li>Consistent distribution history over 2+ years?</li>
+            </ul>
+            <p>If all four check out — it belongs in Accelerator.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Accelerator Holdings are the income engine — 40% of your main portfolio producing 10-20%+ yields from real income sources like BDCs, CEFs, and covered call ETFs. Monthly distributions are non-negotiable. Price volatility is expected and acceptable — you hold these for income, not price appreciation. Foundation makes it safe to run Accelerator.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 4 — Your Safety Buffer
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-4">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">04</span>
+          <div>
+            <p class="edu-label">Lesson 4</p>
+            <h2>Your Safety Buffer</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Video</p>
+          <div class="qs-video">
+            <iframe src="https://www.youtube.com/embed/G0PdP8kbk-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Infographics</p>
+          <div class="edu-infographics">
+            <img src="/education/what-youre-building/images/S3L4_Infographic_Part1.png" alt="Your Safety Buffer — Part 1">
+            <img src="/education/what-youre-building/images/S3L4_Infographic_Part2.png" alt="Your Safety Buffer — Part 2">
+            <img src="/education/what-youre-building/images/S3L4_Infographic_Part3.png" alt="Your Safety Buffer — Part 3">
+            <img src="/education/what-youre-building/images/S3L4_Infographic_Part4.png" alt="Your Safety Buffer — Part 4">
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Lesson Text</p>
+          <div class="edu-text">
+            <h3>What You'll Learn</h3>
+            <p>The Safety Buffer is the third part of your portfolio structure — and the most different. This lesson covers what it is, why it lives in a completely separate account, the two jobs it does simultaneously, what goes in it, how to size it, and when to use it.</p>
+
+            <h3>Completely Separate. Completely Insulated.</h3>
+            <p>The Safety Buffer is not part of your main Blueprint portfolio. It lives in a <strong>completely separate M1 Finance account</strong> with its own pie. And it never — ever — uses margin. Not reduced margin. Zero margin. Full stop.</p>
+            <p>That separation is not an accident. It is the whole point.</p>
+            <p>Your main Blueprint portfolio runs on margin. When markets get rough, your Accelerator Holdings might drop, your DTA might tick up, and you might need to dial back utilization. All of that is manageable — the system is designed for it.</p>
+            <p>But what if something happens in life at the same time? A medical bill. A job change. A broken car. If your only reserve is inside a margin account that is under pressure, you are in a very difficult position. Pulling money from a stressed margin account can trigger forced selling, spike your DTA, and compound the problem.</p>
+            <p><strong>The Safety Buffer prevents that entirely.</strong> No matter what happens to your main portfolio, the Safety Buffer sits untouched and fully accessible.</p>
+
+            <h3>Two Jobs. Running Simultaneously.</h3>
+
+            <p><strong>Job 1 — Passive Margin Cost Reduction</strong></p>
+            <p>The Safety Buffer holds stable, income-producing ETFs. Every month, the yield those ETFs generate automatically sweeps to your margin account — reducing your margin balance and lowering your effective interest cost.</p>
+            <p>This happens in the background, every month, without you doing anything. It is a passive and consistent contribution to your system efficiency.</p>
+
+            <p><strong>Job 2 — Emergency Reserve</strong></p>
+            <p>When life happens — and it will — the Safety Buffer is where you go. Not your main portfolio. The Safety Buffer is liquid, fully insulated from margin risk, and ready to be used when you need it. You pull from here first. The main system stays intact and keeps working.</p>
+            <p>The key phrase is this: <strong>the Safety Buffer is working while it waits.</strong> It is not sitting idle. It is reducing your margin cost every month and standing ready if you need it.</p>
+
+            <h3>What Goes In the Safety Buffer</h3>
+            <p>The priority order for Safety Buffer holdings is value preservation first, then stable yield, then monthly pay frequency. You are not looking for high yield here — you are looking for stability above everything else.</p>
+            <p>Asset types that fit:</p>
+            <ul>
+              <li><strong>Money Market ETFs</strong> — ultra-stable, near-zero volatility, liquid daily</li>
+              <li><strong>Ultra-Short Bond ETFs</strong> — very short duration, minimal interest rate risk, highly stable value</li>
+              <li><strong>AAA-Rated CLO ETFs</strong> — highest credit quality, very low default risk, consistent monthly income</li>
+            </ul>
+            <p>What does NOT belong here: high-yield ETFs, Accelerator-type holdings, anything with meaningful price volatility. If an asset could drop significantly in a market downturn, it does not belong in the Safety Buffer.</p>
+
+            <h3>How to Size It</h3>
+            <p><strong>Starting target:</strong> Enough to cover 3-6 months of your margin interest payments. As your margin balance grows, your Safety Buffer should grow with it.</p>
+            <p><strong>Personal emergency number:</strong> Think about the realistic major expense your family could face — car repair, medical bill, roof replacement. The Safety Buffer should be able to handle it without touching the main portfolio.</p>
+            <p><strong>The upgrade from a savings account:</strong> Traditional advice says keep 3-6 months of expenses in a high-yield savings account. The Safety Buffer does the same thing — but it generates consistent income while it waits instead of just sitting there earning minimal interest.</p>
+
+            <h3>When to Use It</h3>
+            <p>Use the Safety Buffer only for genuine financial emergencies that would otherwise force you to disrupt your main portfolio.</p>
+            <ul>
+              <li>Unexpected medical or dental expense</li>
+              <li>Income gap during a job transition</li>
+              <li>Urgent home or car repair</li>
+              <li>Any crisis that can't wait</li>
+            </ul>
+            <p>Do NOT use it for everyday spending, planned purchases you could save toward separately, or investment opportunities that feel urgent.</p>
+            <p>If you have to pull from the Safety Buffer — pull from it. That is what it is there for. Then rebuild it as soon as you are able.</p>
+            <blockquote>"The wise store up choice food and olive oil, but fools gulp theirs down." — Proverbs 21:20</blockquote>
+            <p>Your stored reserve. Not to be gulped down. Working while it waits. There when you need it.</p>
+
+            <h3>What It Does for the Whole System</h3>
+            <ul>
+              <li><strong>Reduces your margin cost passively every month</strong> — yield flows automatically to the Sweep account without you doing anything</li>
+              <li><strong>Protects your DTA and DSCR indirectly</strong> — when life gets hard, you go here first. The main system stays deployed and undisturbed</li>
+              <li><strong>Keeps your main portfolio intact</strong> — because emergencies have a dedicated destination, you never need to liquidate main portfolio assets at the wrong time or wrong price</li>
+              <li><strong>Gives you the peace to stay the course</strong> — knowing the buffer is there makes it easier to hold steady when the system feels uncomfortable. That consistency is what builds wealth over time</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>The Safety Buffer lives in a completely separate account with zero margin. It does two jobs simultaneously: passively reducing your margin cost every month through its yield, and standing ready as your emergency reserve so you never have to disrupt your main portfolio when life happens. It works while it waits.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LESSON 5 — How to Evaluate an ETF Yourself
+         ========================================== -->
+    <section class="edu-lesson" id="lesson-5">
+      <div class="edu-container">
+        <div class="edu-lesson__header">
+          <span class="edu-lesson__number">05</span>
+          <div>
+            <p class="edu-label">Lesson 5</p>
+            <h2>How to Evaluate an ETF Yourself</h2>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Video</p>
+          <div class="qs-video">
+            <iframe src="https://www.youtube.com/embed/jRxO71trgCE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Infographics</p>
+          <div class="edu-infographics">
+            <img src="/education/what-youre-building/images/S3L5_Infographic_Part1.png" alt="How to Evaluate an ETF — Part 1">
+            <img src="/education/what-youre-building/images/S3L5_Infographic_Part2.png" alt="How to Evaluate an ETF — Part 2">
+            <img src="/education/what-youre-building/images/S3L5_Infographic_Part3.png" alt="How to Evaluate an ETF — Part 3">
+            <img src="/education/what-youre-building/images/S3L5_Infographic_Part4.png" alt="How to Evaluate an ETF — Part 4">
+          </div>
+        </div>
+
+        <div class="edu-block">
+          <p class="edu-block__title">Lesson Text</p>
+          <div class="edu-text">
+            <h3>What You'll Learn</h3>
+            <p>One of the most important things The Blueprint gives you is the ability to make your own decisions. Four simple criteria let you look at any ETF and know exactly where it fits — or whether it fits at all. This lesson walks through all four.</p>
+
+            <h3>The Four Criteria</h3>
+
+            <p><strong>Criterion 1 — Distribution Yield</strong></p>
+            <p>Yield tells you how much income an ETF produces relative to its price. If an ETF trades at $20 per share and pays $2 per year in distributions, the yield is 10%.</p>
+            <p>But yield alone is not enough. You must understand where that income is coming from.</p>
+            <p><strong>Real income yield</strong> — distributions from loan interest, option premiums, bond coupons, or dividends from underlying holdings — is what you want. The asset value is sustained. Income can continue as long as the underlying strategy performs.</p>
+            <p><strong>Return of capital</strong> — where the fund pays you from its own principal, not from income it earned — is what you want to avoid. It looks like high yield on paper but the fund is slowly liquidating itself. Asset value erodes over time.</p>
+            <ul>
+              <li><strong>Foundation</strong> &rarr; modest yield, stability first</li>
+              <li><strong>Accelerator</strong> &rarr; 10%+ from real income sources</li>
+              <li><strong>Safety Buffer</strong> &rarr; stable, consistent yield</li>
+            </ul>
+            <p>Where to check: ETF.com, Seeking Alpha, or the fund's own website for distribution source breakdowns.</p>
+
+            <p><strong>Criterion 2 — Standard Deviation</strong></p>
+            <p>Standard deviation measures how much the ETF's price bounces around over time. High standard deviation means wild price swings. Low standard deviation means stable, predictable behavior.</p>
+            <p>Use the 3-year figure when available — it gives you a more reliable picture across different market conditions.</p>
+            <ul>
+              <li><strong>Foundation</strong> &rarr; under 5% — boring and steady is the goal</li>
+              <li><strong>Accelerator</strong> &rarr; higher is acceptable — income is the priority</li>
+              <li><strong>Safety Buffer</strong> &rarr; as low as possible — value preservation first</li>
+            </ul>
+            <p>Where to check: ETF.com (Risk tab) or Morningstar (Risk & Rating section).</p>
+
+            <p><strong>Criterion 3 — S&P 500 Correlation</strong></p>
+            <p>Correlation measures how closely an ETF moves with the broader stock market, on a scale from 0 to 1.0. A correlation of 1.0 means it moves exactly with the S&P 500. A correlation near 0 means it moves independently.</p>
+            <p>This is the most important criterion for Foundation Holdings. You want below 0.5 — ideally much lower.</p>
+            <p>The practical shortcut: if an ETF earns income from credit markets, loan interest, or option premiums rather than stock prices, it will typically have low correlation. If it holds stocks or tracks an equity index, it will have high correlation.</p>
+            <ul>
+              <li><strong>Foundation</strong> &rarr; below 0.5</li>
+              <li><strong>Accelerator</strong> &rarr; moderate correlation acceptable if yield qualifies</li>
+              <li><strong>Safety Buffer</strong> &rarr; very low</li>
+            </ul>
+            <p>Where to check: Portfolio Visualizer (free) — run a correlation comparison between the ETF and SPY.</p>
+
+            <p><strong>Criterion 4 — Distribution Frequency</strong></p>
+            <p>Does it pay monthly? This is non-negotiable for every slice of the portfolio.</p>
+            <p>The Blueprint runs on a monthly rhythm — your Money Date, your Sweep account, your margin paydown. Quarterly payers leave gaps in the income flow that disrupt the whole system.</p>
+            <p>Check the dividend history on Yahoo Finance or ETF.com. If payments are monthly — you are good. If they are quarterly or irregular — it does not belong in The Blueprint regardless of how attractive the yield looks.</p>
+
+            <h3>The Decision Framework</h3>
+            <p>Use these four questions in order:</p>
+            <ul>
+              <li><strong>Step 1:</strong> Does it pay monthly? No &rarr; stop. Does not belong in The Blueprint. Yes &rarr; keep going.</li>
+              <li><strong>Step 2:</strong> Is the yield from real income — not return of capital? Mostly ROC &rarr; stop. Real income &rarr; keep going.</li>
+              <li><strong>Step 3:</strong> What is the standard deviation? Under 5% &rarr; Foundation or Safety Buffer candidate. Higher &rarr; Accelerator candidate if yield qualifies.</li>
+              <li><strong>Step 4:</strong> What is the S&P 500 correlation? Below 0.5 + low std dev &rarr; Foundation or Safety Buffer. Moderate correlation + 10%+ yield &rarr; Accelerator. Very low correlation + stable yield &rarr; Safety Buffer.</li>
+            </ul>
+            <p>Four questions. Free tools. Clear answer every time.</p>
+
+            <h3>Free Tools to Use</h3>
+            <ul>
+              <li><strong>ETF.com</strong> — yield, expense ratio, distribution history, holdings</li>
+              <li><strong>Yahoo Finance</strong> — historical distribution dates and amounts</li>
+              <li><strong>Seeking Alpha</strong> — distribution analysis, ROC breakdowns</li>
+              <li><strong>Portfolio Visualizer</strong> — free correlation comparisons (run any ETF vs SPY)</li>
+            </ul>
+            <p>You do not need paid tools or research services. The data is publicly available. You just need to know what to look for — and now you do.</p>
+          </div>
+        </div>
+
+        <div class="edu-takeaway">
+          <h4>Key Takeaway</h4>
+          <p>Four criteria let you evaluate any ETF yourself: distribution yield (and whether it's real income), standard deviation, S&P 500 correlation, and distribution frequency. Run any holding through this framework and you'll know exactly where it belongs — Foundation, Accelerator, Safety Buffer, or nowhere. Free tools, clear answer, every time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Completion -->
+    <section style="padding: 4rem 2rem; background-color: var(--edu-inkwell); text-align: center;">
+      <div style="max-width: 560px; margin: 0 auto;">
+        <h2 style="color: var(--edu-white); font-size: 1.75rem; margin-bottom: 1rem;">You Know What You're Building</h2>
+        <p style="color: var(--edu-ivory); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem;">You understand the three-part portfolio structure, what goes in each slice, and how to evaluate any ETF yourself. Foundation stabilizes. Accelerator produces. The Safety Buffer protects everything else.</p>
+        <p style="color: var(--edu-ivory); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 2rem;"><strong style="color: var(--edu-copper);">Next:</strong> See the system in action with the <a href="/education/earn-system/" style="color: var(--edu-copper);">EARN System in Action</a> module.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/education/big-picture-solution/" class="btn btn-outline" style="border-color: #D85D23; color: #D85D23;">Review the Big Picture</a>
+          <a href="/dashboard.html" class="btn btn-primary">Back to Dashboard</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    (function () {
+      var lessons = document.querySelectorAll('.edu-lesson');
+      var navLinks = document.querySelectorAll('.edu-nav__link');
+      window.addEventListener('scroll', function () {
+        var scrollPos = window.scrollY + 140;
+        var current = 0;
+        lessons.forEach(function (lesson, i) {
+          if (lesson.offsetTop <= scrollPos) { current = i; }
+        });
+        navLinks.forEach(function (link, i) {
+          link.classList.toggle('edu-nav__link--active', i === current);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
