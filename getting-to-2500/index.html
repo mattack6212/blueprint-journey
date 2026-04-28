@@ -370,9 +370,7 @@
             <h3>Borrow From Yourself</h3>
             <p>If you have money sitting in a savings account, you already have access to capital. You don't need to borrow from anyone — you just need to think about your own money differently.</p>
             <div class="qs-video" style="margin: 1.25rem 0;">
-              <div style="position: relative; padding-bottom: 56.25%; background: #e8e4de; display: flex; align-items: center; justify-content: center;">
-                <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8125rem; color: var(--edu-gray); margin: 0; text-align: center;">Video coming soon</p>
-              </div>
+              <iframe src="https://www.youtube.com/embed/2vfkqvyj8mA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <p>Here's the idea: take what you need from your savings account to fund your Blueprint. Then pay your savings account back over three months — same way you'd pay back a loan from family. Same 9% interest rate. Same promissory note structure.</p>
             <p>You're not losing your savings. You're moving it. From a low-yield place into a higher-yield place — while paying yourself back at a rate that beats the bank.</p>
@@ -422,38 +420,46 @@
         <p class="path-section__number">Section 4</p>
         <h2>Your 3-Month Payback Schedule</h2>
         <div class="path-text">
-          <p>See exactly what your payback looks like. Enter your loan amount and Monthly Commitment — the calculator shows your 3-month amortization schedule at 9% annual interest.</p>
+          <p>See exactly how this works. Enter the Monthly Commitment you can sustain — the calculator shows you how much you can borrow, your 3-month payback schedule, and how many cycles to reach $2,500.</p>
         </div>
 
         <div class="calc">
           <p class="calc__title">Payback Calculator</p>
-          <div class="calc__inputs">
-            <div class="calc__field">
-              <label for="calc-loan">Loan Amount ($)</label>
-              <input type="number" id="calc-loan" placeholder="2500" min="500" step="100" value="2500">
-            </div>
-            <div class="calc__field">
-              <label for="calc-mc">Monthly Commitment ($)</label>
-              <input type="number" id="calc-mc" placeholder="500" min="50" step="50">
-            </div>
+          <div class="calc__field" style="max-width: 300px;">
+            <label for="calc-mc">Monthly Commitment ($)</label>
+            <input type="number" id="calc-mc" placeholder="200" min="50" oninput="debounceCalc()">
+            <p style="font-size: 0.75rem; color: var(--edu-gray); margin-top: 0.375rem; margin-bottom: 0;">How much you can consistently put toward this every month.</p>
           </div>
-          <p class="calc__fixed"><strong>Interest Rate:</strong> 9% annual &nbsp;|&nbsp; <strong>Term:</strong> 3 months</p>
+          <p class="calc__fixed" style="margin-top: 1rem;"><strong>Interest Rate:</strong> 9% annual &nbsp;|&nbsp; <strong>Term:</strong> 3 months per cycle</p>
           <button class="calc__btn" onclick="calculatePayback()">Calculate Schedule</button>
+          <div id="calc-error" style="display: none; color: #c0392b; font-size: 0.875rem; margin-bottom: 1rem;"></div>
 
-          <div id="calc-output">
-            <table class="amort-table">
+          <div id="calc-output" style="display: none;">
+            <!-- Block 1: Loan Amount -->
+            <div style="background: var(--edu-inkwell); padding: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
+              <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #677F71; margin-bottom: 0.5rem;">Your First Loan Amount</p>
+              <p id="calc-loan-display" style="font-size: 2.5rem; font-weight: 700; color: #fff; margin: 0; font-family: 'Roboto', sans-serif;"></p>
+              <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; margin-bottom: 0;">This is the most you can borrow on Cycle 1 with your Monthly Commitment.</p>
+            </div>
+
+            <!-- Block 2: Payment Schedule -->
+            <table class="amort-table" style="margin-bottom: 0.75rem;">
               <thead>
                 <tr>
-                  <th>Month</th>
                   <th>Payment</th>
-                  <th>Interest</th>
-                  <th>Principal</th>
-                  <th>Remaining</th>
+                  <th>Month</th>
+                  <th>Amount</th>
                 </tr>
               </thead>
               <tbody id="amort-body"></tbody>
             </table>
-            <p id="calc-summary" style="margin-top: 1rem; font-size: 0.875rem; color: var(--edu-gray);"></p>
+            <p id="calc-interest-note" style="font-size: 0.8125rem; color: var(--edu-gray); margin-bottom: 1.5rem;"></p>
+
+            <!-- Block 3: Path to $2,500 -->
+            <div style="border-left: 4px solid #677F71; padding: 1rem 1.5rem; background: rgba(103,127,113,0.08);">
+              <p id="calc-cycles-msg" style="font-size: 0.9375rem; color: var(--edu-inkwell); line-height: 1.6; margin: 0 0 0.5rem;"></p>
+              <p id="calc-cycles-sub" style="font-size: 0.8125rem; color: var(--edu-gray); margin: 0;"></p>
+            </div>
           </div>
         </div>
 
@@ -528,59 +534,66 @@
 
   <script src="/js/auth.js"></script>
   <script>
+    var calcDebounceTimer = null;
+    function debounceCalc() {
+      clearTimeout(calcDebounceTimer);
+      calcDebounceTimer = setTimeout(calculatePayback, 300);
+    }
+
     function calculatePayback() {
-      var loan = parseFloat(document.getElementById('calc-loan').value);
-      var mc = parseFloat(document.getElementById('calc-mc').value);
-      if (!loan || !mc || loan <= 0 || mc <= 0) return;
+      var mcInput = document.getElementById('calc-mc');
+      var mc = parseFloat(mcInput.value);
+      var errorEl = document.getElementById('calc-error');
+      var outputEl = document.getElementById('calc-output');
 
-      var annualRate = 0.09;
-      var monthlyRate = annualRate / 12;
-      var term = 3;
-      var balance = loan;
-      var totalInterest = 0;
-      var totalPaid = 0;
+      if (!mc || isNaN(mc) || mc < 50) {
+        errorEl.textContent = 'Minimum Monthly Commitment is $50.';
+        errorEl.style.display = 'block';
+        outputEl.style.display = 'none';
+        return;
+      }
+      errorEl.style.display = 'none';
+
+      // Max loan amount: (MC × 3) / 1.0225, floored to nearest $50
+      var interestFactor = 0.09 * (3 / 12); // 0.0225
+      var maxPrincipal = (mc * 3) / (1 + interestFactor);
+      var loanAmount = Math.floor(maxPrincipal / 50) * 50;
+      if (loanAmount < 50) loanAmount = 50;
+
+      // Payment schedule
+      var totalRepay = loanAmount * (1 + interestFactor);
+      var totalInterest = loanAmount * interestFactor;
+      var monthlyPayment = Math.round(totalRepay / 3);
+      var month3Payment = Math.round(totalRepay - (monthlyPayment * 2));
+
+      // Populate loan display
+      document.getElementById('calc-loan-display').textContent = '$' + loanAmount.toLocaleString();
+
+      // Populate payment rows
       var tbody = document.getElementById('amort-body');
-      tbody.innerHTML = '';
+      tbody.innerHTML =
+        '<tr><td>Payment 1</td><td>Month 1</td><td class="amt">$' + monthlyPayment.toLocaleString() + '</td></tr>' +
+        '<tr><td>Payment 2</td><td>Month 2</td><td class="amt">$' + monthlyPayment.toLocaleString() + '</td></tr>' +
+        '<tr><td>Payment 3 (final)</td><td>Month 3</td><td class="amt">$' + month3Payment.toLocaleString() + '</td></tr>';
 
-      for (var m = 1; m <= term; m++) {
-        var interest = balance * monthlyRate;
-        var payment = (m < term) ? mc : balance + interest;
-        var principal = payment - interest;
+      document.getElementById('calc-interest-note').textContent =
+        'All payments come from your Monthly Commitment. Total interest paid: $' + totalInterest.toFixed(2) + '.';
 
-        if (principal > balance) {
-          principal = balance;
-          payment = principal + interest;
-        }
+      // Cycles to $2,500
+      var cyclesNeeded = Math.ceil(2500 / loanAmount);
+      var totalMonths = cyclesNeeded * 3;
+      var cyclesMsgEl = document.getElementById('calc-cycles-msg');
+      var cyclesSubEl = document.getElementById('calc-cycles-sub');
 
-        balance = balance - principal;
-        if (balance < 0.01) balance = 0;
-        totalInterest += interest;
-        totalPaid += payment;
-
-        var row = '<tr>'
-          + '<td>Month ' + m + '</td>'
-          + '<td class="amt">$' + payment.toFixed(2) + '</td>'
-          + '<td class="amt">$' + interest.toFixed(2) + '</td>'
-          + '<td class="amt">$' + principal.toFixed(2) + '</td>'
-          + '<td class="amt">$' + balance.toFixed(2) + '</td>'
-          + '</tr>';
-        tbody.innerHTML += row;
-      }
-
-      // If balance remaining after 3 months
-      if (balance > 0) {
-        var extra = Math.ceil(balance / mc);
-        document.getElementById('calc-summary').innerHTML =
-          '<strong>Note:</strong> $' + balance.toFixed(2) + ' remaining after 3 months at $' + mc.toFixed(0)
-          + '/month. You may need ' + (term + extra) + ' months total, or increase your Monthly Commitment. '
-          + 'Total interest paid: <strong>$' + totalInterest.toFixed(2) + '</strong>';
+      if (loanAmount >= 2500) {
+        cyclesMsgEl.textContent = 'Your Monthly Commitment supports a single $2,500 cycle. You can fund your full Quick Start in one round.';
+        cyclesSubEl.textContent = '';
       } else {
-        document.getElementById('calc-summary').innerHTML =
-          'Loan paid in full in 3 months. Total interest: <strong>$' + totalInterest.toFixed(2)
-          + '</strong>. Total paid: <strong>$' + totalPaid.toFixed(2) + '</strong>';
+        cyclesMsgEl.textContent = 'It will take you ' + cyclesNeeded + ' cycle' + (cyclesNeeded === 1 ? '' : 's') + ' \u2014 about ' + totalMonths + ' months \u2014 to reach $2,500 in deployed capital.';
+        cyclesSubEl.textContent = 'Once you\u2019ve reached $2,500, you graduate to the full Quick Start path.';
       }
 
-      document.getElementById('calc-output').style.display = 'block';
+      outputEl.style.display = 'block';
     }
 
     // Sticky nav
