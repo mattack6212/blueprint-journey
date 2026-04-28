@@ -63,7 +63,7 @@
     /* Option cards */
     .path-options {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin: 2rem 0;
     }
@@ -237,6 +237,9 @@
       margin: 0 auto;
     }
 
+    @media (max-width: 1024px) {
+      .path-options { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       .path-options { grid-template-columns: 1fr; }
       .calc__inputs { grid-template-columns: 1fr; }
@@ -351,18 +354,40 @@
           <div class="path-option">
             <p class="path-option__tag">Option A</p>
             <h3>Borrow from a Loved One</h3>
-            <p>Same terms as Option B: 3-month payback at 9% annual interest. We provide a promissory note to protect the relationship.</p>
+            <p>Same terms as Option C: 3-month payback at 9% annual interest. We provide a promissory note to protect the relationship.</p>
             <p><strong>You're not asking for a gift.</strong> You're asking for a short-term loan that pays itself back in 90 days. The promissory note makes it professional. The 9% interest means they earn more than any savings account would pay them.</p>
-            <p style="font-size: 0.8125rem; color: var(--edu-evergreen);">Promissory note template available upon request.</p>
+            <div style="display: flex; flex-direction: column; gap: 0.625rem; margin-top: 1.25rem;">
+              <a href="/getting-to-2500/how-to-fill-out-promissory-note/" style="display: block; padding: 0.625rem 1rem; background-color: #D85D23; color: #fff; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">Read the How-To Guide</a>
+              <a href="/getting-to-2500/promissory-note-ga.docx" download style="display: block; padding: 0.625rem 1rem; background-color: #fff; color: #1A1718; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; border: 2px solid #1A1718;">Download Georgia Version</a>
+              <a href="/getting-to-2500/promissory-note-tn.docx" download style="display: block; padding: 0.625rem 1rem; background-color: #fff; color: #1A1718; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; border: 2px solid #1A1718;">Download Tennessee Version</a>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--edu-gray); margin-top: 0.75rem;">Live in another state? Email <a href="mailto:matt@foundationfinancial.community" style="color: var(--edu-copper);">matt@foundationfinancial.community</a> for a version for your state.</p>
           </div>
 
           <!-- Option B -->
           <div class="path-option">
             <p class="path-option__tag">Option B</p>
+            <h3>Borrow From Yourself</h3>
+            <p>If you have money sitting in a savings account, you already have access to capital. You don't need to borrow from anyone — you just need to think about your own money differently.</p>
+            <div class="qs-video" style="margin: 1.25rem 0;">
+              <div style="position: relative; padding-bottom: 56.25%; background: #e8e4de; display: flex; align-items: center; justify-content: center;">
+                <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8125rem; color: var(--edu-gray); margin: 0; text-align: center;">Video coming soon</p>
+              </div>
+            </div>
+            <p>Here's the idea: take what you need from your savings account to fund your Blueprint. Then pay your savings account back over three months — same way you'd pay back a loan from family. Same 9% interest rate. Same promissory note structure.</p>
+            <p>You're not losing your savings. You're moving it. From a low-yield place into a higher-yield place — while paying yourself back at a rate that beats the bank.</p>
+            <p>When the three months are up, your savings account is whole again. With interest. And your Blueprint is up and running.</p>
+            <p>This works because the dividend income from your deployed capital starts within the first 30 days, which covers most of what you owe yourself. The rest comes from your Monthly Commitment.</p>
+            <p style="font-size: 0.8125rem; font-style: italic; color: var(--edu-gray); margin-top: 1rem;">This option requires no application and no conversation with anyone. You already have what you need.</p>
+          </div>
+
+          <!-- Option C -->
+          <div class="path-option">
+            <p class="path-option__tag">Option C</p>
             <h3>Request a Loan from Foundation Financial</h3>
             <p>Same terms: $2,500 at 9% annual interest, 3-month payback. Your Monthly Commitment plus portfolio cashflow covers the payments.</p>
 
-            <form class="loan-form" action="https://formsubmit.co/mattmcfarlane@gmail.com" method="POST">
+            <form class="loan-form" action="https://formsubmit.co/df0881179770acd1eb8d487d58d402da" method="POST">
               <input type="hidden" name="_subject" value="Loan Request - Getting to $2,500">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_next" value="https://mellow-sfogliatella-a18174.netlify.app/getting-to-2500/#funding">
@@ -376,7 +401,7 @@
               </div>
               <div class="calc__field">
                 <label for="loan-mc">Monthly Commitment ($)</label>
-                <input type="number" id="loan-mc" name="monthly_commitment" required placeholder="e.g. 500" min="100">
+                <input type="number" id="loan-mc" name="monthly_commitment" required placeholder="e.g. 500" min="50">
               </div>
               <div class="calc__field">
                 <label for="loan-msg">Brief Message (optional)</label>
