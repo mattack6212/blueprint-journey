@@ -63,9 +63,10 @@
     /* Option cards */
     .path-options {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       margin: 2rem 0;
+      align-items: stretch;
     }
     .path-option {
       border: 2px solid var(--edu-border);
@@ -237,9 +238,6 @@
       margin: 0 auto;
     }
 
-    @media (max-width: 1024px) {
-      .path-options { grid-template-columns: 1fr; }
-    }
     @media (max-width: 768px) {
       .path-options { grid-template-columns: 1fr; }
       .calc__inputs { grid-template-columns: 1fr; }
@@ -349,6 +347,7 @@
           <p>You need $2,500 to deploy the Blueprint. You don't have it yet. That's not a problem — it's a logistics question. Here are two structured ways to solve it.</p>
         </div>
 
+        <!-- Options A + B: side-by-side -->
         <div class="path-options">
           <!-- Option A -->
           <div class="path-option">
@@ -378,17 +377,19 @@
             <p>This works because the dividend income from your deployed capital starts within the first 30 days, which covers most of what you owe yourself. The rest comes from your Monthly Commitment.</p>
             <p style="font-size: 0.8125rem; font-style: italic; color: var(--edu-gray); margin-top: 1rem;">This option requires no application and no conversation with anyone. You already have what you need.</p>
           </div>
+        </div>
 
-          <!-- Option C -->
-          <div class="path-option">
-            <p class="path-option__tag">Option C</p>
-            <h3>Request a Loan from Foundation Financial</h3>
-            <p>Same terms: $2,500 at 9% annual interest, 3-month payback. Your Monthly Commitment plus portfolio cashflow covers the payments.</p>
+        <!-- Option C: full-width below A + B -->
+        <div class="path-option" style="margin-top: 0;">
+          <p class="path-option__tag">Option C</p>
+          <h3>Request a Loan from Foundation Financial</h3>
+          <p>Same terms: $2,500 at 9% annual interest, 3-month payback. Your Monthly Commitment plus portfolio cashflow covers the payments.</p>
 
-            <form class="loan-form" action="https://formsubmit.co/df0881179770acd1eb8d487d58d402da" method="POST">
-              <input type="hidden" name="_subject" value="Loan Request - Getting to $2,500">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://mellow-sfogliatella-a18174.netlify.app/getting-to-2500/#funding">
+          <form class="loan-form" action="https://formsubmit.co/df0881179770acd1eb8d487d58d402da" method="POST">
+            <input type="hidden" name="_subject" value="Loan Request - Getting to $2,500">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://mellow-sfogliatella-a18174.netlify.app/getting-to-2500/#funding">
+            <div class="calc__inputs">
               <div class="calc__field">
                 <label for="loan-name">Your Name</label>
                 <input type="text" id="loan-name" name="name" required placeholder="Full name">
@@ -405,9 +406,9 @@
                 <label for="loan-msg">Brief Message (optional)</label>
                 <textarea id="loan-msg" name="message" placeholder="Anything you'd like us to know"></textarea>
               </div>
-              <button type="submit" class="calc__btn">Submit Loan Request</button>
-            </form>
-          </div>
+            </div>
+            <button type="submit" class="calc__btn">Submit Loan Request</button>
+          </form>
         </div>
       </div>
     </section>
@@ -439,16 +440,18 @@
             <div style="background: var(--edu-inkwell); padding: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
               <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #677F71; margin-bottom: 0.5rem;">Your First Loan Amount</p>
               <p id="calc-loan-display" style="font-size: 2.5rem; font-weight: 700; color: #fff; margin: 0; font-family: 'Roboto', sans-serif;"></p>
-              <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; margin-bottom: 0;">This is the most you can borrow on Cycle 1 with your Monthly Commitment.</p>
+              <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; margin-bottom: 0;">Borrow this on Cycle 1. (3&times; your Monthly Commitment.)</p>
             </div>
 
             <!-- Block 2: Payment Schedule -->
             <table class="amort-table" style="margin-bottom: 0.75rem;">
               <thead>
                 <tr>
-                  <th>Payment</th>
                   <th>Month</th>
-                  <th>Amount</th>
+                  <th>Opening Balance</th>
+                  <th>Principal</th>
+                  <th>Interest</th>
+                  <th>Total Payment</th>
                 </tr>
               </thead>
               <tbody id="amort-body"></tbody>
@@ -475,11 +478,45 @@
     </section>
 
     <!-- ==========================================
-         Section 5 — Repeat Until $2,500
+         Section 5 — Deploying Your First Cycle
+         ========================================== -->
+    <section class="path-section" id="deploy">
+      <div class="path-container">
+        <p class="path-section__number">Section 5</p>
+        <h2>Deploying Your First Cycle</h2>
+        <div class="path-text">
+          <p>You got the loan. Now here's exactly what to do with it. The speed at which you deploy this capital is the difference between earning income and watching it sit idle.</p>
+        </div>
+
+        <div class="qs-video" style="margin: 1.5rem 0;">
+          <div style="position: relative; padding-bottom: 56.25%; background: #e8e4de;">
+            <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 0.8125rem; color: var(--edu-gray); margin: 0; text-align: center;">Video coming soon</p>
+          </div>
+        </div>
+
+        <div class="path-text">
+          <p>The moment the money hits your account, move it into your M1 Invest Pie. Same day if you can. This is the most important rule of this entire system.</p>
+          <p>Here's why. Every day that borrowed money sits in your bank account, it's not earning anything for you. The whole point of the loan is to put your money to work — to start the dividends flowing — to start building the base. A loan that sits idle is just debt. A loan that's deployed becomes income.</p>
+        </div>
+
+        <div style="border-left: 4px solid #677F71; padding: 1.5rem 2rem; background: rgba(103,127,113,0.08); margin: 2rem 0;">
+          <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #677F71; margin-bottom: 0.75rem;">What Happens After You Deploy</p>
+          <p style="font-size: 0.9375rem; line-height: 1.75; color: var(--edu-inkwell); margin: 0;">Your portfolio is now larger than it was yesterday. The money you just deposited is invested in dividend-paying ETFs that pay you every single month — small at first, but real. Over the next three months, your Monthly Commitment pays down the loan. The dividends from the new portfolio help. By the end of month three, the loan is paid off — but the assets you bought stay. They keep paying you, forever.</p>
+          <p style="font-size: 0.9375rem; line-height: 1.75; color: var(--edu-inkwell); margin: 0.75rem 0 0;">That's the whole secret. You used borrowed money to build a permanent income stream. Then you do it again. And again. Until you've reached $2,500 in deployed capital.</p>
+        </div>
+
+        <div class="path-text">
+          <p>Every cycle, the same rhythm: borrow, deploy immediately, pay back over three months, start the next cycle. The base grows. The income grows. The next loan you can support grows. You're not in debt — you're building.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         Section 6 — Repeat Until $2,500
          ========================================== -->
     <section class="path-section" id="repeat">
       <div class="path-container">
-        <p class="path-section__number">Section 5</p>
+        <p class="path-section__number">Section 6</p>
         <h2>Repeat Until $2,500</h2>
         <div class="path-text">
           <p>Here's where it gets exciting. Once you pay back the initial loan, you don't stop. You repeat.</p>
@@ -554,30 +591,41 @@
       }
       errorEl.style.display = 'none';
 
-      // Max loan amount: (MC × 3) / 1.0225, floored to nearest $50
-      var interestFactor = 0.09 * (3 / 12); // 0.0225
-      var maxPrincipal = (mc * 3) / (1 + interestFactor);
-      var loanAmount = Math.floor(maxPrincipal / 50) * 50;
-      if (loanAmount < 50) loanAmount = 50;
+      // Loan amount = MC × 3
+      var loanAmount = mc * 3;
+      var monthlyRate = 0.09 / 12; // 0.0075
 
-      // Payment schedule
-      var totalRepay = loanAmount * (1 + interestFactor);
-      var totalInterest = loanAmount * interestFactor;
-      var monthlyPayment = Math.round(totalRepay / 3);
-      var month3Payment = Math.round(totalRepay - (monthlyPayment * 2));
+      // Month 1
+      var bal0 = loanAmount;
+      var int1 = bal0 * monthlyRate;
+      var pmt1 = mc + int1;
+      var bal1 = bal0 - mc;
+
+      // Month 2
+      var int2 = bal1 * monthlyRate;
+      var pmt2 = mc + int2;
+      var bal2 = bal1 - mc;
+
+      // Month 3
+      var int3 = bal2 * monthlyRate;
+      var pmt3 = mc + int3;
+
+      var totalInterest = int1 + int2 + int3;
+      var totalRepay = loanAmount + totalInterest;
 
       // Populate loan display
-      document.getElementById('calc-loan-display').textContent = '$' + loanAmount.toLocaleString();
+      document.getElementById('calc-loan-display').textContent = '$' + loanAmount.toFixed(2);
 
-      // Populate payment rows
+      // Populate payment table (Month | Opening Balance | Principal | Interest | Total Payment)
       var tbody = document.getElementById('amort-body');
+      function fmt(n) { return '$' + n.toFixed(2); }
       tbody.innerHTML =
-        '<tr><td>Payment 1</td><td>Month 1</td><td class="amt">$' + monthlyPayment.toLocaleString() + '</td></tr>' +
-        '<tr><td>Payment 2</td><td>Month 2</td><td class="amt">$' + monthlyPayment.toLocaleString() + '</td></tr>' +
-        '<tr><td>Payment 3 (final)</td><td>Month 3</td><td class="amt">$' + month3Payment.toLocaleString() + '</td></tr>';
+        '<tr><td>Month 1</td><td class="amt">' + fmt(bal0) + '</td><td class="amt">' + fmt(mc) + '</td><td class="amt">' + fmt(int1) + '</td><td class="amt">' + fmt(pmt1) + '</td></tr>' +
+        '<tr><td>Month 2</td><td class="amt">' + fmt(bal1) + '</td><td class="amt">' + fmt(mc) + '</td><td class="amt">' + fmt(int2) + '</td><td class="amt">' + fmt(pmt2) + '</td></tr>' +
+        '<tr><td>Month 3 (final)</td><td class="amt">' + fmt(bal2) + '</td><td class="amt">' + fmt(mc) + '</td><td class="amt">' + fmt(int3) + '</td><td class="amt">' + fmt(pmt3) + '</td></tr>';
 
       document.getElementById('calc-interest-note').textContent =
-        'All payments come from your Monthly Commitment. Total interest paid: $' + totalInterest.toFixed(2) + '.';
+        'Total interest paid: $' + totalInterest.toFixed(2) + '. Total repaid: $' + totalRepay.toFixed(2) + '.';
 
       // Cycles to $2,500
       var cyclesNeeded = Math.ceil(2500 / loanAmount);
@@ -586,7 +634,7 @@
       var cyclesSubEl = document.getElementById('calc-cycles-sub');
 
       if (loanAmount >= 2500) {
-        cyclesMsgEl.textContent = 'Your Monthly Commitment supports a single $2,500 cycle. You can fund your full Quick Start in one round.';
+        cyclesMsgEl.textContent = 'Your Monthly Commitment supports a single $2,500+ cycle. You can fund your full Quick Start in one round.';
         cyclesSubEl.textContent = '';
       } else {
         cyclesMsgEl.textContent = 'It will take you ' + cyclesNeeded + ' cycle' + (cyclesNeeded === 1 ? '' : 's') + ' \u2014 about ' + totalMonths + ' months \u2014 to reach $2,500 in deployed capital.';
