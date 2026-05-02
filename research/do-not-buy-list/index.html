@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What to Avoid — The Do Not Buy List · Reference · Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
+  <link rel="stylesheet" href="/css/quickstart.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    /* Reference section layout */
+    .ref-wrap {
+      display: flex;
+      gap: 3rem;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      align-items: flex-start;
+    }
+    .ref-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .ref-toc {
+      width: 188px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 100px;
+    }
+    .ref-toc__label {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--edu-evergreen);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--edu-evergreen);
+    }
+    .ref-toc a {
+      display: block;
+      font-size: 0.8125rem;
+      color: #6b6566;
+      text-decoration: none;
+      padding: 0.3rem 0;
+      border-left: 2px solid transparent;
+      padding-left: 0.75rem;
+      line-height: 1.4;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .ref-toc a:hover {
+      color: var(--edu-inkwell);
+      border-left-color: var(--edu-copper);
+    }
+    .ref-section {
+      margin-bottom: 3rem;
+    }
+    .ref-section + .ref-section {
+      border-top: 1px solid var(--edu-ivory);
+      padding-top: 2.5rem;
+    }
+    .ref-target {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.35rem;
+    }
+    .ref-target--green {
+      background: #e8f1ec;
+      color: var(--edu-evergreen);
+    }
+    .ref-target--copper {
+      background: #fbeee7;
+      color: var(--edu-copper);
+    }
+    .ref-callout {
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--edu-evergreen);
+      background: #f2f6f3;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .ref-callout--copper {
+      border-left-color: var(--edu-copper);
+      background: #fdf4ef;
+    }
+    .ref-callout--decision {
+      border-left-color: var(--edu-inkwell);
+      background: #f7f5f3;
+    }
+    .ref-callout p {
+      margin: 0.25rem 0;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+    .ref-callout p:first-child {
+      margin-top: 0;
+    }
+    .ref-callout p:last-child {
+      margin-bottom: 0;
+    }
+    .ref-notes {
+      background: var(--edu-inkwell);
+      color: var(--edu-ivory-light);
+      padding: 2rem 2rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .ref-notes h4 {
+      color: #fff;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 1rem;
+    }
+    .ref-notes p, .ref-notes li {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: rgba(240,234,220,0.85);
+      margin: 0.5rem 0;
+    }
+    .ref-notes ul {
+      padding-left: 1.25rem;
+    }
+    .ref-donot {
+      background: #fdf4ef;
+      border: 1px solid #f3c9b4;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .ref-donot__title {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--edu-copper);
+      margin: 0 0 1rem;
+    }
+    .ref-donot ul {
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+    .ref-donot li {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--edu-inkwell);
+      margin-bottom: 0.65rem;
+    }
+    .ref-prereq {
+      background: #f2f6f3;
+      border: 1px solid #c8dace;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .ref-prereq p {
+      margin: 0.3rem 0;
+      font-size: 0.9375rem;
+      color: var(--edu-inkwell);
+    }
+    .ref-prereq a {
+      color: var(--edu-evergreen);
+      text-decoration: underline;
+    }
+    .ref-scripture {
+      border-top: 1px solid var(--edu-ivory);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+    }
+    .ref-scripture blockquote {
+      font-size: 1.125rem;
+      font-style: italic;
+      color: var(--edu-inkwell);
+      max-width: 560px;
+      margin: 0 auto 0.75rem;
+      line-height: 1.6;
+    }
+    .ref-scripture cite {
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--edu-evergreen);
+    }
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1.25rem 0;
+    }
+    .ref-table th {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--edu-evergreen);
+      border-bottom: 2px solid var(--edu-evergreen);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+    .ref-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--edu-ivory);
+      color: var(--edu-inkwell);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .ref-table tr:last-child td {
+      border-bottom: none;
+    }
+    /* Comparison card */
+    .ref-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .ref-compare__col {
+      padding: 1.5rem;
+      background: var(--edu-ivory-light);
+      border-radius: 4px;
+    }
+    .ref-compare__col--green {
+      border: 2px solid var(--edu-evergreen);
+    }
+    .ref-compare__col--copper {
+      border: 2px solid var(--edu-copper);
+    }
+    .ref-compare__header {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .ref-compare__col--green .ref-compare__header { color: var(--edu-evergreen); }
+    .ref-compare__col--copper .ref-compare__header { color: var(--edu-copper); }
+    .ref-compare__col ul {
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+    .ref-compare__col li {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--edu-inkwell);
+      margin-bottom: 0.5rem;
+    }
+    .ref-compare__col li:last-child {
+      margin-bottom: 0;
+    }
+    .ref-compare__result {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--edu-inkwell);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    /* Quick reference box */
+    .ref-summary-box {
+      background: var(--edu-inkwell);
+      color: #fff;
+      padding: 1.75rem 2rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      line-height: 2;
+      margin: 1.5rem 0;
+    }
+    .ref-summary-box .ref-no { color: #f4856a; }
+    .ref-summary-box .ref-yes { color: #91c49a; }
+    @media (max-width: 767px) {
+      .ref-wrap {
+        flex-direction: column;
+      }
+      .ref-toc {
+        width: 100%;
+        position: static;
+        display: none;
+      }
+      .ref-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div class="edu">
+
+    <!-- Hero -->
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge">Reference &middot; Lesson 3 of 3</p>
+        <h1>What to <span>Avoid</span></h1>
+        <p class="edu-hero__sub">The categories of ETFs that fail every test — and the truth about NAV erosion.</p>
+      </div>
+    </header>
+
+    <!-- Video -->
+    <section style="padding: 2.5rem 2rem; background: var(--edu-inkwell);">
+      <div style="max-width: 720px; margin: 0 auto;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #2a2528; border-radius: 4px;">
+          <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;">
+            <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(224,214,199,0.5); margin: 0;">Video coming soon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main layout -->
+    <section style="background: #fff;">
+      <div class="ref-wrap">
+
+        <!-- Content -->
+        <div class="ref-content">
+
+          <!-- What You'll Learn -->
+          <div class="ref-section" id="what-youll-learn">
+            <p class="edu-block__title">What You'll Learn</p>
+            <p>This is the most important lesson in the Reference section. Not because the workflow doesn't matter — it does. But because the single most expensive mistake a new Blueprint steward can make is buying an ETF that's quietly destroying itself, attracted by a yield number that isn't really a yield at all.</p>
+            <p>This lesson covers:</p>
+            <ul style="padding-left: 1.25rem; line-height: 1.8;">
+              <li>The truth about NAV erosion — not all of it is bad. The difference between acceptable drift and destructive erosion.</li>
+              <li>The 5 categories of ETFs to avoid in The Blueprint.</li>
+              <li>The named tickers that show up repeatedly — with actual NAV decline numbers.</li>
+              <li>The replacement principle that lets you keep the strategy without the destruction.</li>
+            </ul>
+          </div>
+
+          <!-- Building On -->
+          <div class="ref-section" id="building-on">
+            <p class="edu-block__title">Building On What You Already Learned</p>
+            <div class="ref-prereq">
+              <p>This lesson assumes you've completed:</p>
+              <p><a href="/research/where-to-look/">Where to Look — Your Research Stack</a> &mdash; Reference Lesson 1</p>
+              <p><a href="/research/five-minute-check/">What to Look For — The 5-Minute Check</a> &mdash; Reference Lesson 2</p>
+              <p><a href="/education/what-youre-building/#lesson-5">The Four Criteria</a> &mdash; Step 3, Lesson 5</p>
+            </div>
+          </div>
+
+          <!-- NAV Erosion Truth -->
+          <div class="ref-section" id="nav-truth">
+            <p class="edu-block__title">First, the Truth About NAV Erosion</p>
+            <p>Most people are taught one of two things about NAV erosion, and both are wrong.</p>
+            <p><strong>Wrong take #1:</strong> "NAV erosion is always bad — avoid any fund that has any."<br>
+            <strong>Wrong take #2:</strong> "NAV erosion doesn't matter as long as the yield is high enough."</p>
+            <p>The truth is in between. There are two completely different kinds of NAV drift. They look similar on the surface, but they mean very different things. If you don't know the difference, you'll either avoid funds that are fine, or buy funds that are quietly hollowing you out.</p>
+            <p>Let's fix that.</p>
+
+            <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--edu-inkwell); margin: 1.75rem 0 0.5rem;">What Is NAV?</h3>
+            <p><strong>NAV</strong> = Net Asset Value = the price per share of the fund. It's what your shares are actually worth right now.</p>
+            <p><strong>NAV erosion</strong> = when a fund pays out more in distributions than it's actually earning internally, so the share price slowly drops over time. The fund is, in effect, paying you partly with your own money.</p>
+            <p>But that statement alone doesn't tell you whether it's bad. The question is: how does the drift compare to the income you receive?</p>
+
+            <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--edu-inkwell); margin: 1.75rem 0 0.5rem;">Acceptable Drift vs. Destructive Erosion</h3>
+            <p>Imagine $10,000 in two different funds, held for one year.</p>
+
+            <div class="ref-compare">
+              <div class="ref-compare__col ref-compare__col--green">
+                <div class="ref-compare__header">&#x2705; Acceptable Drift — SPYI (or similar index CC ETF)</div>
+                <ul>
+                  <li>Starting investment: <strong>$10,000</strong></li>
+                  <li>Distributions received over the year: <strong>$1,200</strong> (~12% yield)</li>
+                  <li>Share price drifts down 2% — shares now worth <strong>$9,800</strong></li>
+                  <li>Ending position: $9,800 in shares + $1,200 cash = <strong>$11,000</strong></li>
+                </ul>
+                <div class="ref-compare__result">Real $1,000 gain. ~10% return.</div>
+              </div>
+              <div class="ref-compare__col ref-compare__col--copper">
+                <div class="ref-compare__header">&#x274C; Destructive Erosion — TSLY (or similar single-stock CC ETF)</div>
+                <ul>
+                  <li>Starting investment: <strong>$10,000</strong></li>
+                  <li>Distributions received over the year: <strong>$6,000</strong> (~60% yield — exactly what was advertised)</li>
+                  <li>Share price drops 60% — shares now worth <strong>$4,000</strong></li>
+                  <li>Ending position: $4,000 in shares + $6,000 cash = <strong>$10,000</strong></li>
+                </ul>
+                <div class="ref-compare__result">Break-even before taxes. Loss after taxes.</div>
+              </div>
+            </div>
+
+            <p>The drift was real on the left. The distributions were bigger. Net positive — that's the trade you're making on purpose. Give up some price appreciation, get high monthly income.</p>
+            <p>On the right? The headline yield was 60%. The actual return was zero. The fund didn't make you any money — it just returned your own principal in installments and made you pay taxes on it.</p>
+
+            <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--edu-inkwell); margin: 1.75rem 0 0.5rem;">The Simple Test</h3>
+            <p>Whenever you're evaluating a high-yield ETF, ask one question:</p>
+            <div class="ref-callout" style="font-size: 1.0625rem; font-weight: 600; color: var(--edu-inkwell);">
+              Are the distributions bigger than the price drop, or smaller?
+            </div>
+
+            <table class="ref-table">
+              <thead>
+                <tr>
+                  <th>Scenario</th>
+                  <th>Diagnosis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Distributions bigger than the price drop</td>
+                  <td>&#x2705; Acceptable drift — the fund is genuinely making money for you</td>
+                </tr>
+                <tr>
+                  <td>Distributions roughly equal to the price drop</td>
+                  <td>&#x26A0;&#xFE0F; Break-even at best — likely a loss after taxes</td>
+                </tr>
+                <tr>
+                  <td>Distributions smaller than the price drop</td>
+                  <td>&#x274C; Destructive erosion — you're being paid with your own money</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>Mild drift on a diversified, index-based covered call ETF? Normal and expected.</p>
+            <p>Steep decline on a single-stock covered call ETF that wipes out the distributions? Avoid completely.</p>
+            <p>Now you know NAV erosion. Now we can talk about what specifically to avoid.</p>
+          </div>
+
+          <!-- Category 1 -->
+          <div class="ref-section" id="category-1">
+            <span class="ref-target ref-target--copper">Category 1</span>
+            <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--edu-inkwell); margin: 0.5rem 0 0.75rem;">Single-Stock Covered Call ETFs</h2>
+            <p>This is where destructive NAV erosion lives. Named tickers, with actual measured NAV decline:</p>
+
+            <table class="ref-table">
+              <thead>
+                <tr>
+                  <th>Ticker</th>
+                  <th>Underlying</th>
+                  <th>Approx. NAV Decline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>TSLY</strong></td>
+                  <td>Tesla</td>
+                  <td>~79%</td>
+                </tr>
+                <tr>
+                  <td><strong>NVDY</strong></td>
+                  <td>Nvidia</td>
+                  <td>~69%</td>
+                </tr>
+                <tr>
+                  <td><strong>PLTY</strong></td>
+                  <td>Palantir</td>
+                  <td>~87% (worst in category)</td>
+                </tr>
+                <tr>
+                  <td><strong>YBIT</strong></td>
+                  <td>Bitcoin</td>
+                  <td>~63%</td>
+                </tr>
+                <tr>
+                  <td><strong>ULTY</strong></td>
+                  <td>Ultra-yield strategy</td>
+                  <td>Significant erosion</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>Why they all fail: The strategy depends on the underlying staying within a reasonable price range. When you write covered calls on a single highly-volatile stock, big up moves get capped — you don't get the upside. Big down moves still hit you fully. Over time the math is one-directional. The fund cannot recover.</p>
+
+            <div class="ref-callout">
+              <p style="font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--edu-evergreen); margin-bottom: 0.75rem;">The Replacement Principle</p>
+              <p>Multi-stock basket strategies run the same options strategy on a diversified basket of stocks. The internal diversification is what makes the strategy sustainable.</p>
+              <p><strong>Same strategy. Different underlying.</strong></p>
+              <p>Single-stock = destroys NAV &#x274C;<br>Multi-stock = preserves NAV &#x2705;</p>
+              <p style="margin-top: 0.75rem;"><strong>Use these instead:</strong> YMAG, YMAX, QQQI, JEPQ, JEPI, SPYI, FEPI</p>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="ref-section" id="category-2">
+            <span class="ref-target ref-target--copper">Category 2</span>
+            <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--edu-inkwell); margin: 0.5rem 0 0.75rem;">Leveraged or Inverse ETFs</h2>
+            <p>Funds with 2x or 3x leverage, or that move opposite the market.</p>
+            <p><strong>Examples:</strong> TQQQ, SQQQ, SPXL, SPXS, UVXY, SVXY</p>
+            <p>Why they fail:</p>
+            <ul style="padding-left: 1.25rem; line-height: 1.8;">
+              <li>Designed for short-term trading, not for holding</li>
+              <li>Rebalance daily, causing long-term decay regardless of direction</li>
+              <li>Almost always fail the M1 Margin Requirement check (typically 100%)</li>
+            </ul>
+            <p>Double-disqualified. No place in The Blueprint.</p>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="ref-section" id="category-3">
+            <span class="ref-target ref-target--copper">Category 3</span>
+            <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--edu-inkwell); margin: 0.5rem 0 0.75rem;">Quarterly or Annual Payers</h2>
+            <p>The Blueprint runs on a monthly rhythm. Your Money Date, your Sweep account, your margin paydown — all monthly. Anything paying less than monthly leaves gaps in the system.</p>
+            <div class="ref-callout">
+              <p>Some of these are perfectly fine investments in other contexts — they just aren't Blueprint compatible. If you find one you love, own it somewhere else. Not in your Blueprint pies.</p>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="ref-section" id="category-4">
+            <span class="ref-target ref-target--copper">Category 4</span>
+            <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--edu-inkwell); margin: 0.5rem 0 0.75rem;">High-Correlation Equity ETFs Masquerading as Income</h2>
+            <p>Funds with names containing "high yield" or "income" but whose underlying holdings are concentrated in a few high-yielding stocks that move almost exactly with the broader market.</p>
+            <p>The signature: S&amp;P 500 correlation above 0.85.</p>
+            <p>These give you stock market risk with a slightly higher dividend — which is not what <a href="/education/what-youre-building/#lesson-2" style="color: var(--edu-copper);">Foundation</a> needs (correlation too high) and not what <a href="/education/what-youre-building/#lesson-3" style="color: var(--edu-copper);">Accelerator</a> needs (yield not high enough to justify the volatility).</p>
+            <p>The <a href="/education/what-youre-building/#lesson-5" style="color: var(--edu-copper);">Four Criteria</a> check from Step 3 catches these. Correlation matters, and these funds fail it.</p>
+          </div>
+
+          <!-- Category 5 -->
+          <div class="ref-section" id="category-5">
+            <span class="ref-target ref-target--copper">Category 5</span>
+            <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--edu-inkwell); margin: 0.5rem 0 0.75rem;">Funds With Less Than 12 Months of Track Record</h2>
+            <p>The Blueprint isn't anti-new-fund as a rule. But a fund that's existed for less than a year:</p>
+            <ul style="padding-left: 1.25rem; line-height: 1.8;">
+              <li>Hasn't been through enough market conditions to show how it actually behaves</li>
+              <li>Has no real two-year price chart to evaluate</li>
+              <li>Has barely any distribution history</li>
+            </ul>
+            <p>You'd be guessing. Wait. Let it season. If it's still looking good in 12–18 months, evaluate it then with the full workflow.</p>
+          </div>
+
+          <!-- Clarifying Notes -->
+          <div class="ref-section" id="clarifying-notes">
+            <p class="edu-block__title">Three Clarifying Notes</p>
+
+            <div class="ref-notes">
+              <h4>1. The Do Not Buy List Is Not a Moral Judgment on These Funds</h4>
+              <p>Some have legitimate uses. TQQQ is fine for day-traders. TSLY might be a reasonable speculation for someone betting on Tesla's volatility. The Do Not Buy list is specifically about The Blueprint — these funds don't fit the system we're building. Other systems, other strategies, other goals — different conversation. We're not saying these funds shouldn't exist. We're saying they don't go in your pie.</p>
+            </div>
+
+            <div class="ref-notes" style="margin-top: 1rem;">
+              <h4>2. The Named Tickers Will Change. The Principle Is Permanent.</h4>
+              <p>Single-stock covered call ETFs are a hot product category. New ones come out all the time — APLY, MSFY, AMZY, and whatever launches next month. The principle is what's permanent:</p>
+              <div class="ref-callout--copper" style="background: rgba(216,93,35,0.12); border-left: 4px solid var(--edu-copper); padding: 1rem 1.5rem; margin-top: 1rem; border-radius: 0 4px 4px 0; text-align: center;">
+                <p style="font-size: 1.0625rem; font-weight: 700; color: #fff; margin: 0;">Single-stock covered call ETF = destructive NAV erosion = do not buy.</p>
+              </div>
+              <p>Apply the principle to any new ticker you see. They will follow the same pattern.</p>
+            </div>
+
+            <div class="ref-notes" style="margin-top: 1rem;">
+              <h4>3. When a Fund Fails the Workflow, Walk Away.</h4>
+              <p>Don't talk yourself into it because of the yield. Don't make exceptions because of a friend's recommendation. Don't reason your way into "well it's only 79% down, but it's recovering."</p>
+              <p>The workflow is your protection. Trust it.</p>
+            </div>
+          </div>
+
+          <!-- Quick Reference -->
+          <div class="ref-section" id="quick-reference">
+            <p class="edu-block__title">Quick Reference — The Do Not Buy List at a Glance</p>
+            <div class="ref-summary-box">
+              <div><span class="ref-no">&#x274C; Single-Stock CC ETFs</span>       &rarr; TSLY, NVDY, PLTY, YBIT, ULTY (and any new ones)</div>
+              <div><span class="ref-no">&#x274C; Leveraged / Inverse</span>        &rarr; TQQQ, SQQQ, SPXL, SPXS, UVXY, SVXY</div>
+              <div><span class="ref-no">&#x274C; Non-Monthly Payers</span>         &rarr; Quarterly and annual distributions</div>
+              <div><span class="ref-no">&#x274C; High-Correlation "Income"</span>  &rarr; S&amp;P correlation above 0.85</div>
+              <div><span class="ref-no">&#x274C; Under 12 Months Old</span>        &rarr; Not enough track record</div>
+              <div style="margin-top: 0.75rem;"><span class="ref-yes">&#x2705; Multi-Stock Basket CC</span>      &rarr; YMAG, YMAX, QQQI, JEPQ, JEPI, SPYI, FEPI</div>
+            </div>
+          </div>
+
+          <!-- What Does Not Belong -->
+          <div class="ref-section" id="what-not">
+            <div class="ref-donot">
+              <p class="ref-donot__title">What Does NOT Belong in Your Decision-Making</p>
+              <ul>
+                <li><strong>Yield FOMO.</strong> Forty, fifty, eighty percent yields are flashing red, not green. Run the NAV erosion test before anything else.</li>
+                <li><strong>Hot ticker recommendations.</strong> A friend, a YouTuber, or a Reddit thread loving a fund is not a substitute for the workflow.</li>
+                <li><strong>"It'll come back."</strong> A fund that's dropped 79% needs to gain ~376% just to break even. That's not a comeback — that's a miracle.</li>
+                <li><strong>Making exceptions for one fund.</strong> The categories aren't arbitrary. They exist because the math doesn't work, the rhythm doesn't work, or the structure doesn't fit. One exception today becomes three exceptions next year, and your portfolio drifts away from The Blueprint.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- You're Ready -->
+          <div class="ref-section" id="youre-ready">
+            <p class="edu-block__title">You're Ready</p>
+            <p>Three lessons. Three skills.</p>
+            <ul style="padding-left: 1.25rem; line-height: 1.8;">
+              <li><strong>Lesson 1</strong> — Where to look: the seven-tool research stack.</li>
+              <li><strong>Lesson 2</strong> — What to look for: the five-minute workflow.</li>
+              <li><strong>Lesson 3</strong> — What to avoid: the Do Not Buy list and the truth about NAV erosion.</li>
+            </ul>
+            <p>You now have what you need to make your own decisions. Independently. With confidence. Without hype, without guesswork, without trusting somebody else to tell you what to buy.</p>
+            <p>That is the steward's posture. Learn the tools. Use them honestly. Walk away from what fails the test. Build patiently with what passes.</p>
+            <p>The faithful steward doesn't just earn. He protects.</p>
+            <p>Protect what you've been given. Choose carefully what goes in your pie.</p>
+          </div>
+
+          <!-- Scripture -->
+          <div class="ref-scripture">
+            <blockquote>"Above all else, guard your heart, for everything you do flows from it."</blockquote>
+            <cite>Proverbs 4:23 &mdash; The steward who guards what he has is the steward who keeps it.</cite>
+          </div>
+
+          <!-- Footer -->
+          <p style="text-align: center; font-size: 0.75rem; color: #aaa; margin-top: 2.5rem; letter-spacing: 0.05em;">Foundation Financial &middot; Strong Foundations Change Everything</p>
+
+          <!-- Prev / Next -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--edu-ivory); gap: 1rem; flex-wrap: wrap;">
+            <a href="/research/five-minute-check/" class="btn btn-outline" style="border-color: #677F71; color: #677F71;">&larr; What to Look For</a>
+            <a href="/research/" class="btn btn-primary">Back to Reference &rarr;</a>
+          </div>
+
+        </div><!-- /.ref-content -->
+
+        <!-- On This Page sidebar -->
+        <nav class="ref-toc" aria-label="On this page">
+          <p class="ref-toc__label">On This Page</p>
+          <a href="#what-youll-learn">What You'll Learn</a>
+          <a href="#building-on">Building On</a>
+          <a href="#nav-truth">NAV Erosion Truth</a>
+          <a href="#category-1">Category 1 — Single-Stock CC</a>
+          <a href="#category-2">Category 2 — Leveraged / Inverse</a>
+          <a href="#category-3">Category 3 — Non-Monthly Payers</a>
+          <a href="#category-4">Category 4 — High-Correlation</a>
+          <a href="#category-5">Category 5 — Under 12 Months</a>
+          <a href="#clarifying-notes">Clarifying Notes</a>
+          <a href="#quick-reference">Quick Reference</a>
+          <a href="#what-not">What Doesn't Belong</a>
+          <a href="#youre-ready">You're Ready</a>
+        </nav>
+
+      </div><!-- /.ref-wrap -->
+    </section>
+
+  </div><!-- /.edu -->
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
