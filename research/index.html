@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div class="edu">
+
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge">Reference</p>
+        <h1>ETF <span>Research</span></h1>
+        <p class="edu-hero__sub">Learn how to research any ETF yourself using free public tools. Make confident, independent decisions about every holding in your Blueprint portfolio.</p>
+      </div>
+    </header>
+
+    <section style="padding: 4rem 2rem; background-color: var(--edu-ivory-light);">
+      <div style="max-width: 640px; margin: 0 auto;">
+
+        <div style="display: grid; gap: 1rem;">
+
+          <!-- Lesson 1 — Active -->
+          <a href="/research/where-to-look/" style="display: block; padding: 1.5rem 2rem; background: #fff; border: 1px solid #d6cfc5; text-decoration: none; transition: border-color 0.2s ease;">
+            <p style="font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--edu-copper); margin: 0 0 0.5rem;">Lesson 1</p>
+            <p style="font-size: 1.125rem; font-weight: 700; color: var(--edu-inkwell); margin: 0 0 0.5rem;">Where to Look — Your Research Stack</p>
+            <p style="font-size: 0.8125rem; color: #6b6566; margin: 0; line-height: 1.6;">The free sites you'll use to research every holding you ever consider — what each is best for, when to use each.</p>
+          </a>
+
+          <!-- Lesson 2 — Coming Soon -->
+          <div style="display: block; padding: 1.5rem 2rem; background: #faf8f5; border: 1px solid #e8e3db;">
+            <p style="font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #a09898; margin: 0 0 0.5rem;">Lesson 2 &middot; Coming Soon</p>
+            <p style="font-size: 1.125rem; font-weight: 700; color: #a09898; margin: 0 0 0.5rem;">What to Look For — The 5-Minute Check</p>
+            <p style="font-size: 0.8125rem; color: #b0aaaa; margin: 0; line-height: 1.6;">A step-by-step workflow on a real ticker — green lights, red flags, and how to clear any candidate in five minutes.</p>
+          </div>
+
+          <!-- Lesson 3 — Coming Soon -->
+          <div style="display: block; padding: 1.5rem 2rem; background: #faf8f5; border: 1px solid #e8e3db;">
+            <p style="font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #a09898; margin: 0 0 0.5rem;">Lesson 3 &middot; Coming Soon</p>
+            <p style="font-size: 1.125rem; font-weight: 700; color: #a09898; margin: 0 0 0.5rem;">What to Avoid — The Do Not Buy List</p>
+            <p style="font-size: 0.8125rem; color: #b0aaaa; margin: 0; line-height: 1.6;">The categories that fail every test, named tickers to avoid, and how to spot NAV erosion before it hurts you.</p>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="/dashboard.html" style="font-size: 0.8125rem; font-weight: 500; color: #677F71; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;">&larr; Back to Dashboard</a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
