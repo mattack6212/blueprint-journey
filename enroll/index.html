@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enroll — The Blueprint Journey · Foundation Financial</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      color: #1A1718;
+      background: #fff;
+    }
+
+    /* ── Nav ── */
+    .enroll-nav {
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid #e8e3db;
+      display: flex;
+      align-items: center;
+    }
+    .enroll-nav__logo {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1A1718;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .enroll-nav__logo span {
+      color: #D85D23;
+    }
+
+    /* ── Shared section wrapper ── */
+    .enroll-section {
+      padding: 4rem 2rem;
+    }
+    .enroll-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ── Section labels ── */
+    .enroll-eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #677F71;
+      margin: 0 0 0.75rem;
+    }
+
+    /* ── Headings ── */
+    h1, h2, h3 {
+      font-family: Georgia, serif;
+      color: #1A1718;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin: 0 0 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 0 0 1.25rem;
+    }
+
+    /* ── Hero ── */
+    .enroll-hero {
+      background: #1A1718;
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .enroll-hero h1 {
+      color: #fff;
+    }
+    .enroll-hero__sub {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: rgba(224,214,199,0.85);
+      max-width: 560px;
+      margin: 0 auto 1.75rem;
+    }
+    .enroll-hero__price {
+      font-family: Arial, sans-serif;
+      font-size: 0.9375rem;
+      color: rgba(224,214,199,0.65);
+      margin: 0 0 2rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── CTA Button ── */
+    .btn-enroll {
+      display: inline-block;
+      background: #D85D23;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.875rem 2.5rem;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+      transition: background 0.2s ease;
+    }
+    .btn-enroll:hover {
+      background: #c04f1a;
+    }
+
+    /* ── Checklist ── */
+    .enroll-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .enroll-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 0.875rem;
+      color: #1A1718;
+    }
+    .enroll-checklist li:last-child {
+      margin-bottom: 0;
+    }
+    .enroll-check-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 0.2rem;
+    }
+
+    /* ── Section backgrounds ── */
+    .enroll-section--ivory {
+      background: #F5F0E8;
+    }
+    .enroll-section--white {
+      background: #fff;
+    }
+    .enroll-section--dark {
+      background: #1A1718;
+      color: #fff;
+    }
+    .enroll-section--dark h2 {
+      color: #fff;
+    }
+    .enroll-section--dark .enroll-eyebrow {
+      color: rgba(103,127,113,0.85);
+    }
+    .enroll-section--dark .enroll-checklist li {
+      color: rgba(224,214,199,0.9);
+    }
+
+    /* ── Who This Is For — shield layout ── */
+    .enroll-who__header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .enroll-who__shield {
+      flex-shrink: 0;
+      width: 52px;
+      height: 60px;
+    }
+    .enroll-who__header h2 {
+      margin: 0;
+    }
+
+    /* ── What's Included note ── */
+    .enroll-included__note {
+      font-style: italic;
+      font-size: 0.9375rem;
+      color: #6b6566;
+      margin-top: 1.25rem;
+    }
+
+    /* ── FAQ ── */
+    .enroll-faq {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .enroll-faq__item {
+      border-bottom: 1px solid #e0d6c7;
+    }
+    .enroll-faq__item:first-child {
+      border-top: 1px solid #e0d6c7;
+    }
+    .enroll-faq__btn {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      text-align: left;
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1A1718;
+      line-height: 1.4;
+    }
+    .enroll-faq__btn:hover {
+      color: #D85D23;
+    }
+    .enroll-faq__arrow {
+      flex-shrink: 0;
+      font-size: 0.875rem;
+      color: #D85D23;
+      transition: transform 0.2s ease;
+    }
+    .enroll-faq__item--open .enroll-faq__arrow {
+      transform: rotate(180deg);
+    }
+    .enroll-faq__body {
+      display: none;
+      padding: 0 0 1.25rem;
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: #3a3638;
+    }
+    .enroll-faq__item--open .enroll-faq__body {
+      display: block;
+    }
+
+    /* ── Final CTA ── */
+    .enroll-final {
+      background: #1A1718;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .enroll-final__tagline {
+      font-family: Georgia, serif;
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 0 0 2rem;
+      line-height: 1.4;
+    }
+    .enroll-final__footer {
+      margin-top: 2rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(224,214,199,0.4);
+    }
+
+    /* ── Footer ── */
+    .enroll-footer {
+      padding: 2rem;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #aaa;
+      border-top: 1px solid #e8e3db;
+    }
+
+    /* ── Mid-page CTA row ── */
+    .enroll-cta-row {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .enroll-hero {
+        padding: 3.5rem 1.5rem;
+      }
+      .enroll-section {
+        padding: 3rem 1.5rem;
+      }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="enroll-nav">
+    <a href="/" class="enroll-nav__logo">Foundation <span>Financial</span></a>
+  </nav>
+
+  <!-- ── SECTION 1: HERO ── -->
+  <section class="enroll-hero">
+    <div class="enroll-inner">
+      <p class="enroll-eyebrow">Foundation Financial</p>
+      <h1>The Blueprint Journey</h1>
+      <p class="enroll-hero__sub">A step-by-step system to build real wealth rooted in biblical stewardship and designed for families who are ready to stop surviving and start building.</p>
+      <p class="enroll-hero__price">One-time enrollment: $49.99</p>
+      <a href="https://buy.stripe.com/aFa28t3zE9mH5vZ3Sy1oI02" class="btn-enroll">Sign Up</a>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: WHAT YOU'LL LEARN ── -->
+  <section class="enroll-section enroll-section--white">
+    <div class="enroll-inner">
+      <h2>What You'll Learn</h2>
+      <ul class="enroll-checklist">
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          How debt, inflation, and the financial system work against you.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          How to build an income machine using strategic, low-risk investments.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          How to manage your money monthly with confidence.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          How to steward your wealth with purpose and generosity.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: WHO THIS IS FOR ── -->
+  <section class="enroll-section enroll-section--ivory">
+    <div class="enroll-inner">
+      <div class="enroll-who__header">
+        <!-- FF Shield — inline SVG (no asset in repo) -->
+        <svg class="enroll-who__shield" viewBox="0 0 52 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Foundation Financial shield">
+          <path d="M26 2L4 11V30C4 43.255 13.6 55.21 26 58C38.4 55.21 48 43.255 48 30V11L26 2Z" fill="#1A1718"/>
+          <path d="M26 2L4 11V30C4 43.255 13.6 55.21 26 58C38.4 55.21 48 43.255 48 30V11L26 2Z" fill="url(#shield-grad)" opacity="0.15"/>
+          <path d="M26 6L7 14V30C7 41.8 15.7 52.6 26 55.1C36.3 52.6 45 41.8 45 30V14L26 6Z" fill="#D85D23" opacity="0.12"/>
+          <!-- FF lettermark -->
+          <text x="26" y="36" text-anchor="middle" font-family="Arial" font-weight="700" font-size="16" fill="#D85D23" letter-spacing="1">FF</text>
+          <!-- Shield border -->
+          <path d="M26 2L4 11V30C4 43.255 13.6 55.21 26 58C38.4 55.21 48 43.255 48 30V11L26 2Z" stroke="#D85D23" stroke-width="1.5" fill="none"/>
+          <defs>
+            <linearGradient id="shield-grad" x1="26" y1="2" x2="26" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#D85D23"/>
+              <stop offset="100%" stop-color="#1A1718"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <h2>Who This Is For</h2>
+      </div>
+      <ul class="enroll-checklist">
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Families tired of living paycheck to paycheck.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          People who want a real plan, not get-rich-quick promises.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Anyone ready to be a faithful steward of what God has given them.
+        </li>
+      </ul>
+      <div class="enroll-cta-row">
+        <a href="https://buy.stripe.com/aFa28t3zE9mH5vZ3Sy1oI02" class="btn-enroll">Sign Up</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: WHAT'S INCLUDED ── -->
+  <section class="enroll-section enroll-section--white">
+    <div class="enroll-inner">
+      <h2>What's Included</h2>
+      <ul class="enroll-checklist">
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          31 Lessons across 5 steps.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Infographics, videos, and actionable tools.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Access to Coach Matt for guidance.
+        </li>
+        <li>
+          <svg class="enroll-check-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#677F71"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          A community of builders on the same journey.
+        </li>
+      </ul>
+      <p class="enroll-included__note">Full education site works on any device — no app needed.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: FAQ ── -->
+  <section class="enroll-section enroll-section--ivory">
+    <div class="enroll-inner">
+      <h2>Frequently Asked Questions</h2>
+      <ul class="enroll-faq" id="enroll-faq">
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            Who is The Blueprint for?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            The Blueprint is for people who are ready to take responsibility for their financial future and follow a clear, step-by-step system to build it. It's built for working families who feel the weight of financial stress and want a better way forward. You don't need a finance degree or a high income. You need a willingness to learn, stay consistent, and steward what you've been given.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            Who is this not for?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            The Blueprint isn't your first step if you're currently buried in high-interest consumer debt. That needs to be addressed before building wealth. It's also not for those looking for someone to manage their money or make decisions for them. We're coaches, not financial advisors — we teach you how to build. And if you're searching for a get-rich-quick shortcut, this won't be the right fit. This system rewards consistency, discipline, and time.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            What does it cost?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            One-time enrollment of $49.99. That's it — no monthly subscription, no hidden fees. You get full access to The Blueprint Journey education site and all current lessons.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            What's the minimum I need to invest monthly to get started?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            You can start with as little as $50 per month. Many people begin there and build momentum. We generally recommend aiming for at least $150 per month, but the better way to think about it is by percentage — not just dollars. A strong starting point is 7% of your income, working toward 10–20% over time. Start where you are, stay consistent, and increase as you grow.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            Why should I trust you with my money?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            You shouldn't — because we never touch it. Foundation Financial is an education and coaching program. We do not manage money, take custody of funds, or provide individualized investment advice. Your accounts remain in your name and under your control at all times. We teach principles and decision-making frameworks so you can build confidently yourself.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            How does The Blueprint actually work?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            You begin by choosing a monthly contribution that's sustainable for your current season. From there, we guide you through a structured education system that teaches you how to deploy that capital using proven financial principles and modern tools. The system operates in 36-month "Stages," where your investments are designed to compound and build momentum over time. Each Stage builds on the last. Along the way, you'll receive coaching, monthly check-ins, and a clear plan at every step. No guesswork — just a disciplined process you follow and grow into.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            Can I go faster?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            Maybe — but speed isn't the goal. Progress in this system is driven more by consistency and decision-making than by rushing ahead. The education is structured in phases so you advance as you demonstrate understanding and discipline. Increasing your contributions can accelerate results. But we prioritize building something durable over moving quickly.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            If this works, why doesn't everyone do it?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            Because most people were never taught how. The core principles behind The Blueprint aren't new. Versions of them have been used by institutions and disciplined investors for decades. What's different today is access and the ability to apply them individually. The real gap isn't information — it's clarity and structure. We exist to make these principles understandable and actionable for working families.
+          </div>
+        </li>
+
+        <li class="enroll-faq__item">
+          <button class="enroll-faq__btn" aria-expanded="false">
+            Is this based on biblical principles?
+            <span class="enroll-faq__arrow">&#9662;</span>
+          </button>
+          <div class="enroll-faq__body">
+            Yes. Foundation Financial is rooted in a biblical view of stewardship — the belief that managing resources wisely is a responsibility, not a pursuit of greed. The Parable of the Talents in Matthew 25 deeply informs our philosophy. The servants who were commended were the ones who stewarded and multiplied what they were given. While the program is practical and applicable to anyone, our foundation is shaped by the conviction that faithful stewardship honors God and strengthens families.
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: FINAL CTA ── -->
+  <section class="enroll-final">
+    <p class="enroll-final__tagline">Strong Foundations Change Everything</p>
+    <a href="https://buy.stripe.com/aFa28t3zE9mH5vZ3Sy1oI02" class="btn-enroll">Sign Up</a>
+    <p class="enroll-final__footer">Foundation Financial &mdash; Strong Foundations Change Everything</p>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="enroll-footer">
+    Foundation Financial &middot; Strong Foundations Change Everything
+  </footer>
+
+  <script>
+    // FAQ accordion
+    (function () {
+      var items = document.querySelectorAll('.enroll-faq__item');
+      items.forEach(function (item) {
+        var btn = item.querySelector('.enroll-faq__btn');
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('enroll-faq__item--open');
+          // Close all
+          items.forEach(function (i) {
+            i.classList.remove('enroll-faq__item--open');
+            i.querySelector('.enroll-faq__btn').setAttribute('aria-expanded', 'false');
+          });
+          // Toggle clicked
+          if (!isOpen) {
+            item.classList.add('enroll-faq__item--open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
