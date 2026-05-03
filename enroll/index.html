@@ -165,10 +165,11 @@
       gap: 1.25rem;
       margin-bottom: 1.25rem;
     }
-    .enroll-who__shield {
+    .shield-logo {
       flex-shrink: 0;
-      width: 52px;
-      height: 60px;
+      width: 80px;
+      height: auto;
+      display: block;
     }
     .enroll-who__header h2 {
       margin: 0;
@@ -345,22 +346,7 @@
   <section class="enroll-section enroll-section--ivory">
     <div class="enroll-inner">
       <div class="enroll-who__header">
-        <!-- FF Shield — inline SVG (no asset in repo) -->
-        <svg class="enroll-who__shield" viewBox="0 0 52 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Foundation Financial shield">
-          <path d="M26 2L4 11V30C4 43.255 13.6 55.21 26 58C38.4 55.21 48 43.255 48 30V11L26 2Z" fill="#1A1718"/>
-          <path d="M26 2L4 11V30C4 43.255 13.6 55.21 26 58C38.4 55.21 48 43.255 48 30V11L26 2Z" fill="url(#shield-grad)" opacity="0.15"/>
-          <path d="M26 6L7 14V30C7 41.8 15.7 52.6 26 55.1C36.3 52.6 45 41.8 45 30V14L26 6Z" fill="#D85D23" opacity="0.12"/>
-          <!-- FF lettermark -->
-          <text x="26" y="36" text-anchor="middle" font-family="Arial" font-weight="700" font-size="16" fill="#D85D23" letter-spacing="1">FF</text>
-          <!-- Shield border -->
-          <path d="M26 2L4 11V30C4 43.255 13.6 55.21 26 58C38.4 55.21 48 43.255 48 30V11L26 2Z" stroke="#D85D23" stroke-width="1.5" fill="none"/>
-          <defs>
-            <linearGradient id="shield-grad" x1="26" y1="2" x2="26" y2="58" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#D85D23"/>
-              <stop offset="100%" stop-color="#1A1718"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <img src="/images/ff-shield-fullcolor.png" alt="Foundation Financial Shield" class="shield-logo">
         <h2>Who This Is For</h2>
       </div>
       <ul class="enroll-checklist">
