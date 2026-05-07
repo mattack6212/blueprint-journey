@@ -187,15 +187,7 @@
         });
       });
 
-      // Show user name on dashboard
-      var nameEl = document.getElementById('dash-user-name');
-      var testData = localStorage.getItem('blueprint_member_access');
-      if (nameEl && testData) {
-        try {
-          var name = JSON.parse(testData).name;
-          if (name) nameEl.textContent = ', ' + name;
-        } catch (e) {}
-      }
+      // User name is now rendered by auth.js via renderUserInfo()
     })();
   </script>
 </body>

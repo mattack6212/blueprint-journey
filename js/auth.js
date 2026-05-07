@@ -1,31 +1,34 @@
 /* ============================================
-   AUTH.JS — Netlify Identity + Test Access
+   AUTH.JS — Netlify Identity
    ============================================ */
 
 (function () {
   'use strict';
 
-  var TEST_AUTH_KEY = 'blueprint_member_access';
+  // Pages that do NOT require authentication
+  var PUBLIC_PATHS = ['/', '/index.html', '/login.html', '/enroll/', '/enroll/index.html', '/welcome/', '/welcome/index.html'];
 
-  // Check if user is authenticated via either method
-  function isAuthenticated() {
-    // Check test/member access
-    if (localStorage.getItem(TEST_AUTH_KEY)) {
-      return true;
+  function isPublicPath(pathname) {
+    // Exact match against allowlist
+    for (var i = 0; i < PUBLIC_PATHS.length; i++) {
+      if (pathname === PUBLIC_PATHS[i]) return true;
     }
-    // Check Netlify Identity
+    // Prefix match for /enroll/ and /welcome/ subdirectories
+    if (pathname.indexOf('/enroll/') === 0) return true;
+    if (pathname.indexOf('/welcome/') === 0) return true;
+    return false;
+  }
+
+  // Check if user is authenticated via Netlify Identity
+  function isAuthenticated() {
     if (typeof netlifyIdentity !== 'undefined') {
       return !!netlifyIdentity.currentUser();
     }
     return false;
   }
 
-  // Get display name
+  // Get display name from Netlify Identity user
   function getDisplayName() {
-    var testData = localStorage.getItem(TEST_AUTH_KEY);
-    if (testData) {
-      try { return JSON.parse(testData).name || 'Member'; } catch (e) { return 'Member'; }
-    }
     if (typeof netlifyIdentity !== 'undefined') {
       var user = netlifyIdentity.currentUser();
       if (user) {
@@ -35,52 +38,81 @@
     return 'Member';
   }
 
-  // Wait for Netlify Identity to load, then init
+  // Handle invite token in URL (from Netlify Identity email invite links)
+  // Tokens appear as ?invite_token=... or #invite_token=...
+  function getInviteToken() {
+    var search = window.location.search;
+    var hash = window.location.hash;
+
+    var match = search.match(/[?&]invite_token=([^&]+)/);
+    if (match) return match[1];
+
+    match = hash.match(/invite_token=([^&]+)/);
+    if (match) return match[1];
+
+    return null;
+  }
+
+  // Initialize auth — gates protected pages, handles invite tokens
   function initAuth() {
-    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    var protectedPages = ['dashboard.html', 'lesson.html'];
-    var isProtected = protectedPages.some(function (page) {
-      return currentPage.includes(page);
-    });
+    var pathname = window.location.pathname;
+    var inviteToken = getInviteToken();
 
-    // Protected page gate
-    if (isProtected) {
-      if (!isAuthenticated()) {
-        window.location.href = '/login.html';
-        return;
-      }
-      renderUserInfo();
-    }
-
-    // Init Netlify Identity if available
     if (typeof netlifyIdentity !== 'undefined') {
       netlifyIdentity.init();
 
+      // If an invite token is present, open the signup modal immediately
+      if (inviteToken) {
+        netlifyIdentity.on('init', function () {
+          netlifyIdentity.open('signup');
+        });
+      }
+
       netlifyIdentity.on('login', function () {
         netlifyIdentity.close();
-        if (currentPage === 'login.html') {
-          window.location.href = '/dashboard.html';
-        } else {
-          renderUserInfo();
-        }
+        window.location.href = '/dashboard.html';
       });
 
       netlifyIdentity.on('logout', function () {
-        localStorage.removeItem(TEST_AUTH_KEY);
         window.location.href = '/login.html';
       });
     }
+
+    // Gate protected pages — redirect to login if not authenticated
+    if (!isPublicPath(pathname)) {
+      // Use init event so we wait for Netlify Identity to restore session
+      if (typeof netlifyIdentity !== 'undefined') {
+        netlifyIdentity.on('init', function (user) {
+          if (!user) {
+            window.location.href = '/login.html';
+          } else {
+            renderUserInfo();
+          }
+        });
+      } else {
+        // Widget not loaded at all — redirect to be safe
+        window.location.href = '/login.html';
+      }
+    }
   }
 
-  // Render user name in nav
+  // Render user name in nav (dashboard, lesson pages)
   function renderUserInfo() {
     var userEl = document.getElementById('user-display');
     if (userEl) {
       userEl.textContent = getDisplayName();
     }
+    var nameEl = document.getElementById('dash-user-name');
+    if (nameEl) {
+      var name = getDisplayName();
+      // Only show first name if full_name is available, otherwise show nothing extra
+      if (name && name !== 'Member') {
+        nameEl.textContent = ', ' + name.split(' ')[0];
+      }
+    }
   }
 
-  // Login form handler (Netlify Identity)
+  // Login form handler
   function initLoginForm() {
     var form = document.getElementById('login-form');
     if (!form) return;
@@ -120,21 +152,6 @@
     });
   }
 
-  // Member Access bypass (for testing before Stripe is live)
-  function initMemberAccess() {
-    var btn = document.getElementById('member-access-btn');
-    if (!btn) return;
-
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      localStorage.setItem(TEST_AUTH_KEY, JSON.stringify({
-        name: 'Matt',
-        granted: Date.now()
-      }));
-      window.location.href = '/dashboard.html';
-    });
-  }
-
   function showError(el, message) {
     if (el) {
       el.textContent = message;
@@ -142,9 +159,8 @@
     }
   }
 
-  // Logout handler
+  // Logout handler (called from dashboard nav)
   window.handleLogout = function () {
-    localStorage.removeItem(TEST_AUTH_KEY);
     if (typeof netlifyIdentity !== 'undefined' && netlifyIdentity.currentUser()) {
       netlifyIdentity.logout();
     } else {
@@ -156,6 +172,5 @@
   document.addEventListener('DOMContentLoaded', function () {
     initAuth();
     initLoginForm();
-    initMemberAccess();
   });
 })();

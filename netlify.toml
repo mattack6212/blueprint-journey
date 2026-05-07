@@ -1,7 +1,7 @@
 [build]
   publish = "."
 
-# Redirect rules for SPA-style routing (if needed)
+# ── Clean URL rewrites (must come before auth redirects) ──────────────────────
 [[redirects]]
   from = "/dashboard"
   to = "/dashboard.html"
@@ -17,7 +17,75 @@
   to = "/lesson.html"
   status = 200
 
-# Security headers
+# ── Server-side auth gating ───────────────────────────────────────────────────
+# Any authenticated Netlify Identity user satisfies Role = ["*"].
+# Unauthenticated requests to these paths are redirected to /login.html.
+
+[[redirects]]
+  from = "/dashboard.html"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+[[redirects]]
+  from = "/lesson.html"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+[[redirects]]
+  from = "/education/*"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+[[redirects]]
+  from = "/research/*"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+[[redirects]]
+  from = "/quickstart/*"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+[[redirects]]
+  from = "/getting-to-2500/*"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+[[redirects]]
+  from = "/pay-it-forward/*"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+[[redirects]]
+  from = "/start/*"
+  to = "/login.html"
+  status = 302
+  force = false
+  [redirects.conditions]
+    Role = ["*"]
+
+# ── Security headers ──────────────────────────────────────────────────────────
 [[headers]]
   for = "/*"
   [headers.values]
