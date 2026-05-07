@@ -124,10 +124,10 @@
     }
   }
 
-  // Login form handler
+  // Login button handler — opens the Netlify Identity widget modal
   function initLoginForm() {
-    var form = document.getElementById('login-form');
-    if (!form) return;
+    var btn = document.getElementById('open-login-btn');
+    if (!btn) return;
 
     // Already authenticated — go to dashboard
     if (isAuthenticated()) {
@@ -135,40 +135,11 @@
       return;
     }
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = document.getElementById('login-email').value;
-      var password = document.getElementById('login-password').value;
-      var errorEl = document.getElementById('login-error');
-
-      if (!email || !password) {
-        showError(errorEl, 'Please enter your email and password.');
-        return;
-      }
-
+    btn.addEventListener('click', function () {
       if (typeof netlifyIdentity !== 'undefined') {
-        var gotrue = netlifyIdentity.gotrue;
-        if (gotrue) {
-          gotrue
-            .login(email, password, true)
-            .then(function () {
-              // Login event handler will redirect — do not redirect here
-            })
-            .catch(function (err) {
-              showError(errorEl, err.message || 'Invalid email or password.');
-            });
-        } else {
-          netlifyIdentity.open('login');
-        }
+        netlifyIdentity.open('login');
       }
     });
-  }
-
-  function showError(el, message) {
-    if (el) {
-      el.textContent = message;
-      el.style.display = 'block';
-    }
   }
 
   // Logout handler (called from dashboard nav)
