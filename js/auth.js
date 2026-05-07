@@ -56,7 +56,7 @@
   // Initialize auth — handles invite tokens, gates protected pages
   function initAuth() {
     var pathname = window.location.pathname;
-    // Capture token NOW — netlifyIdentity.init() will strip it from the URL hash
+    // Capture token NOW — the widget strips it from the URL hash during auto-init
     var inviteToken = getInviteToken();
 
     if (typeof netlifyIdentity === 'undefined') {
@@ -71,9 +71,9 @@
       console.log('[Auth] Invite token detected on ' + pathname);
     }
 
-    // Register ALL listeners BEFORE calling init().
-    // The widget may fire 'init' synchronously when processing a hash token,
-    // so listeners registered after init() can silently miss the event.
+    // Do NOT call netlifyIdentity.init() — the widget script tag auto-inits when loaded.
+    // Calling init() again injects a second iframe and double-fires all events,
+    // causing the overlay iframe to block the page with display:block !important.
 
     netlifyIdentity.on('init', function (user) {
       if (inviteToken) {
@@ -106,8 +106,15 @@
       window.location.href = '/login.html';
     });
 
-    // Call init() AFTER listeners are registered
-    netlifyIdentity.init();
+    // Fallback: if auto-init already fired before our listeners registered,
+    // handle page gating directly from current session state.
+    if (!inviteToken && !isPublicPath(pathname)) {
+      if (!netlifyIdentity.currentUser()) {
+        window.location.href = '/login.html';
+      } else {
+        renderUserInfo();
+      }
+    }
   }
 
   // Render user name in nav (dashboard, lesson pages)
