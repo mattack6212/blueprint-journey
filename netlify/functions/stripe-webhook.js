@@ -46,14 +46,14 @@ exports.handler = async function (event) {
   // Send Netlify Identity invite
   try {
     const res = await fetch(
-      `https://api.netlify.com/api/v1/sites/${process.env.NETLIFY_SITE_ID}/identity/invite`,
+      `https://api.netlify.com/api/v1/sites/${process.env.NETLIFY_SITE_ID}/identity/users`,
       {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${process.env.NETLIFY_ACCESS_TOKEN}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ invites: [{ email }] }),
+        body: JSON.stringify({ email: email, invite: true }),
       }
     );
 
