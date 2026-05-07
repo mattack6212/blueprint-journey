@@ -1,6 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-exports.handler = async function (event) {
+exports.handler = async function (event, context) {
   console.log('Webhook received:', event.httpMethod, event.headers['stripe-signature'] ? '(signed)' : '(no signature)');
 
   // Only accept POST
@@ -43,19 +43,23 @@ exports.handler = async function (event) {
 
   console.log('Inviting:', email);
 
-  // Send Netlify Identity invite
+  // Get identity context provided by Netlify to serverless functions
+  const { identity } = context.clientContext || {};
+  if (!identity || !identity.url || !identity.token) {
+    console.error('Identity context not available');
+    return { statusCode: 200, body: 'Identity unavailable - skipped' };
+  }
+
+  // Send Netlify Identity invite via GoTrue admin endpoint
   try {
-    const res = await fetch(
-      `https://api.netlify.com/api/v1/sites/${process.env.NETLIFY_SITE_ID}/identity/users`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.NETLIFY_ACCESS_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email, invite: true }),
-      }
-    );
+    const res = await fetch(`${identity.url}/invite`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${identity.token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: email }),
+    });
 
     if (!res.ok) {
       const text = await res.text();
