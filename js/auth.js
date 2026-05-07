@@ -106,15 +106,6 @@
       window.location.href = '/login.html';
     });
 
-    // Fallback: if auto-init already fired before our listeners registered,
-    // handle page gating directly from current session state.
-    if (!inviteToken && !isPublicPath(pathname)) {
-      if (!netlifyIdentity.currentUser()) {
-        window.location.href = '/login.html';
-      } else {
-        renderUserInfo();
-      }
-    }
   }
 
   // Render user name in nav (dashboard, lesson pages)
@@ -161,7 +152,7 @@
           gotrue
             .login(email, password, true)
             .then(function () {
-              window.location.href = '/dashboard.html';
+              // Login event handler will redirect — do not redirect here
             })
             .catch(function (err) {
               showError(errorEl, err.message || 'Invalid email or password.');
