@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Education Disclaimer — The Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Auth check: verify user is authenticated and hasn't already accepted -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof netlifyIdentity !== 'undefined') {
+        netlifyIdentity.on('init', function (user) {
+          if (!user) {
+            window.location.href = '/login.html';
+          } else if (user.user_metadata && user.user_metadata.disclaimer_accepted_at) {
+            // Already accepted — skip past
+            window.location.href = '/dashboard.html';
+          }
+          // Otherwise stay and show the disclaimer
+        });
+      }
+    });
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #1A1718;
+      color: #E0D6C7;
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    .agreement-nav {
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid rgba(224, 214, 199, 0.1);
+    }
+    .agreement-nav__logo {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #E0D6C7;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .agreement-nav__logo span {
+      color: #D85D23;
+    }
+
+    /* ── Main layout ── */
+    .agreement-main {
+      padding: 3rem 1.5rem 5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .agreement-card {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    /* ── Header ── */
+    .agreement-eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #677F71;
+      margin: 0 0 1rem;
+    }
+
+    .agreement-card h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 0.75rem;
+      line-height: 1.2;
+    }
+
+    .agreement-subhead {
+      font-size: 1rem;
+      color: rgba(224, 214, 199, 0.65);
+      margin: 0 0 2rem;
+      line-height: 1.6;
+    }
+
+    /* ── Disclaimer card ── */
+    .agreement-disclaimer {
+      background: rgba(224, 214, 199, 0.05);
+      border: 1px solid rgba(224, 214, 199, 0.1);
+      border-left: 4px solid #D85D23;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .agreement-disclaimer p {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: rgba(224, 214, 199, 0.85);
+      margin: 0 0 1rem;
+    }
+
+    .agreement-disclaimer p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Checkbox row ── */
+    .agreement-check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      cursor: pointer;
+    }
+
+    .agreement-check-row input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 0.2rem;
+      accent-color: #D85D23;
+      cursor: pointer;
+    }
+
+    .agreement-check-row label {
+      font-size: 0.9375rem;
+      color: rgba(224, 214, 199, 0.85);
+      line-height: 1.55;
+      cursor: pointer;
+    }
+
+    /* ── Continue button ── */
+    .btn-agreement {
+      display: block;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: #D85D23;
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn-agreement:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .btn-agreement:not(:disabled):hover {
+      background: #c04f1a;
+    }
+
+    /* ── Sign out link ── */
+    .agreement-signout {
+      display: block;
+      text-align: center;
+      margin-top: 1.25rem;
+      font-size: 0.8125rem;
+      color: rgba(224, 214, 199, 0.35);
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .agreement-signout:hover {
+      color: rgba(224, 214, 199, 0.6);
+      text-decoration: underline;
+    }
+
+    /* ── Error message ── */
+    .agreement-error {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: rgba(216, 93, 35, 0.12);
+      border-left: 3px solid #D85D23;
+      font-size: 0.875rem;
+      color: #E0A070;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      .agreement-disclaimer { padding: 1.25rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="agreement-nav">
+    <a href="/" class="agreement-nav__logo">Foundation <span>Financial</span></a>
+  </nav>
+
+  <main class="agreement-main">
+    <div class="agreement-card">
+
+      <p class="agreement-eyebrow">Required Before Access</p>
+      <h1>Before You Begin</h1>
+      <p class="agreement-subhead">Please read and agree to the following before accessing The Blueprint Journey.</p>
+
+      <div class="agreement-disclaimer">
+        <p>Foundation Financial provides financial education, not financial advice. The content, tools, and resources you'll access are for educational purposes only and do not constitute personalized investment, tax, legal, or financial advice.</p>
+        <p>Matt McFarlane is a coach and educator, not a licensed financial advisor, broker-dealer, or registered investment advisor. Nothing on this platform should be interpreted as a recommendation to buy, sell, or hold any specific security, investment product, or strategy.</p>
+        <p>All financial decisions are yours alone. Past performance does not guarantee future results. Investing involves risk, including the possible loss of principal. You are responsible for evaluating any decisions in light of your own financial situation and, where appropriate, consulting with qualified licensed professionals.</p>
+        <p>By continuing, you acknowledge that you have read and understood this disclaimer.</p>
+      </div>
+
+      <label class="agreement-check-row">
+        <input type="checkbox" id="agreement-checkbox">
+        <span>I have read and understand the above. I agree to continue.</span>
+      </label>
+
+      <button type="button" id="agreement-continue" class="btn-agreement" disabled>
+        Continue to The Blueprint
+      </button>
+
+      <div class="agreement-error" id="agreement-error"></div>
+
+      <button type="button" class="agreement-signout" onclick="window.handleLogout()">
+        Sign out instead
+      </button>
+
+    </div>
+  </main>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    (function () {
+      var checkbox = document.getElementById('agreement-checkbox');
+      var continueBtn = document.getElementById('agreement-continue');
+      var errorEl = document.getElementById('agreement-error');
+
+      // Enable/disable Continue button based on checkbox
+      checkbox.addEventListener('change', function () {
+        continueBtn.disabled = !checkbox.checked;
+      });
+
+      continueBtn.addEventListener('click', function () {
+        if (!checkbox.checked) return;
+
+        continueBtn.disabled = true;
+        continueBtn.textContent = 'Saving\u2026';
+        errorEl.style.display = 'none';
+
+        var user = typeof netlifyIdentity !== 'undefined'
+          ? netlifyIdentity.currentUser()
+          : null;
+
+        if (!user) {
+          window.location.href = '/login.html';
+          return;
+        }
+
+        user.update({ data: { disclaimer_accepted_at: new Date().toISOString() } })
+          .then(function () {
+            window.location.href = '/dashboard.html';
+          })
+          .catch(function (err) {
+            errorEl.textContent = 'Something went wrong saving your agreement. Please try again. (' + (err.message || 'unknown error') + ')';
+            errorEl.style.display = 'block';
+            continueBtn.disabled = false;
+            continueBtn.textContent = 'Continue to The Blueprint';
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>

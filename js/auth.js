@@ -6,7 +6,7 @@
   'use strict';
 
   // Pages that do NOT require authentication
-  var PUBLIC_PATHS = ['/', '/index.html', '/login.html', '/enroll/', '/enroll/index.html', '/welcome/', '/welcome/index.html'];
+  var PUBLIC_PATHS = ['/', '/index.html', '/login.html', '/agreement.html', '/enroll/', '/enroll/index.html', '/welcome/', '/welcome/index.html'];
 
   function isPublicPath(pathname) {
     // Exact match against allowlist
@@ -17,6 +17,14 @@
     if (pathname.indexOf('/enroll/') === 0) return true;
     if (pathname.indexOf('/welcome/') === 0) return true;
     return false;
+  }
+
+  // Check if user has accepted the financial education disclaimer
+  function hasAcceptedDisclaimer() {
+    if (typeof netlifyIdentity === 'undefined') return false;
+    var user = netlifyIdentity.currentUser();
+    if (!user) return false;
+    return !!(user.user_metadata && user.user_metadata.disclaimer_accepted_at);
   }
 
   // Check if user is authenticated via Netlify Identity
@@ -91,6 +99,8 @@
       if (!isPublicPath(pathname)) {
         if (!user) {
           window.location.href = '/login.html';
+        } else if (!hasAcceptedDisclaimer() && pathname !== '/agreement.html') {
+          window.location.href = '/agreement.html';
         } else {
           renderUserInfo();
         }
@@ -99,7 +109,11 @@
 
     netlifyIdentity.on('login', function () {
       netlifyIdentity.close();
-      window.location.href = '/dashboard.html';
+      if (hasAcceptedDisclaimer()) {
+        window.location.href = '/dashboard.html';
+      } else {
+        window.location.href = '/agreement.html';
+      }
     });
 
     netlifyIdentity.on('logout', function () {
