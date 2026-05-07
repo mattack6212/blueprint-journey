@@ -1,7 +1,7 @@
 [build]
   publish = "."
 
-# ── Clean URL rewrites (must come before auth redirects) ──────────────────────
+# ── Clean URL rewrites ────────────────────────────────────────────────────────
 [[redirects]]
   from = "/dashboard"
   to = "/dashboard.html"
@@ -18,72 +18,113 @@
   status = 200
 
 # ── Server-side auth gating ───────────────────────────────────────────────────
-# Any authenticated Netlify Identity user satisfies Role = ["*"].
-# Unauthenticated requests to these paths are redirected to /login.html.
+# Each protected path needs two rules in order:
+#   1. Role-gated pass-through (authenticated users get the real page)
+#   2. Catch-all redirect to /login.html (unauthenticated users — force = true)
+
+# /dashboard.html
+[[redirects]]
+  from = "/dashboard.html"
+  to = "/dashboard.html"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/dashboard.html"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
+
+# /lesson.html
+[[redirects]]
+  from = "/lesson.html"
+  to = "/lesson.html"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/lesson.html"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
+
+# /education/*
+[[redirects]]
+  from = "/education/*"
+  to = "/education/:splat"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/education/*"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
+
+# /research/*
+[[redirects]]
+  from = "/research/*"
+  to = "/research/:splat"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/research/*"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
+
+# /quickstart/*
+[[redirects]]
+  from = "/quickstart/*"
+  to = "/quickstart/:splat"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/quickstart/*"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
+
+# /getting-to-2500/*
+[[redirects]]
+  from = "/getting-to-2500/*"
+  to = "/getting-to-2500/:splat"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/getting-to-2500/*"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
+
+# /pay-it-forward/*
+[[redirects]]
+  from = "/pay-it-forward/*"
+  to = "/pay-it-forward/:splat"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/pay-it-forward/*"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
+
+# /start/*
+[[redirects]]
+  from = "/start/*"
+  to = "/start/:splat"
+  status = 200
+  conditions = {Role = ["*"]}
 
 [[redirects]]
   from = "/start/*"
   to = "/login.html"
   status = 302
-  force = false
-  [redirects.conditions]
-    Role = ["*"]
+  force = true
 
 # ── Security headers ──────────────────────────────────────────────────────────
 [[headers]]
