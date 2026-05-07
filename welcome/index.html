@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome — The Blueprint Journey</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #1A1718;
+      color: #E0D6C7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Nav ── */
+    .welcome-nav {
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid rgba(224, 214, 199, 0.1);
+    }
+    .welcome-nav__logo {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #E0D6C7;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .welcome-nav__logo span {
+      color: #D85D23;
+    }
+
+    /* ── Main ── */
+    .welcome-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .welcome-card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ── Check icon ── */
+    .welcome-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ── Eyebrow ── */
+    .welcome-eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #677F71;
+      margin: 0 0 1rem;
+    }
+
+    /* ── Heading ── */
+    .welcome-card h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      line-height: 1.2;
+      color: #fff;
+      margin: 0 0 1.25rem;
+    }
+
+    /* ── Body copy ── */
+    .welcome-card p {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: rgba(224, 214, 199, 0.8);
+      margin: 0 0 1rem;
+    }
+
+    /* ── Email callout ── */
+    .welcome-callout {
+      background: rgba(224, 214, 199, 0.06);
+      border: 1px solid rgba(224, 214, 199, 0.12);
+      border-left: 3px solid #677F71;
+      border-radius: 3px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    .welcome-callout__label {
+      font-family: Arial, sans-serif;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #677F71;
+      margin: 0 0 0.5rem;
+    }
+    .welcome-callout p {
+      font-size: 0.9375rem;
+      margin: 0;
+      color: rgba(224, 214, 199, 0.85);
+    }
+
+    /* ── Footer note ── */
+    .welcome-footer-note {
+      font-family: Arial, sans-serif;
+      font-size: 0.8125rem;
+      color: rgba(224, 214, 199, 0.35);
+      margin-top: 2.5rem;
+    }
+
+    /* ── Footer ── */
+    .welcome-footer {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(224, 214, 199, 0.25);
+      border-top: 1px solid rgba(224, 214, 199, 0.08);
+    }
+
+    @media (max-width: 600px) {
+      .welcome-main { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="welcome-nav">
+    <a href="/" class="welcome-nav__logo">Foundation <span>Financial</span></a>
+  </nav>
+
+  <main class="welcome-main">
+    <div class="welcome-card">
+
+      <!-- Check icon -->
+      <svg class="welcome-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="32" fill="#677F71" fill-opacity="0.15"/>
+        <circle cx="32" cy="32" r="24" fill="#677F71" fill-opacity="0.2"/>
+        <path d="M20 32.5L28 40.5L44 24.5" stroke="#677F71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <p class="welcome-eyebrow">Payment Confirmed</p>
+      <h1>You're in. Check your email.</h1>
+
+      <p>Your enrollment in The Blueprint Journey is complete. We've sent you an invite link to set up your account.</p>
+
+      <div class="welcome-callout">
+        <p class="welcome-callout__label">Next step</p>
+        <p>Open the email from Foundation Financial and click the invite link. It will take you directly to the account setup page where you'll create your password and access The Blueprint.</p>
+      </div>
+
+      <p>The email typically arrives within a few minutes. Check your spam folder if you don't see it.</p>
+
+      <p class="welcome-footer-note">Already have your invite? <a href="/login.html" style="color: rgba(224,214,199,0.5); text-decoration: underline;">Go to login &rarr;</a></p>
+
+    </div>
+  </main>
+
+  <footer class="welcome-footer">
+    Foundation Financial &middot; Strong Foundations Change Everything
+  </footer>
+
+</body>
+</html>
