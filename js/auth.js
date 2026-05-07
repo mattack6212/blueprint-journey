@@ -53,46 +53,47 @@
     return null;
   }
 
-  // Initialize auth — gates protected pages, handles invite tokens
+  // Initialize auth — handles invite tokens, gates protected pages
   function initAuth() {
     var pathname = window.location.pathname;
     var inviteToken = getInviteToken();
 
-    if (typeof netlifyIdentity !== 'undefined') {
-      netlifyIdentity.init();
-
-      // If an invite token is present, open the signup modal immediately
-      if (inviteToken) {
-        netlifyIdentity.on('init', function () {
-          netlifyIdentity.open('signup');
-        });
-      }
-
-      netlifyIdentity.on('login', function () {
-        netlifyIdentity.close();
-        window.location.href = '/dashboard.html';
-      });
-
-      netlifyIdentity.on('logout', function () {
+    if (typeof netlifyIdentity === 'undefined') {
+      // Widget not loaded — redirect protected pages to be safe
+      if (!isPublicPath(pathname)) {
         window.location.href = '/login.html';
+      }
+      return;
+    }
+
+    netlifyIdentity.init();
+
+    // Invite token handling runs on ANY page, unconditionally.
+    // Must be registered before init fires so it catches the event.
+    if (inviteToken) {
+      netlifyIdentity.on('init', function () {
+        netlifyIdentity.open('signup');
       });
     }
 
-    // Gate protected pages — redirect to login if not authenticated
+    netlifyIdentity.on('login', function () {
+      netlifyIdentity.close();
+      window.location.href = '/dashboard.html';
+    });
+
+    netlifyIdentity.on('logout', function () {
+      window.location.href = '/login.html';
+    });
+
+    // Gate protected pages — wait for init to restore session before deciding
     if (!isPublicPath(pathname)) {
-      // Use init event so we wait for Netlify Identity to restore session
-      if (typeof netlifyIdentity !== 'undefined') {
-        netlifyIdentity.on('init', function (user) {
-          if (!user) {
-            window.location.href = '/login.html';
-          } else {
-            renderUserInfo();
-          }
-        });
-      } else {
-        // Widget not loaded at all — redirect to be safe
-        window.location.href = '/login.html';
-      }
+      netlifyIdentity.on('init', function (user) {
+        if (!user) {
+          window.location.href = '/login.html';
+        } else {
+          renderUserInfo();
+        }
+      });
     }
   }
 
