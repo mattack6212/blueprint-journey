@@ -56,6 +56,7 @@
   // Initialize auth — handles invite tokens, gates protected pages
   function initAuth() {
     var pathname = window.location.pathname;
+    // Capture token NOW — netlifyIdentity.init() will strip it from the URL hash
     var inviteToken = getInviteToken();
 
     if (typeof netlifyIdentity === 'undefined') {
@@ -66,15 +67,35 @@
       return;
     }
 
-    netlifyIdentity.init();
-
-    // Invite token handling runs on ANY page, unconditionally.
-    // Must be registered before init fires so it catches the event.
     if (inviteToken) {
-      netlifyIdentity.on('init', function () {
-        netlifyIdentity.open('signup');
-      });
+      console.log('[Auth] Invite token detected in URL');
     }
+
+    // Register ALL listeners BEFORE calling init().
+    // The widget may fire 'init' synchronously when processing a hash token,
+    // so listeners registered after init() can silently miss the event.
+
+    netlifyIdentity.on('init', function (user) {
+      if (inviteToken) {
+        // Widget has processed and stripped the token from the URL.
+        // Small delay lets the widget iframe finish rendering before open().
+        console.log('[Auth] init fired — invite token present, opening signup modal');
+        setTimeout(function () {
+          console.log('[Auth] netlifyIdentity.open("signup") called');
+          netlifyIdentity.open('signup');
+        }, 150);
+        return;
+      }
+
+      // No invite token — handle page gating
+      if (!isPublicPath(pathname)) {
+        if (!user) {
+          window.location.href = '/login.html';
+        } else {
+          renderUserInfo();
+        }
+      }
+    });
 
     netlifyIdentity.on('login', function () {
       netlifyIdentity.close();
@@ -85,16 +106,8 @@
       window.location.href = '/login.html';
     });
 
-    // Gate protected pages — wait for init to restore session before deciding
-    if (!isPublicPath(pathname)) {
-      netlifyIdentity.on('init', function (user) {
-        if (!user) {
-          window.location.href = '/login.html';
-        } else {
-          renderUserInfo();
-        }
-      });
-    }
+    // Call init() AFTER listeners are registered
+    netlifyIdentity.init();
   }
 
   // Render user name in nav (dashboard, lesson pages)
