@@ -68,7 +68,7 @@
     }
 
     if (inviteToken) {
-      console.log('[Auth] Invite token detected in URL');
+      console.log('[Auth] Invite token detected on ' + pathname);
     }
 
     // Register ALL listeners BEFORE calling init().
@@ -79,7 +79,7 @@
       if (inviteToken) {
         // Widget has processed and stripped the token from the URL.
         // Small delay lets the widget iframe finish rendering before open().
-        console.log('[Auth] init fired — invite token present, opening signup modal');
+        console.log('[Auth] init fired on ' + pathname + ' — invite token present, opening signup modal');
         setTimeout(function () {
           console.log('[Auth] netlifyIdentity.open("signup") called');
           netlifyIdentity.open('signup');
