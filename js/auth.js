@@ -97,13 +97,18 @@
 
       // No invite token — handle page gating
       if (!isPublicPath(pathname)) {
-        if (!user) {
-          window.location.href = '/login.html';
-        } else if (!hasAcceptedDisclaimer() && pathname !== '/agreement.html') {
-          window.location.href = '/agreement.html';
-        } else {
-          renderUserInfo();
-        }
+        // Small delay to allow session to fully restore from localStorage
+        // before making redirect decisions. Prevents race condition loop.
+        setTimeout(function () {
+          var currentUser = netlifyIdentity.currentUser();
+          if (!currentUser) {
+            window.location.href = '/login.html';
+          } else if (!hasAcceptedDisclaimer() && pathname !== '/agreement.html') {
+            window.location.href = '/agreement.html';
+          } else {
+            renderUserInfo();
+          }
+        }, 300);
       }
     });
 
