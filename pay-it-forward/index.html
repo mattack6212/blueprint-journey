@@ -44,7 +44,7 @@
             <h3 style="font-size: 1rem; font-weight: 700; color: #1A1718; margin: 0 0 0.75rem;">Support the Mission</h3>
             <p style="font-size: 0.8125rem; line-height: 1.6; color: #6b6566; margin: 0 0 1.25rem;">Help keep Foundation Financial accessible to every family who needs it. No one is turned away. Freely you have received; freely give. — Matthew 10:8</p>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a href="https://donate.stripe.com/7sY8wR5HMgP9gaD0Gm1oI00" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.625rem 1rem; background-color: #D85D23; color: #fff; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">Give Once</a>
+              <a href="#" onclick="event.preventDefault(); openGiveOnceModal();" style="display: block; padding: 0.625rem 1rem; background-color: #D85D23; color: #fff; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">Give Once</a>
               <a href="#" onclick="event.preventDefault(); openMonthlyModal();" style="display: block; padding: 0.625rem 1rem; background-color: #fff; color: #1A1718; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; border: 2px solid #1A1718;">Give Monthly</a>
             </div>
           </div>
@@ -232,6 +232,40 @@
     </div>
   </div>
 
+  <!-- Give Once modal -->
+  <div id="give-once-modal" style="display:none;" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeGiveOnceModal()" aria-label="Close">&#x2715;</button>
+
+      <h2>Choose Your Gift</h2>
+      <p class="modal-subtitle">A one-time gift that keeps the door open for the next family.</p>
+
+      <div class="modal-tiers">
+
+        <a href="https://buy.stripe.com/fZu9AVfimgP9cYrfBg1oI08" class="tier-btn" target="_blank">
+          <span class="tier-amount">$25</span>
+          <span class="tier-name">Open the door</span>
+          <span class="tier-desc">Covers ~1 family's free access</span>
+        </a>
+
+        <a href="https://buy.stripe.com/eVq00l0nsdCX7E760G1oI09" class="tier-btn tier-featured" target="_blank">
+          <span class="tier-amount">$49</span>
+          <span class="tier-name">Cover an enrollment</span>
+          <span class="tier-desc">Full price equivalent — covers one person's access exactly</span>
+        </a>
+
+        <a href="https://buy.stripe.com/9B6fZjb26dCX2jNexc1oI0a" class="tier-btn" target="_blank">
+          <span class="tier-amount">$100</span>
+          <span class="tier-name">Double down</span>
+          <span class="tier-desc">Go above and beyond</span>
+        </a>
+
+      </div>
+
+      <p class="modal-footer-note">Every gift is a one-time charge. No subscription, no commitment.</p>
+    </div>
+  </div>
+
   <script>
     function openMonthlyModal() {
       document.getElementById('monthly-modal').style.display = 'flex';
@@ -246,6 +280,20 @@
     // Close modal when clicking outside the card
     document.getElementById('monthly-modal').addEventListener('click', function (e) {
       if (e.target === this) closeMonthlyModal();
+    });
+
+    function openGiveOnceModal() {
+      document.getElementById('give-once-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGiveOnceModal() {
+      document.getElementById('give-once-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('give-once-modal').addEventListener('click', function (e) {
+      if (e.target === this) closeGiveOnceModal();
     });
   </script>
 
