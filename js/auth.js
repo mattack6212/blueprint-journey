@@ -148,16 +148,23 @@
     var btn = document.getElementById('open-login-btn');
     if (!btn) return;
 
-    // Already authenticated — go to dashboard
-    if (isAuthenticated()) {
-      window.location.href = '/dashboard.html';
-      return;
-    }
-
     btn.addEventListener('click', function () {
       if (typeof netlifyIdentity !== 'undefined') {
         netlifyIdentity.open('login');
       }
+    });
+
+    if (typeof netlifyIdentity === 'undefined') return;
+
+    netlifyIdentity.on('init', function () {
+      // Delay matches the protected-page gating pattern — gives the widget
+      // time to fully restore session from localStorage before deciding.
+      setTimeout(function () {
+        var currentUser = netlifyIdentity.currentUser();
+        if (currentUser) {
+          window.location.href = '/dashboard.html';
+        }
+      }, 300);
     });
   }
 
