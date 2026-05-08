@@ -49,11 +49,11 @@
             </div>
           </div>
 
-          <!-- Card 2: Buy the Book — LIVE -->
+          <!-- Card 2: Get the Books — LIVE -->
           <div style="padding: 1.5rem; background: #fff; border: 1px solid #d6cfc5; text-align: center;">
-            <h3 style="font-size: 1rem; font-weight: 700; color: #1A1718; margin: 0 0 0.75rem;">Buy the Book for Yourself</h3>
-            <p style="font-size: 0.8125rem; line-height: 1.6; color: #6b6566; margin: 0 0 1.25rem;">Building From Here: How to Create Wealth in a System Designed Against You. Paperback available on Amazon.</p>
-            <a href="https://www.amazon.com/Building-Here-Create-Designed-Against/dp/B0GHPGHK72/" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.625rem 1rem; background-color: #D85D23; color: #fff; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">Buy on Amazon</a>
+            <h3 style="font-size: 1rem; font-weight: 700; color: #1A1718; margin: 0 0 0.75rem;">Get the Books</h3>
+            <p style="font-size: 0.8125rem; line-height: 1.6; color: #6b6566; margin: 0 0 1.25rem;">Two books for two stages — the original framework and the updated system.</p>
+            <a href="#" onclick="event.preventDefault(); openBooksModal();" style="display: block; padding: 0.625rem 1rem; background-color: #D85D23; color: #fff; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">View Books</a>
           </div>
 
           <!-- Card 3: Gift a Book — Coming Soon -->
@@ -190,6 +190,95 @@
       text-align: center;
       margin: 0;
     }
+
+    /* Book cards inside the Books modal */
+    .book-card {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      padding: 16px 20px;
+      border: 2px solid #E8DDD0;
+      border-radius: 4px;
+      background: #fff;
+      text-decoration: none;
+      color: #1A1A1A;
+    }
+
+    .book-card.book-featured {
+      border-color: #D85D23;
+      background: #FDF8F4;
+    }
+
+    .book-card__cover {
+      flex-shrink: 0;
+      width: 120px;
+      align-self: flex-start;
+    }
+
+    .book-card__cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .book-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .book-card__label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #D85D23;
+    }
+
+    .book-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .book-card__desc {
+      font-size: 0.82rem;
+      color: #6B6B6B;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .book-card__btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 0.5rem 1rem;
+      background-color: #D85D23;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
+      align-self: flex-start;
+    }
+
+    .book-card__btn:hover {
+      background-color: #c04f1a;
+    }
+
+    @media (max-width: 480px) {
+      .book-card {
+        flex-direction: column;
+      }
+      .book-card__cover {
+        width: 100%;
+        max-width: 140px;
+      }
+    }
   </style>
 
   <!-- Monthly giving modal -->
@@ -266,6 +355,45 @@
     </div>
   </div>
 
+  <!-- Books modal -->
+  <div id="books-modal" style="display:none;" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeBooksModal()" aria-label="Close">&#x2715;</button>
+
+      <h2>Choose Your Book</h2>
+      <p class="modal-subtitle">Two stages of the same journey. Both available on Amazon.</p>
+
+      <div class="modal-tiers">
+
+        <div class="book-card book-featured">
+          <div class="book-card__cover">
+            <img src="/images/book-cover-updated.png" alt="Building From Here: The System, Updated">
+          </div>
+          <div class="book-card__body">
+            <span class="book-card__label">Recommended — start here</span>
+            <p class="book-card__title">Building From Here: The System, Updated</p>
+            <p class="book-card__desc">The current framework. Earn, Route, Quick Savings, Working Savings — the system as it stands today, with the updated math and the language we use now.</p>
+            <a href="https://www.amazon.com/dp/B0GZZR62JX" class="book-card__btn" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-card__cover">
+            <img src="/images/book-cover-original.png" alt="Building From Here">
+          </div>
+          <div class="book-card__body">
+            <p class="book-card__title">Building From Here</p>
+            <p class="book-card__desc">The original. Where the foundation was laid — the why behind building wealth in a system designed against you.</p>
+            <a href="https://www.amazon.com/Building-Here-Create-Designed-Against/dp/B0GHPGHK72/" class="book-card__btn" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="modal-footer-note">Both paperbacks. Available exclusively on Amazon.</p>
+    </div>
+  </div>
+
   <script>
     function openMonthlyModal() {
       document.getElementById('monthly-modal').style.display = 'flex';
@@ -294,6 +422,20 @@
 
     document.getElementById('give-once-modal').addEventListener('click', function (e) {
       if (e.target === this) closeGiveOnceModal();
+    });
+
+    function openBooksModal() {
+      document.getElementById('books-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBooksModal() {
+      document.getElementById('books-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('books-modal').addEventListener('click', function (e) {
+      if (e.target === this) closeBooksModal();
     });
   </script>
 
