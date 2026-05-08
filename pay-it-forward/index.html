@@ -6,6 +6,7 @@
   <title>Pay It Forward — Blueprint Journey</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -44,7 +45,7 @@
             <p style="font-size: 0.8125rem; line-height: 1.6; color: #6b6566; margin: 0 0 1.25rem;">Help keep Foundation Financial accessible to every family who needs it. No one is turned away. Freely you have received; freely give. — Matthew 10:8</p>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
               <a href="https://donate.stripe.com/7sY8wR5HMgP9gaD0Gm1oI00" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.625rem 1rem; background-color: #D85D23; color: #fff; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">Give Once</a>
-              <a href="https://buy.stripe.com/8x23cx0nsbuPbUn2Ou1oI01" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.625rem 1rem; background-color: #fff; color: #1A1718; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; border: 2px solid #1A1718;">Give Monthly</a>
+              <a href="#" onclick="event.preventDefault(); openMonthlyModal();" style="display: block; padding: 0.625rem 1rem; background-color: #fff; color: #1A1718; font-size: 0.8125rem; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; border: 2px solid #1A1718;">Give Monthly</a>
             </div>
           </div>
 
@@ -81,7 +82,172 @@
         grid-template-columns: 1fr !important;
       }
     }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-card {
+      background: #F5EFE6;
+      border-radius: 4px;
+      padding: 40px 36px;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #6B6B6B;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: #1A1A1A;
+    }
+
+    .modal-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #1A1A1A;
+      margin: 0 0 8px 0;
+    }
+
+    .modal-subtitle {
+      color: #6B6B6B;
+      font-size: 0.95rem;
+      margin: 0 0 28px 0;
+    }
+
+    .modal-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tier-btn {
+      display: flex;
+      flex-direction: column;
+      padding: 16px 20px;
+      border: 2px solid #E8DDD0;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #1A1A1A;
+      background: #fff;
+      transition: border-color 0.15s, background 0.15s;
+      cursor: pointer;
+    }
+
+    .tier-btn:hover {
+      border-color: #D85D23;
+      background: #FDF8F4;
+    }
+
+    .tier-btn.tier-featured {
+      border-color: #D85D23;
+      background: #FDF8F4;
+    }
+
+    .tier-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #D85D23;
+      margin-bottom: 2px;
+    }
+
+    .tier-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1A1A1A;
+      margin-bottom: 2px;
+    }
+
+    .tier-desc {
+      font-size: 0.82rem;
+      color: #6B6B6B;
+    }
+
+    .modal-footer-note {
+      font-size: 0.8rem;
+      color: #6B6B6B;
+      text-align: center;
+      margin: 0;
+    }
   </style>
+
+  <!-- Monthly giving modal -->
+  <div id="monthly-modal" style="display:none;" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeMonthlyModal()" aria-label="Close">&#x2715;</button>
+
+      <h2>Choose Your Monthly Gift</h2>
+      <p class="modal-subtitle">Every month, your gift keeps the door open for the next family.</p>
+
+      <div class="modal-tiers">
+
+        <a href="https://buy.stripe.com/7sY3cx3zE56r7E7bl01oI04" class="tier-btn" target="_blank">
+          <span class="tier-amount">$15 / month</span>
+          <span class="tier-name">Open the door</span>
+          <span class="tier-desc">Covers ~1 family's free access per month</span>
+        </a>
+
+        <a href="https://buy.stripe.com/cNi7sNgmqbuP7E72Ou1oI05" class="tier-btn tier-featured" target="_blank">
+          <span class="tier-amount">$25 / month</span>
+          <span class="tier-name">Steward</span>
+          <span class="tier-desc">Most common giving level — balanced commitment</span>
+        </a>
+
+        <a href="https://buy.stripe.com/eVqdRb7PU42n0bF0Gm1oI06" class="tier-btn" target="_blank">
+          <span class="tier-amount">$50 / month</span>
+          <span class="tier-name">Builder</span>
+          <span class="tier-desc">For those further along who want to invest meaningfully</span>
+        </a>
+
+        <a href="https://buy.stripe.com/14A4gB5HM1Uf3nRgFk1oI07" class="tier-btn" target="_blank">
+          <span class="tier-amount">$100 / month</span>
+          <span class="tier-name">Foundation</span>
+          <span class="tier-desc">High-commitment, founding-supporter level</span>
+        </a>
+
+      </div>
+
+      <p class="modal-footer-note">Subscriptions are billed monthly and can be cancelled anytime.</p>
+    </div>
+  </div>
+
+  <script>
+    function openMonthlyModal() {
+      document.getElementById('monthly-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMonthlyModal() {
+      document.getElementById('monthly-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking outside the card
+    document.getElementById('monthly-modal').addEventListener('click', function (e) {
+      if (e.target === this) closeMonthlyModal();
+    });
+  </script>
 
   <script src="/js/auth.js"></script>
 </body>
