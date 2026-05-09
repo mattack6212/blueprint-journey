@@ -100,19 +100,6 @@
   status = 302
   force = true
 
-# /pay-it-forward/*
-[[redirects]]
-  from = "/pay-it-forward/*"
-  to = "/pay-it-forward/:splat"
-  status = 200
-  conditions = {Role = ["*"]}
-
-[[redirects]]
-  from = "/pay-it-forward/*"
-  to = "/login.html"
-  status = 302
-  force = true
-
 # /start/*
 [[redirects]]
   from = "/start/*"
