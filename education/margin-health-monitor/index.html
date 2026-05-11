@@ -497,5 +497,29 @@
       });
     })();
   </script>
+  <script>
+    // Hash deep-link: #dscr, #max-utilization, #portfolio-value,
+    //                 #yield, #equity-rate, #your-results
+    (function () {
+      var hashMap = {
+        'dscr':            'lesson-1',
+        'max-utilization': 'lesson-2',
+        'portfolio-value': 'lesson-3',
+        'yield':           'lesson-4',
+        'equity-rate':     'lesson-5',
+        'your-results':    'lesson-6'
+      };
+      var hash = window.location.hash.slice(1);
+      if (hash && hashMap[hash]) {
+        var target = document.getElementById(hashMap[hash]);
+        if (target) {
+          // Small delay so the sticky nav is rendered before we offset against it
+          setTimeout(function () {
+            window.scrollTo({ top: target.offsetTop - 120, behavior: 'smooth' });
+          }, 50);
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
