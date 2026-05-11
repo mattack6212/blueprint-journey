@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coaching — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div class="edu">
+
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge" style="border-color: #D85D23; color: #D85D23;">Coaching</p>
+        <h1>Coaching</h1>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section style="padding: 3rem 2rem 0; background-color: var(--color-cream-light);">
+      <div style="max-width: 720px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1rem; line-height: 1.8; color: var(--color-gray); margin-bottom: 0.875rem;">One-on-one and group calls for people building. Bring your numbers, your questions, your roadblocks — leave with clear next steps.</p>
+        <p style="font-size: 0.875rem; line-height: 1.7; color: var(--color-gray); font-style: italic; margin: 0;">Coach, not financial advisor. Educational only.</p>
+      </div>
+    </section>
+
+    <!-- Block 2: 1:1 Coaching -->
+    <section style="padding: 3.5rem 2rem; background-color: var(--color-cream-light);">
+      <div style="max-width: 900px; margin: 0 auto;">
+
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: #1A1718; margin: 0 0 0.5rem;">One-on-One</h2>
+          <p style="font-size: 0.9375rem; color: var(--color-gray); margin: 0;">Three formats. Pick the one that fits where you are.</p>
+        </div>
+
+        <div class="coaching-tiers">
+
+          <!-- Card 1: Quick Call -->
+          <div class="coaching-card">
+            <div class="coaching-card__price">$25</div>
+            <div class="coaching-card__title">Quick Call</div>
+            <div class="coaching-card__duration">15 minutes</div>
+            <p class="coaching-card__desc">A focused conversation. Bring one specific question or situation. You'll leave with a clear next step.</p>
+            <a href="https://calendly.com/matt-foundationfinancial/quick-call" class="coaching-card__btn" target="_blank" rel="noopener noreferrer">Book a Quick Call</a>
+          </div>
+
+          <!-- Card 2: Strategy Call (Featured) -->
+          <div class="coaching-card coaching-card--featured">
+            <div class="coaching-card__label">Most common</div>
+            <div class="coaching-card__price">$50</div>
+            <div class="coaching-card__title">Strategy Call</div>
+            <div class="coaching-card__duration">30 minutes</div>
+            <p class="coaching-card__desc">A working session focused on one specific decision or roadblock. Bring your situation — we'll walk through it together.</p>
+            <a href="https://calendly.com/matt-foundationfinancial/strategy-call" class="coaching-card__btn" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+          </div>
+
+          <!-- Card 3: Deep Dive -->
+          <div class="coaching-card">
+            <div class="coaching-card__price">$99</div>
+            <div class="coaching-card__title">Deep Dive</div>
+            <div class="coaching-card__duration">60 minutes</div>
+            <p class="coaching-card__desc">A full-picture session. Bring your numbers — portfolio, margin health, expenses, goals. We'll build out concrete next steps together.</p>
+            <a href="https://calendly.com/matt-foundationfinancial/deep-dive" class="coaching-card__btn" target="_blank" rel="noopener noreferrer">Book a Deep Dive</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section divider -->
+    <div style="max-width: 860px; margin: 0 auto; padding: 0 2rem; background-color: var(--color-cream-light);">
+      <hr style="border: none; border-top: 1px solid var(--color-border); margin: 0;">
+    </div>
+
+    <!-- Block 3: Group Coaching -->
+    <section style="padding: 3.5rem 2rem 4rem; background-color: var(--color-cream-light);">
+      <div style="max-width: 900px; margin: 0 auto;">
+
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: #1A1718; margin: 0 0 0.5rem;">Group Coaching</h2>
+          <p style="font-size: 0.9375rem; color: var(--color-gray); margin: 0;">Free. Open to anyone. Every Sunday.</p>
+        </div>
+
+        <div class="coaching-group-block">
+          <h3 class="coaching-group-block__title">Sunday Night Group Call</h3>
+          <p class="coaching-group-block__time">Sundays at 8:30 PM ET &mdash; 60 minutes &mdash; Zoom</p>
+          <p class="coaching-group-block__desc">Bring your questions. Hear what others are working through. Learn from the conversation. Members and prospective members both welcome.</p>
+          <a href="https://calendly.com/matt-foundationfinancial/group-coaching" class="coaching-card__btn" style="display: inline-block;" target="_blank" rel="noopener noreferrer">Save Your Seat</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer disclaimer -->
+    <div style="text-align: center; padding: 0 2rem 3.5rem; background-color: var(--color-cream-light);">
+      <p style="font-size: 0.75rem; color: var(--color-gray-light); max-width: 600px; margin: 0 auto; line-height: 1.6;">Foundation Financial provides educational coaching only. Nothing on this page is financial, legal, or tax advice.</p>
+    </div>
+
+  </div>
+
+  <style>
+    .coaching-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .coaching-card {
+      padding: 2rem 1.5rem;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .coaching-card--featured {
+      border: 2px solid #D85D23;
+      background: #FDF8F4;
+    }
+
+    .coaching-card__label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #D85D23;
+      margin-bottom: 0.625rem;
+    }
+
+    .coaching-card__price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #D85D23;
+      margin-bottom: 0.25rem;
+      line-height: 1.1;
+    }
+
+    .coaching-card__title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #1A1718;
+      margin-bottom: 0.25rem;
+    }
+
+    .coaching-card__duration {
+      font-size: 0.8125rem;
+      color: var(--color-gray);
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e8ddd0;
+    }
+
+    .coaching-card__desc {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--color-gray);
+      margin: 0 0 1.5rem;
+      flex-grow: 1;
+    }
+
+    .coaching-card__btn {
+      display: block;
+      padding: 0.625rem 1rem;
+      background-color: #D85D23;
+      color: #fff;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-align: center;
+      transition: background-color 0.15s;
+    }
+
+    .coaching-card__btn:hover {
+      background-color: #c04f1a;
+      color: #fff;
+    }
+
+    .coaching-group-block {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      padding: 2.5rem 3rem;
+    }
+
+    .coaching-group-block__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #1A1718;
+      margin: 0 0 0.5rem;
+    }
+
+    .coaching-group-block__time {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #D85D23;
+      margin: 0 0 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .coaching-group-block__desc {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--color-gray);
+      margin: 0 0 1.75rem;
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      .coaching-tiers {
+        grid-template-columns: 1fr;
+      }
+
+      .coaching-group-block {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
