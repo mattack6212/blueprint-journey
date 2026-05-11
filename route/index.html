@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Route — Blueprint Journey</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
+    <div class="top-nav__menu">
+      <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
+      <a href="/quickstart/" class="top-nav__link">Quick Start</a>
+      <span class="top-nav__user" id="user-display"></span>
+      <button class="top-nav__logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </nav>
+
+  <div class="edu">
+
+    <header class="edu-hero">
+      <div class="edu-hero__inner">
+        <p class="edu-hero__badge">Phase Two</p>
+        <h1>Route</h1>
+        <p class="edu-hero__sub">The second layer of The Blueprint.</p>
+      </div>
+    </header>
+
+    <section style="padding: 4rem 2rem; background-color: var(--edu-ivory-light);">
+      <div class="edu-container" style="padding: 0;">
+
+        <!-- Explanation -->
+        <div class="edu-block">
+          <div class="edu-text">
+            <p>Earn builds your portfolio. Route uses your portfolio to absorb your monthly expenses — routing your real-life cash flow through the system you've built.</p>
+            <p>Route is more powerful than Earn. It's also more demanding. It assumes you've run Earn long enough to understand how your portfolio behaves through normal months and rough months.</p>
+          </div>
+        </div>
+
+        <!-- Readiness -->
+        <div class="edu-block" id="readiness-section">
+          <p class="edu-block__title">You'll know you're ready when</p>
+          <div class="edu-text">
+            <ul>
+              <li>You've completed The Blueprint Journey</li>
+              <li>You've run Earn for at least 3–6 months</li>
+              <li>You're comfortable with your monthly rhythm</li>
+              <li>You're considering how to use your portfolio for more than dividend reinvestment</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <hr id="unlock-divider" style="border: none; border-top: 1px solid var(--edu-border); margin: 0 0 2rem;">
+
+        <!-- Unlock -->
+        <div class="edu-block" id="unlock-section">
+          <p class="edu-block__title">Enter your unlock code</p>
+          <div class="edu-text">
+            <p>If you've been given an unlock code, enter it below to access Route.</p>
+          </div>
+          <div style="margin-top: 1.25rem;">
+            <input
+              type="text"
+              id="unlock-input"
+              autofocus
+              autocomplete="off"
+              placeholder="Unlock code"
+              style="
+                display: block;
+                width: 100%;
+                max-width: 320px;
+                padding: 0.625rem 0.875rem;
+                font-size: 0.9375rem;
+                font-family: inherit;
+                border: 2px solid var(--edu-border);
+                background: #fff;
+                color: var(--edu-inkwell);
+                outline: none;
+                margin-bottom: 0.75rem;
+                box-sizing: border-box;
+              "
+            >
+            <button
+              id="unlock-btn"
+              onclick="attemptUnlock()"
+              style="
+                padding: 0.625rem 1.5rem;
+                background-color: #D85D23;
+                color: #fff;
+                font-size: 0.8125rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                border: none;
+                cursor: pointer;
+                font-family: inherit;
+              "
+            >Unlock</button>
+            <p id="unlock-error" style="display: none; margin-top: 0.75rem; font-size: 0.875rem; color: #c04f1a;">That code isn't right. Try again.</p>
+          </div>
+          <p style="margin-top: 1.5rem; font-size: 0.8125rem; color: var(--edu-gray); line-height: 1.7;">Don't have a code? Route isn't open for self-enrollment yet. When the time comes, the path will be clear.</p>
+        </div>
+
+        <!-- Unlocked state (hidden by default) -->
+        <div id="unlocked-section" style="display: none;">
+          <div class="edu-takeaway">
+            <h4>Route Unlocked</h4>
+            <p>Route content is in development. Launching soon.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    var UNLOCK_CODE = 'BREATHELIFE';
+
+    function showUnlocked() {
+      document.getElementById('readiness-section').style.display = 'none';
+      document.getElementById('unlock-divider').style.display = 'none';
+      document.getElementById('unlock-section').style.display = 'none';
+      document.getElementById('unlocked-section').style.display = 'block';
+    }
+
+    function attemptUnlock() {
+      var input = document.getElementById('unlock-input');
+      var error = document.getElementById('unlock-error');
+      var entered = input.value.trim().toUpperCase();
+
+      if (entered === UNLOCK_CODE) {
+        sessionStorage.setItem('route_unlocked', 'true');
+        showUnlocked();
+      } else {
+        error.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    // Allow Enter key to submit
+    document.getElementById('unlock-input').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') attemptUnlock();
+    });
+
+    // Check sessionStorage on load
+    if (sessionStorage.getItem('route_unlocked') === 'true') {
+      showUnlocked();
+    }
+  </script>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
