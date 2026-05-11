@@ -42,7 +42,7 @@ exports.handler = async function (event, context) {
   }
 
   // Only invite for Blueprint Journey enrollments — skip donations and other products
-  const BLUEPRINT_PRODUCT_ID = 'prod_TT3wcrhsVtl7QH';
+  const BLUEPRINT_PRODUCT_ID = 'prod_URxo1O32yytUAP';
   const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 10 });
   const isBlueprintPurchase = lineItems.data.some(
     (line) => line.price && line.price.product === BLUEPRINT_PRODUCT_ID
