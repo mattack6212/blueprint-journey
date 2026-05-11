@@ -6,7 +6,7 @@
   'use strict';
 
   // Pages that do NOT require authentication
-  var PUBLIC_PATHS = ['/', '/index.html', '/login.html', '/agreement.html', '/enroll/', '/enroll/index.html', '/welcome/', '/welcome/index.html', '/pay-it-forward/', '/pay-it-forward/index.html', '/coaching/', '/coaching/index.html'];
+  var PUBLIC_PATHS = ['/', '/index.html', '/login.html', '/agreement.html', '/enroll/', '/enroll/index.html', '/welcome/', '/welcome/index.html', '/pay-it-forward/', '/pay-it-forward/index.html', '/coaching/', '/coaching/index.html', '/route/', '/route/index.html'];
 
   function isPublicPath(pathname) {
     // Exact match against allowlist
@@ -18,6 +18,7 @@
     if (pathname.indexOf('/welcome/') === 0) return true;
     if (pathname.indexOf('/pay-it-forward/') === 0) return true;
     if (pathname.indexOf('/coaching/') === 0) return true;
+    if (pathname.indexOf('/route/') === 0) return true;
     return false;
   }
 
