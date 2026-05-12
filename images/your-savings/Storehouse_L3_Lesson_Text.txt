@@ -1,11 +1,11 @@
 YOUR STOREHOUSE · LESSON 3
 Building Your Working Savings Pie
-Exactly what to hold, how to set it up in M1 Finance, and how to use it when life hits
+Exactly what to hold, how to set it up in M1 Finance, where the dividends go, and how to use it when life hits
 
 
 **What This Lesson Covers**
 
-This is the build lesson. You now understand what Working Savings is and how much belongs in it. Today we get specific — exactly which ETFs go inside the pie, why we chose them, how much of each, how to set it up inside your M1 Finance account, and how to actually withdraw from it when an emergency happens.
+This is the build lesson. You now understand what Working Savings is and how much belongs in it. Today we get specific — exactly which ETFs go inside the pie, why we chose them, how much of each, how to set it up inside your M1 Finance account, where the dividends flow, and how to actually withdraw from it when an emergency happens.
 
 
 **The Principles Behind the Pie**
@@ -62,22 +62,32 @@ This is what Working Savings is supposed to look like.
 
 **Building It Inside M1 Finance**
 
-**Step 1 — Open a new account**
-From the M1 dashboard, click Invest, then add a new account. Choose Individual Investing. Same kind of account as your main Blueprint portfolio, but completely separate. Critically — do not enable margin on this account. Working Savings is always a no-margin account.
+If you have not already opened the Storehouse account from **Setting Up · Lesson 3**, do that first. The Storehouse is a separate Individual Investing account, completely insulated from margin. Margin OFF. Securities lending OFF.
 
-**Step 2 — Name it clearly**
-Name the account something obvious like "Working Savings" or "Storehouse." You want to see it clearly in your account list. Confusion here is bad.
+**Step 1 — Build the pie**
+Inside the Storehouse account, click Create Pie. Add four slices: SGOV at 40%, TBIL at 20%, ICSH at 25%, NEAR at 15%. Make sure the total adds up to 100%. Save the pie.
 
-**Step 3 — Build the pie**
-Inside the new account, click Create Pie. Add four slices: SGOV at 40%, TBIL at 20%, ICSH at 25%, NEAR at 15%. Make sure the total adds up to 100%. Save the pie.
-
-**Step 4 — Fund the account**
+**Step 2 — Fund the account**
 Transfer in whatever your Working Savings allocation is. Every dollar you deposit will automatically buy the four ETFs in those proportions.
 
-**Step 5 — Turn on automatic dividend reinvestment**
-M1 calls this Auto Invest. You want every dividend that hits this account to immediately buy more of the same pie. That is how Working Savings grows on its own once you stop adding cash to it.
+**Step 3 — Set dividends to flow to Money In (NOT reinvest)**
+This is the part most courses get wrong. You do not turn on Auto Invest for this account. The dividends from your Working Savings pie do not reinvest into more SGOV and TBIL — they flow out.
 
-That is it. The pie is built.
+In your Storehouse account settings, find the dividend handling option. Choose to **transfer dividends out, not reinvest**. Send them to your **Money In** cash account in the Earn tab.
+
+That is it. The pie is built. The dividends are flowing.
+
+
+**How the Dividends Plug Into the System**
+
+Every month, your Storehouse pays dividends from SGOV, TBIL, ICSH, and NEAR. Those dividends land in Money In. From there, the Smart Transfer Rules you set up in **Setting Up · Lesson 4** route them through Transfer and on to pay down margin on your Blueprint Portfolio.
+
+This is the elegance of the system. Your Working Savings is doing two jobs at the same time:
+
+1. The **principal** stays stable and available — ready to be reached in 3–5 days when life surprises you.
+2. The **dividends** feed back into the engine of the system — paying down your margin every single month, automatically.
+
+Your safety money is also working money. Without you lifting a finger.
 
 
 **How to Withdraw When You Actually Need It**
@@ -86,7 +96,7 @@ Most courses skip this. Knowing the withdrawal process in advance is critical �
 
 **The withdrawal process:**
 
-    1. Open M1 Finance, go to your Working Savings account
+    1. Open M1 Finance, go to your Storehouse account
     2. Click Sell. Tell M1 how many dollars you need
     3. M1 sells across the pie proportionally — trade settles next business day
     4. M1 transfers cash to your linked bank account
@@ -108,11 +118,11 @@ When something happens and you need to use your reserves, follow this order:
 This is not panic management. This is stewardship. Calm, planned, sequential. The system was designed for moments like this.
 
 
-**The Quiet Compounding**
+**The Quiet Engine**
 
-As you watch Working Savings over time, you will see something beautiful start to happen. The dividends roll in every month and auto-reinvest. Without you adding a dime, the pie grows. Slowly. Steadily. The way wise stewards have always seen their reserves grow when held with care.
+Every month, the dividends roll out and pay down your margin. Without you doing anything. The pie itself stays stable, the principal preserved. The income it generates makes Earn cheaper to run, every single month.
 
-That is the discipline of doing it right — choosing the right holdings, building it in the right proportions, knowing how to use it when the time comes, letting time and dividends do their work.
+That is the discipline of doing it right — choosing the right holdings, building it in the right proportions, wiring the dividends to feed the system, knowing how to use the principal when the time comes.
 
 That is virtue in action.
 
