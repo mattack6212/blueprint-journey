@@ -1377,7 +1377,7 @@ p {
 .dash-main {
   flex: 1;
   padding: 3rem 3rem 5rem;
-  max-width: 820px;
+  max-width: 960px;
 }
 
 .dash-main .dashboard__welcome h1 {
