@@ -242,6 +242,68 @@
 .edu-infographics img {
   width: 100%;
   border: 1px solid var(--edu-border);
+  cursor: zoom-in;
+}
+
+/* Lightbox */
+.edu-lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.edu-lightbox--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.edu-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+
+.edu-lightbox__image {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  cursor: zoom-out;
+  border: none !important;
+}
+
+.edu-lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background 150ms ease;
+}
+
+.edu-lightbox__close:hover,
+.edu-lightbox__close:focus {
+  background: rgba(255, 255, 255, 0.25);
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
 }
 
 /* Key Takeaway */
