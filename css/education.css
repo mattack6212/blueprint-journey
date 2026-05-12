@@ -19,7 +19,7 @@
 }
 
 .edu-container {
-  max-width: 740px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -32,7 +32,7 @@
 }
 
 .edu-hero__inner {
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .edu-nav__inner {
-  max-width: 740px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   gap: 0.5rem;
