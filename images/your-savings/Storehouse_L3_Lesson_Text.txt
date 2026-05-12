@@ -1,0 +1,128 @@
+YOUR STOREHOUSE · LESSON 3
+Building Your Working Savings Pie
+Exactly what to hold, how to set it up in M1 Finance, and how to use it when life hits
+
+
+**What This Lesson Covers**
+
+This is the build lesson. You now understand what Working Savings is and how much belongs in it. Today we get specific — exactly which ETFs go inside the pie, why we chose them, how much of each, how to set it up inside your M1 Finance account, and how to actually withdraw from it when an emergency happens.
+
+
+**The Principles Behind the Pie**
+
+Working Savings has three jobs at the same time. It must stay stable. It must pay real income every month. And it must be reachable in three to five days when you need it.
+
+Notice what is not on that list — growth, big yields, exciting upside. None of that belongs here. Working Savings is part of your safety net. The pie is built around preservation first, yield second.
+
+We look for ETFs with four traits:
+
+    Ultra short duration       (price barely moves)
+    Monthly dividends          (income hits every month)
+    Investment grade quality   (credit risk is minimal)
+    High liquidity             (sells any business day)
+
+Four ETFs meet all four traits beautifully.
+
+
+**The Four ETFs**
+
+**SGOV — iShares 0-3 Month Treasury Bond ETF**
+The bedrock of the pie. Holds nothing but U.S. Treasury bills under three months. The safest thing in fixed income, period.
+Current yield: ~3.91% · Expense ratio: 0.09%
+
+**TBIL — F/m U.S. Treasury 3 Month Bill Fund**
+Same risk profile as SGOV, different fund family. Included for diversification — if something unusual happens to one fund company, the other holds steady. This is not paranoia. This is wisdom.
+Current yield: ~3.53% · Expense ratio: 0.15%
+
+**ICSH — iShares Ultra Short Duration Bond Active ETF**
+Adds something Treasury funds do not — short, high-quality investment grade corporate bonds. Slightly more yield in exchange for very modest credit exposure.
+Current yield: ~4.12% · Expense ratio: 0.08%
+
+**NEAR — iShares Short Duration Bond Active ETF**
+Extends duration just a bit further. Still ultra short by any normal measure, but slightly more yield. Actively managed by BlackRock — real people making calls about which short-term bonds to hold.
+Current yield: ~4.12% · Expense ratio: 0.25%
+
+*All yields and expense ratios as of May 2026. These will change over time. Always verify current data before buying.*
+
+
+**The Pie**
+
+    SGOV       40%        Treasury bedrock — the anchor
+    TBIL       20%        Treasury diversifier
+    ICSH       25%        Investment-grade yield enhancer
+    NEAR       15%        Short-duration active
+
+    Blended yield:        ~3.9%
+    Blended expense:      ~0.12%
+
+Sixty percent of your Working Savings sits in pure U.S. Treasuries. Forty percent sits in ultra-short investment grade bonds. Every fund pays monthly. Every fund is liquid every business day. Every fund is stable.
+
+This is what Working Savings is supposed to look like.
+
+
+**Building It Inside M1 Finance**
+
+**Step 1 — Open a new account**
+From the M1 dashboard, click Invest, then add a new account. Choose Individual Investing. Same kind of account as your main Blueprint portfolio, but completely separate. Critically — do not enable margin on this account. Working Savings is always a no-margin account.
+
+**Step 2 — Name it clearly**
+Name the account something obvious like "Working Savings" or "Storehouse." You want to see it clearly in your account list. Confusion here is bad.
+
+**Step 3 — Build the pie**
+Inside the new account, click Create Pie. Add four slices: SGOV at 40%, TBIL at 20%, ICSH at 25%, NEAR at 15%. Make sure the total adds up to 100%. Save the pie.
+
+**Step 4 — Fund the account**
+Transfer in whatever your Working Savings allocation is. Every dollar you deposit will automatically buy the four ETFs in those proportions.
+
+**Step 5 — Turn on automatic dividend reinvestment**
+M1 calls this Auto Invest. You want every dividend that hits this account to immediately buy more of the same pie. That is how Working Savings grows on its own once you stop adding cash to it.
+
+That is it. The pie is built.
+
+
+**How to Withdraw When You Actually Need It**
+
+Most courses skip this. Knowing the withdrawal process in advance is critical — because if you do not know how to reach this money, the fear of being locked out will eat at you. And that fear leads to bad decisions.
+
+**The withdrawal process:**
+
+    1. Open M1 Finance, go to your Working Savings account
+    2. Click Sell. Tell M1 how many dollars you need
+    3. M1 sells across the pie proportionally — trade settles next business day
+    4. M1 transfers cash to your linked bank account
+    5. Total time: 3 to 5 business days from order to bank deposit
+
+That is the trade-off. It is not instant. But the money is yours, reachable, and on the way.
+
+
+**The Emergency Order of Operations**
+
+When something happens and you need to use your reserves, follow this order:
+
+**First — Use Quick Savings if it covers it.** That is why Quick Savings exists.
+
+**Second — If Quick Savings is not enough, sell only what you need from Working Savings.** Do not panic. Do not sell the whole pie. Sell what you need to cover the situation, plus a small cushion to replenish Quick Savings for the next surprise.
+
+**Third — After the emergency passes, redirect your next Monthly Commitment back to Working Savings until the pie is whole again.**
+
+This is not panic management. This is stewardship. Calm, planned, sequential. The system was designed for moments like this.
+
+
+**The Quiet Compounding**
+
+As you watch Working Savings over time, you will see something beautiful start to happen. The dividends roll in every month and auto-reinvest. Without you adding a dime, the pie grows. Slowly. Steadily. The way wise stewards have always seen their reserves grow when held with care.
+
+That is the discipline of doing it right — choosing the right holdings, building it in the right proportions, knowing how to use it when the time comes, letting time and dividends do their work.
+
+That is virtue in action.
+
+
+**What's Next**
+
+In the next module we get back to the main Blueprint portfolio and the work of building wealth. But you have done something foundational here. You have built Your Storehouse first. The wise have always done this. Now you have done it too.
+
+You are not behind. You are building from here.
+
+---
+
+This content is for educational purposes only and does not constitute financial advice. Foundation Financial is a financial education and coaching service, not a registered investment advisor. ETF yields and expense ratios listed are as of May 2026 and will change over time. Always verify current data before investing.
