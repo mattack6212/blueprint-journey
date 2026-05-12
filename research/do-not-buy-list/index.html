@@ -640,5 +640,437 @@
   </div><!-- /.edu -->
 
   <script src="/js/auth.js"></script>
+
+<!-- Coach Widget -->
+<!--
+  Coach — Foundation Financial Chat Widget
+  Floating chat bubble for the bottom-right of every page.
+
+  Paste this snippet into your site footer / global include.
+  No dependencies. Vanilla JS. Brand colors built in.
+
+  Calls the Netlify function at /.netlify/functions/coach
+-->
+
+<style>
+  /* Coach widget styles — scoped to .ff-coach-* classes */
+
+  .ff-coach-bubble {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #D85D23; /* Copper Foundry */
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(26, 23, 24, 0.25);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .ff-coach-bubble:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(26, 23, 24, 0.35);
+  }
+
+  .ff-coach-bubble.ff-coach-hidden {
+    display: none;
+  }
+
+  .ff-coach-panel {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 380px;
+    max-width: calc(100vw - 32px);
+    height: 580px;
+    max-height: calc(100vh - 48px);
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(26, 23, 24, 0.25);
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: Georgia, serif;
+  }
+
+  .ff-coach-panel.ff-coach-open {
+    display: flex;
+  }
+
+  .ff-coach-header {
+    background: #1A1718; /* Inkwell */
+    color: #FFFFFF;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ff-coach-header-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ff-coach-header-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .ff-coach-header-subtitle {
+    font-size: 12px;
+    color: #E0D6C7; /* Ivory */
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  .ff-coach-close {
+    background: none;
+    border: none;
+    color: #E0D6C7;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+  }
+
+  .ff-coach-close:hover {
+    color: #FFFFFF;
+  }
+
+  .ff-coach-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 18px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ff-coach-message {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  .ff-coach-message-coach {
+    background: #E0D6C7; /* Ivory */
+    color: #1A1718;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+  }
+
+  .ff-coach-message-user {
+    background: #677F71; /* Evergreen */
+    color: #FFFFFF;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+  }
+
+  .ff-coach-message a {
+    color: #D85D23;
+    font-weight: bold;
+  }
+
+  .ff-coach-message-user a {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+
+  .ff-coach-message strong {
+    font-weight: bold;
+  }
+
+  .ff-coach-message em {
+    font-style: italic;
+  }
+
+  .ff-coach-typing {
+    align-self: flex-start;
+    color: #677F71;
+    font-style: italic;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .ff-coach-input-area {
+    border-top: 1px solid #E0D6C7;
+    padding: 12px 14px;
+    background: #FFFFFF;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .ff-coach-input {
+    flex: 1;
+    border: 1px solid #E0D6C7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: none;
+    min-height: 40px;
+    max-height: 120px;
+    outline: none;
+    color: #1A1718;
+  }
+
+  .ff-coach-input:focus {
+    border-color: #D85D23;
+  }
+
+  .ff-coach-send {
+    background: #D85D23;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+
+  .ff-coach-send:hover:not(:disabled) {
+    background: #c25320;
+  }
+
+  .ff-coach-send:disabled {
+    background: #E0D6C7;
+    color: #677F71;
+    cursor: not-allowed;
+  }
+
+  .ff-coach-disclaimer {
+    font-size: 10px;
+    color: #677F71;
+    text-align: center;
+    padding: 6px 14px 10px;
+    background: #FFFFFF;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 480px) {
+    .ff-coach-panel {
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      bottom: 0;
+      right: 0;
+      border-radius: 0;
+    }
+
+    .ff-coach-bubble {
+      bottom: 16px;
+      right: 16px;
+    }
+  }
+</style>
+
+<button class="ff-coach-bubble" id="ff-coach-bubble" aria-label="Open Coach chat">
+  C
+</button>
+
+<div class="ff-coach-panel" id="ff-coach-panel" role="dialog" aria-label="Coach chat">
+  <div class="ff-coach-header">
+    <div class="ff-coach-header-text">
+      <span class="ff-coach-header-title">Coach</span>
+      <span class="ff-coach-header-subtitle">Your guide to The Blueprint</span>
+    </div>
+    <button class="ff-coach-close" id="ff-coach-close" aria-label="Close chat">&times;</button>
+  </div>
+
+  <div class="ff-coach-messages" id="ff-coach-messages"></div>
+
+  <div class="ff-coach-input-area">
+    <textarea
+      class="ff-coach-input"
+      id="ff-coach-input"
+      placeholder="Ask Coach a question..."
+      rows="1"
+    ></textarea>
+    <button class="ff-coach-send" id="ff-coach-send">SEND</button>
+  </div>
+
+  <div class="ff-coach-disclaimer">
+    Coach is educational, not financial advice. For personalized guidance, schedule a coaching call.
+  </div>
+</div>
+
+<script>
+(function() {
+  // ============================================================
+  // Coach Chat Widget Logic
+  // ============================================================
+
+  const bubble = document.getElementById('ff-coach-bubble');
+  const panel = document.getElementById('ff-coach-panel');
+  const closeBtn = document.getElementById('ff-coach-close');
+  const messagesEl = document.getElementById('ff-coach-messages');
+  const input = document.getElementById('ff-coach-input');
+  const sendBtn = document.getElementById('ff-coach-send');
+
+  // Conversation history sent to the API on each turn.
+  const conversation = [];
+
+  // ----- Open / close -----
+  bubble.addEventListener('click', () => {
+    panel.classList.add('ff-coach-open');
+    bubble.classList.add('ff-coach-hidden');
+    if (conversation.length === 0) {
+      addCoachMessage("Hi, I'm Coach — your guide to The Blueprint and Foundation Financial. I'm here to help you understand the system and answer questions about what we teach. What can I help with today?");
+    }
+    input.focus();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('ff-coach-open');
+    bubble.classList.remove('ff-coach-hidden');
+  });
+
+  // ----- Auto-resize textarea -----
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+  });
+
+  // ----- Submit on Enter (Shift+Enter = newline) -----
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  sendBtn.addEventListener('click', sendMessage);
+
+  // ----- Send a message -----
+  async function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    addUserMessage(text);
+    conversation.push({ role: 'user', content: text });
+    input.value = '';
+    input.style.height = 'auto';
+    setSending(true);
+
+    const typingEl = showTyping();
+
+    try {
+      const response = await fetch('/.netlify/functions/coach', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: conversation })
+      });
+
+      typingEl.remove();
+
+      if (!response.ok) {
+        const errBody = await response.json().catch(() => ({}));
+        addCoachMessage(errBody.error || "Coach is having trouble right now. Please try again in a moment.");
+        // Roll back the user message from history so retry works clean.
+        conversation.pop();
+        return;
+      }
+
+      const data = await response.json();
+      const reply = data.reply || "Coach did not return a response. Please try again.";
+      conversation.push({ role: 'assistant', content: reply });
+      addCoachMessage(reply);
+    } catch (err) {
+      typingEl.remove();
+      addCoachMessage("Coach can't reach the server right now. Please check your connection and try again.");
+      conversation.pop();
+    } finally {
+      setSending(false);
+    }
+  }
+
+  // ----- UI helpers -----
+  function setSending(isSending) {
+    sendBtn.disabled = isSending;
+    sendBtn.textContent = isSending ? '...' : 'SEND';
+    input.disabled = isSending;
+  }
+
+  function addUserMessage(text) {
+    const el = document.createElement('div');
+    el.className = 'ff-coach-message ff-coach-message-user';
+    el.textContent = text;
+    messagesEl.appendChild(el);
+    scrollToBottom();
+  }
+
+  function addCoachMessage(text) {
+    const el = document.createElement('div');
+    el.className = 'ff-coach-message ff-coach-message-coach';
+    el.innerHTML = renderMarkdown(text);
+    messagesEl.appendChild(el);
+    scrollToBottom();
+  }
+
+  function showTyping() {
+    const el = document.createElement('div');
+    el.className = 'ff-coach-typing';
+    el.textContent = 'Coach is thinking...';
+    messagesEl.appendChild(el);
+    scrollToBottom();
+    return el;
+  }
+
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  // ----- Lightweight markdown renderer -----
+  // Handles **bold**, *italic*, [text](url), and line breaks.
+  // Escapes HTML first to prevent injection.
+  function renderMarkdown(text) {
+    const escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+    return escaped
+      // Bold **text**
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      // Italic *text*
+      .replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>')
+      // Links [text](url) — only http/https
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+      // Bare URLs (http/https)
+      .replace(/(?<!["'>=])(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+      // Newlines
+      .replace(/\n/g, '<br>');
+  }
+})();
+</script>
+
 </body>
 </html>
