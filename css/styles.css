@@ -1726,9 +1726,25 @@ p {
     flex-direction: column;
   }
 
-  .lesson-sidebar,
-  .dash-sidebar {
+  .lesson-sidebar {
     display: none;
+  }
+
+  /* Dash sidebar becomes a slide-in drawer on mobile */
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+
+  .dash-sidebar--open {
+    transform: translateX(0);
   }
 
   .lesson-main {
@@ -1761,5 +1777,97 @@ p {
 
   .landing-nav__links {
     display: none;
+  }
+}
+
+/* ============================================
+   MOBILE NAV DRAWER — Hamburger + Overlay
+   Only active inside the 768px breakpoint
+   ============================================ */
+
+/* Hamburger button — hidden on desktop, visible on mobile */
+.nav-hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-black);
+    font-size: 1.375rem;
+    line-height: 1;
+    padding: 0;
+    margin-right: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .nav-hamburger:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Overlay behind the open drawer */
+  .drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 23, 24, 0.55);
+    z-index: 199;
+    cursor: pointer;
+  }
+
+  .drawer-overlay--visible {
+    display: block;
+  }
+
+  /* Lock body scroll while drawer is open */
+  body.drawer-open {
+    overflow: hidden;
+  }
+
+  /* Close button inside the drawer header */
+  .dash-sidebar__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gray);
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 0;
+    margin-left: auto;
+    border-radius: 2px;
+  }
+
+  .dash-sidebar__close:hover {
+    color: var(--color-black);
+  }
+
+  .dash-sidebar__close:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+  }
+}
+
+/* On desktop, always hide the close button inside the drawer */
+@media (min-width: 769px) {
+  .dash-sidebar__close {
+    display: none;
+  }
+
+  .drawer-overlay {
+    display: none !important;
   }
 }

@@ -9,8 +9,12 @@
 </head>
 <body>
 
+  <!-- Overlay — closes drawer when tapped -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
   <!-- Top Navigation -->
   <nav class="top-nav">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="dash-sidebar">&#9776;</button>
     <a href="/dashboard.html" class="top-nav__logo">Foundation <span>Financial</span></a>
     <div class="top-nav__menu">
       <a href="/dashboard.html" class="top-nav__link">Dashboard</a>
@@ -23,9 +27,10 @@
   <div class="dash-layout">
 
     <!-- Sidebar -->
-    <aside class="dash-sidebar">
-      <div class="dash-sidebar__header">
-        <p class="dash-sidebar__title">The Blueprint Journey</p>
+    <aside class="dash-sidebar" id="dash-sidebar" aria-label="Course navigation">
+      <div class="dash-sidebar__header" style="display:flex;align-items:center;">
+        <p class="dash-sidebar__title" style="margin:0;">The Blueprint Journey</p>
+        <button class="dash-sidebar__close" id="drawer-close" aria-label="Close navigation menu">&times;</button>
       </div>
 
       <p class="sidebar-phase-label">Phase One &middot; Earn</p>
@@ -219,7 +224,7 @@
 
   <script src="/js/auth.js"></script>
   <script>
-    // Sidebar toggle logic
+    // Sidebar collapsible group toggle
     (function () {
       var groups = document.querySelectorAll('.sidebar-group__toggle');
       groups.forEach(function (btn) {
@@ -244,6 +249,57 @@
       });
 
       // User name is now rendered by auth.js via renderUserInfo()
+    })();
+
+    // Mobile hamburger drawer
+    (function () {
+      var hamburger = document.getElementById('nav-hamburger');
+      var sidebar   = document.getElementById('dash-sidebar');
+      var overlay   = document.getElementById('drawer-overlay');
+      var closeBtn  = document.getElementById('drawer-close');
+
+      if (!hamburger || !sidebar) return;
+
+      function openDrawer() {
+        sidebar.classList.add('dash-sidebar--open');
+        overlay.classList.add('drawer-overlay--visible');
+        document.body.classList.add('drawer-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        overlay.removeAttribute('aria-hidden');
+        // Move focus into the drawer
+        var firstFocusable = sidebar.querySelector('button, a, [tabindex]');
+        if (firstFocusable) firstFocusable.focus();
+      }
+
+      function closeDrawer() {
+        sidebar.classList.remove('dash-sidebar--open');
+        overlay.classList.remove('drawer-overlay--visible');
+        document.body.classList.remove('drawer-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        overlay.setAttribute('aria-hidden', 'true');
+        hamburger.focus();
+      }
+
+      hamburger.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+
+      // Close on Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('dash-sidebar--open')) {
+          closeDrawer();
+        }
+      });
+
+      // Close drawer when a nav link is tapped (navigates away)
+      sidebar.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          // Only close on mobile (drawer is active)
+          if (window.innerWidth <= 768) {
+            closeDrawer();
+          }
+        });
+      });
     })();
   </script>
 
