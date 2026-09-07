@@ -44,19 +44,10 @@
 
         <div style="text-align: center; margin-bottom: 2.5rem;">
           <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: #1A1718; margin: 0 0 0.5rem;">One-on-One</h2>
-          <p style="font-size: 0.9375rem; color: var(--color-gray); margin: 0;">Three formats. Pick the one that fits where you are.</p>
+          <p style="font-size: 0.9375rem; color: var(--color-gray); margin: 0;">Two formats. Pick the one that fits where you are.</p>
         </div>
 
         <div class="coaching-tiers">
-
-          <!-- Card 1: Quick Call -->
-          <div class="coaching-card">
-            <div class="coaching-card__price">$25</div>
-            <div class="coaching-card__title">Quick Call</div>
-            <div class="coaching-card__duration">15 minutes</div>
-            <p class="coaching-card__desc">A focused conversation. Bring one specific question or situation. You'll leave with a clear next step.</p>
-            <a href="https://calendly.com/matt-foundationfinancial/quick-call" class="coaching-card__btn" target="_blank" rel="noopener noreferrer">Book a Quick Call</a>
-          </div>
 
           <!-- Card 2: Strategy Call (Featured) -->
           <div class="coaching-card coaching-card--featured">
@@ -91,8 +82,10 @@
   <style>
     .coaching-tiers {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
     .coaching-card {
